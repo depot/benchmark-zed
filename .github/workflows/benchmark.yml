@@ -40,6 +40,9 @@ jobs:
     defaults:
       run:
         working-directory: upstream
+    env:
+      RUSTC_WRAPPER: "sccache"
+      SCCACHE_GHA_ENABLED: "true"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -48,6 +51,3 @@ jobs:
         uses: mozilla-actions/sccache-action@v0.0.6
       - run: ./script/linux # Install Dependencies
       - run: cargo build --release
-        env:
-          RUSTC_WRAPPER: "sccache"
-          SCCACHE_GHA_ENABLED: "true"
