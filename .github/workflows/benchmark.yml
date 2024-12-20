@@ -52,11 +52,11 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Check sccache version
-        run: sccache --version
-
       - name: Run sccache-cache
         uses: mozilla-actions/sccache-action@v0.0.6
+
+      - name: Check sccache version
+        run: sccache --version
 
       - name: Show sccache stats before build
         run: sccache --show-stats
