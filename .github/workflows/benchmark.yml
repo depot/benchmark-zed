@@ -37,22 +37,38 @@ jobs:
       - run: cargo build --release
 
   github-local-cache:
-    name: Github with Local Cache
+    name: GitHub with Local Cache
     runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: upstream
     env:
       RUSTC_WRAPPER: "sccache"
+      CARGO_BUILD_RUSTC_WRAPPER: "sccache"
       SCCACHE_GHA_ENABLED: "true"
+      SCCACHE_DIR: "/tmp/sccache"  # Optional: Specify cache directory
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
+
+      - name: Check sccache version
+        run: sccache --version
+
       - name: Run sccache-cache
         uses: mozilla-actions/sccache-action@v0.0.6
-      - run: ./script/linux # Install Dependencies
-      - run: cargo build --release
+
+      - name: Show sccache stats before build
+        run: sccache --show-stats
+
+      - name: Install Dependencies
+        run: ./script/linux
+
+      - name: Build with Cargo
+        run: cargo build --release --verbose
+
+      - name: Show sccache stats after build
+        run: sccache --show-stats
 
   github-cacheless:
     name: Github Cacheless
