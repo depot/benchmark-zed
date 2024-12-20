@@ -17,7 +17,7 @@ jobs:
         with:
           submodules: recursive
       - name: Run sccache-cache
-        uses: mozilla-actions/sccache-action@v0.0.6
+        uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
       - run: cargo build --release
 
@@ -32,7 +32,7 @@ jobs:
         with:
           submodules: recursive
       - name: Run sccache-cache
-        uses: mozilla-actions/sccache-action@v0.0.6
+        uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
       - run: cargo build --release
 
@@ -53,7 +53,7 @@ jobs:
           submodules: recursive
 
       - name: Run sccache-cache
-        uses: mozilla-actions/sccache-action@v0.0.6
+        uses: mozilla-actions/sccache-action@v0.0.7
 
       - name: Check sccache version
         run: sccache --version
@@ -81,6 +81,6 @@ jobs:
         with:
           submodules: recursive
       - name: Run sccache-cache
-        uses: mozilla-actions/sccache-action@v0.0.6
+        uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
       - run: cargo build --release
