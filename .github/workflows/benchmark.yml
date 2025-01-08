@@ -10,14 +10,16 @@ jobs:
     defaults:
       run:
         working-directory: upstream
+    env:
+      RUSTC_WRAPPER: "sccache"
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Run sccache-cache
-        uses: mozilla-actions/sccache-action@v0.0.6
+        uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
-      - run: RUSTC_WRAPPER=sccache cargo build --release
+      - run: cargo build --release
 
   depot-cacheless:
     name: Depot Cacheless
@@ -30,24 +32,47 @@ jobs:
         with:
           submodules: recursive
       - name: Run sccache-cache
-        uses: mozilla-actions/sccache-action@v0.0.6
+        uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
       - run: cargo build --release
 
   github-local-cache:
-    name: Github with Local Cache
+    name: GitHub with Local Cache
     runs-on: ubuntu-24.04
     defaults:
       run:
         working-directory: upstream
     env:
-      RUSTC_WRAPPER: "sccache"
       SCCACHE_GHA_ENABLED: "true"
+      RUSTC_WRAPPER: "sccache"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Run sccache-cache
+        uses: mozilla-actions/sccache-action@v0.0.7
+
+      - name: Check sccache version
+        run: sccache --version
+
+      - name: Install Dependencies
+        run: ./script/linux
+
+      - name: Build with Cargo
+        run: cargo build --release --verbose
+
+  github-cacheless:
+    name: Github Cacheless
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: upstream
     steps:
       - uses: actions/checkout@v4
         with:
           submodules: recursive
       - name: Run sccache-cache
-        uses: mozilla-actions/sccache-action@v0.0.6
+        uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
       - run: cargo build --release
