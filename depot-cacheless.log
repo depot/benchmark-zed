@@ -1,0 +1,2689 @@
+2025-12-08T21:27:10.943Z Current runner version: '2.329.0'
+2025-12-08T21:27:10.958Z Runner name: 'depot-lbfwjrmwgz'
+2025-12-08T21:27:10.958Z Runner group name: 'default'
+2025-12-08T21:27:10.958Z Machine name: 'depot-machine'
+2025-12-08T21:27:10.958Z ##[group]GITHUB_TOKEN Permissions
+2025-12-08T21:27:10.959Z Actions: write
+2025-12-08T21:27:10.959Z ArtifactMetadata: write
+2025-12-08T21:27:10.959Z Attestations: write
+2025-12-08T21:27:10.959Z Checks: write
+2025-12-08T21:27:10.959Z Contents: write
+2025-12-08T21:27:10.959Z Deployments: write
+2025-12-08T21:27:10.959Z Discussions: write
+2025-12-08T21:27:10.959Z Issues: write
+2025-12-08T21:27:10.959Z Metadata: read
+2025-12-08T21:27:10.959Z Models: read
+2025-12-08T21:27:10.959Z Packages: write
+2025-12-08T21:27:10.959Z Pages: write
+2025-12-08T21:27:10.959Z PullRequests: write
+2025-12-08T21:27:10.959Z RepositoryProjects: write
+2025-12-08T21:27:10.963Z SecurityEvents: write
+2025-12-08T21:27:10.963Z Statuses: write
+2025-12-08T21:27:10.963Z ##[endgroup]
+2025-12-08T21:27:10.963Z Secret source: Actions
+2025-12-08T21:27:10.963Z Prepare workflow directory
+2025-12-08T21:27:11.005Z Prepare all required actions
+2025-12-08T21:27:11.008Z Getting action download info
+2025-12-08T21:27:11.244Z Download action repository 'actions/checkout@v4' (SHA:34e114876b0b11c390a56381ad16ebd13914f8d5)
+2025-12-08T21:27:11.883Z Download action repository 'mozilla-actions/sccache-action@v0.0.7' (SHA:054db53350805f83040bf3e6e9b8cf5a139aa7c9)
+2025-12-08T21:27:12.293Z Complete job name: Depot Cacheless
+2025-12-08T21:27:12.393Z ##[group]Run actions/checkout@v4
+2025-12-08T21:27:12.393Z with:
+2025-12-08T21:27:12.393Z   submodules: recursive
+2025-12-08T21:27:12.393Z   repository: depot/benchmark-zed
+2025-12-08T21:27:12.393Z   token: ***
+2025-12-08T21:27:12.393Z   ssh-strict: true
+2025-12-08T21:27:12.393Z   ssh-user: git
+2025-12-08T21:27:12.393Z   persist-credentials: true
+2025-12-08T21:27:12.393Z   clean: true
+2025-12-08T21:27:12.393Z   sparse-checkout-cone-mode: true
+2025-12-08T21:27:12.394Z   fetch-depth: 1
+2025-12-08T21:27:12.394Z   fetch-tags: false
+2025-12-08T21:27:12.394Z   show-progress: true
+2025-12-08T21:27:12.394Z   lfs: false
+2025-12-08T21:27:12.394Z   set-safe-directory: true
+2025-12-08T21:27:12.394Z ##[endgroup]
+2025-12-08T21:27:14.119Z Syncing repository: depot/benchmark-zed
+2025-12-08T21:27:14.119Z ##[group]Getting Git version info
+2025-12-08T21:27:14.119Z Working directory is '/home/runner/work/benchmark-zed/benchmark-zed'
+2025-12-08T21:27:14.119Z [command]/usr/bin/git version
+2025-12-08T21:27:14.119Z git version 2.51.2
+2025-12-08T21:27:14.122Z ##[endgroup]
+2025-12-08T21:27:14.122Z Temporarily overriding HOME='/home/runner/work/_temp/dced371c-ce57-4042-870d-521266c8a5f4' before making global git config changes
+2025-12-08T21:27:14.123Z Adding repository directory to the temporary git global config as a safe directory
+2025-12-08T21:27:14.124Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/benchmark-zed/benchmark-zed
+2025-12-08T21:27:14.127Z Deleting the contents of '/home/runner/work/benchmark-zed/benchmark-zed'
+2025-12-08T21:27:14.127Z ##[group]Initializing the repository
+2025-12-08T21:27:14.127Z [command]/usr/bin/git init /home/runner/work/benchmark-zed/benchmark-zed
+2025-12-08T21:27:14.189Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-12-08T21:27:14.189Z hint: is subject to change. To configure the initial branch name to use in all
+2025-12-08T21:27:14.189Z hint: of your new repositories, which will suppress this warning, call:
+2025-12-08T21:27:14.189Z hint:
+2025-12-08T21:27:14.189Z hint: 	git config --global init.defaultBranch <name>
+2025-12-08T21:27:14.189Z hint:
+2025-12-08T21:27:14.189Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-12-08T21:27:14.189Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-12-08T21:27:14.189Z hint:
+2025-12-08T21:27:14.189Z hint: 	git branch -m <name>
+2025-12-08T21:27:14.189Z hint:
+2025-12-08T21:27:14.189Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-12-08T21:27:14.189Z Initialized empty Git repository in /home/runner/work/benchmark-zed/benchmark-zed/.git/
+2025-12-08T21:27:14.190Z [command]/usr/bin/git remote add origin https://github.com/depot/benchmark-zed
+2025-12-08T21:27:14.193Z ##[endgroup]
+2025-12-08T21:27:14.193Z ##[group]Disabling automatic garbage collection
+2025-12-08T21:27:14.194Z [command]/usr/bin/git config --local gc.auto 0
+2025-12-08T21:27:14.195Z ##[endgroup]
+2025-12-08T21:27:14.195Z ##[group]Setting up auth
+2025-12-08T21:27:14.196Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-12-08T21:27:14.198Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-12-08T21:27:14.512Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-12-08T21:27:14.513Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-12-08T21:27:14.529Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2025-12-08T21:27:14.535Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2025-12-08T21:27:14.537Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-08T21:27:14.539Z ##[endgroup]
+2025-12-08T21:27:14.539Z ##[group]Fetching the repository
+2025-12-08T21:27:14.539Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +a5276ff003fef3253a7427b81271886f85be19d9:refs/remotes/origin/main
+2025-12-08T21:27:14.804Z From https://github.com/depot/benchmark-zed
+2025-12-08T21:27:14.804Z  * [new ref]         a5276ff003fef3253a7427b81271886f85be19d9 -> origin/main
+2025-12-08T21:27:14.848Z ##[endgroup]
+2025-12-08T21:27:14.849Z ##[group]Determining the checkout info
+2025-12-08T21:27:14.849Z ##[endgroup]
+2025-12-08T21:27:14.850Z [command]/usr/bin/git sparse-checkout disable
+2025-12-08T21:27:14.854Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-12-08T21:27:14.855Z ##[group]Checking out the ref
+2025-12-08T21:27:14.855Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-12-08T21:27:14.859Z Switched to a new branch 'main'
+2025-12-08T21:27:14.859Z branch 'main' set up to track 'origin/main'.
+2025-12-08T21:27:14.860Z ##[endgroup]
+2025-12-08T21:27:14.860Z ##[group]Setting up auth for fetching submodules
+2025-12-08T21:27:14.860Z [command]/usr/bin/git config --global http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-12-08T21:27:14.862Z [command]/usr/bin/git config --global --unset-all url.https://github.com/.insteadOf
+2025-12-08T21:27:14.863Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf git@github.com:
+2025-12-08T21:27:14.864Z [command]/usr/bin/git config --global --add url.https://github.com/.insteadOf org-68166601@github.com:
+2025-12-08T21:27:14.865Z ##[endgroup]
+2025-12-08T21:27:14.865Z ##[group]Fetching submodules
+2025-12-08T21:27:14.866Z [command]/usr/bin/git submodule sync --recursive
+2025-12-08T21:27:14.875Z [command]/usr/bin/git -c protocol.version=2 submodule update --init --force --depth=1 --recursive
+2025-12-08T21:27:14.884Z Submodule 'upstream' (https://github.com/zed-industries/zed.git) registered for path 'upstream'
+2025-12-08T21:27:14.885Z Cloning into '/home/runner/work/benchmark-zed/benchmark-zed/upstream'...
+2025-12-08T21:27:17.718Z Submodule path 'upstream': checked out '22e1bcccadac6cc98e8f2610182531cc24e395e5'
+2025-12-08T21:27:17.719Z [command]/usr/bin/git submodule foreach --recursive git config --local gc.auto 0
+2025-12-08T21:27:17.728Z Entering 'upstream'
+2025-12-08T21:27:17.731Z ##[endgroup]
+2025-12-08T21:27:17.731Z ##[group]Persisting credentials for submodules
+2025-12-08T21:27:17.731Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'url\.https\:\/\/github\.com\/\.insteadOf' && git config --local --unset-all 'url.https://github.com/.insteadOf' || :"
+2025-12-08T21:27:17.740Z Entering 'upstream'
+2025-12-08T21:27:17.743Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local 'http.https://github.com/.extraheader' 'AUTHORIZATION: basic ***' && git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2025-12-08T21:27:17.751Z Entering 'upstream'
+2025-12-08T21:27:17.753Z file:/home/runner/work/benchmark-zed/benchmark-zed/.git/modules/upstream/config	remote.origin.url
+2025-12-08T21:27:17.755Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'git@github.com:'
+2025-12-08T21:27:17.763Z Entering 'upstream'
+2025-12-08T21:27:17.765Z [command]/usr/bin/git submodule foreach --recursive git config --local --add 'url.https://github.com/.insteadOf' 'org-68166601@github.com:'
+2025-12-08T21:27:17.774Z Entering 'upstream'
+2025-12-08T21:27:17.776Z ##[endgroup]
+2025-12-08T21:27:17.778Z [command]/usr/bin/git log -1 --format=%H
+2025-12-08T21:27:17.779Z a5276ff003fef3253a7427b81271886f85be19d9
+2025-12-08T21:27:17.791Z ##[group]Run mozilla-actions/sccache-action@v0.0.7
+2025-12-08T21:27:17.791Z with:
+2025-12-08T21:27:17.791Z   token: ***
+2025-12-08T21:27:17.791Z   disable_annotations: false
+2025-12-08T21:27:17.791Z ##[endgroup]
+2025-12-08T21:27:18.078Z try to setup sccache version: v0.12.0
+2025-12-08T21:27:18.080Z sccache download from url: https://github.com/mozilla/sccache/releases/download/v0.12.0/sccache-v0.12.0-x86_64-unknown-linux-musl.tar.gz
+2025-12-08T21:27:18.407Z Correct checksum: b0e89ead6899224a4ba2b90e9073bf1ce036d95bab30f3dc33c1e1468bc4ad44
+2025-12-08T21:27:18.412Z [command]/usr/bin/tar xz --warning=no-unknown-keyword --overwrite -C /home/runner/work/_temp/a858cd1f-cd95-46bd-b981-6d2484958aa8 -f /home/runner/work/_temp/13616bde-e008-498c-b31b-42584c8b414a
+2025-12-08T21:27:18.521Z sccache extracted to: /home/runner/work/_temp/a858cd1f-cd95-46bd-b981-6d2484958aa8
+2025-12-08T21:27:18.532Z sccache cached to: /opt/hostedtoolcache/sccache/0.12.0/x64
+2025-12-08T21:27:18.540Z ##[group]Run ./script/linux
+2025-12-08T21:27:18.540Z [36;1m./script/linux[0m
+2025-12-08T21:27:18.668Z shell: /usr/bin/bash -e {0}
+2025-12-08T21:27:18.668Z env:
+2025-12-08T21:27:18.668Z   SCCACHE_PATH: /opt/hostedtoolcache/sccache/0.12.0/x64/sccache
+2025-12-08T21:27:18.668Z   ACTIONS_CACHE_URL: http://10.20.57.70:977/
+2025-12-08T21:27:18.670Z   ACTIONS_RUNTIME_TOKEN: ***
+2025-12-08T21:27:18.670Z ##[endgroup]
+2025-12-08T21:27:18.676Z ++ id -u
+2025-12-08T21:27:18.678Z + '[' 1001 -eq 0 ']'
+2025-12-08T21:27:18.678Z ++ command -v sudo
+2025-12-08T21:27:18.679Z + maysudo=/usr/bin/sudo
+2025-12-08T21:27:18.679Z ++ command -v apt-get
+2025-12-08T21:27:18.679Z + apt=/usr/bin/apt-get
+2025-12-08T21:27:18.679Z + [[ -n /usr/bin/apt-get ]]
+2025-12-08T21:27:18.679Z + deps=(gcc g++ libasound2-dev libfontconfig-dev libwayland-dev libx11-xcb-dev libxkbcommon-x11-dev libssl-dev libzstd-dev libvulkan1 libgit2-dev make cmake clang jq git curl gettext-base elfutils libsqlite3-dev musl-tools musl-dev build-essential)
+2025-12-08T21:27:18.680Z + grep -qP 'PRETTY_NAME="(Debian|Raspbian).+13' /etc/os-release
+2025-12-08T21:27:18.680Z + grep -qP 'PRETTY_NAME="(Linux Mint 22|.+24\.(04|10))' /etc/os-release
+2025-12-08T21:27:18.680Z + deps+=(mold libstdc++-14-dev)
+2025-12-08T21:27:18.680Z + /usr/bin/sudo /usr/bin/apt-get update
+2025-12-08T21:27:18.812Z Ign:1 https://apt.vector.dev stable InRelease
+2025-12-08T21:27:18.821Z Hit:2 https://apt.vector.dev stable Release
+2025-12-08T21:27:18.825Z Hit:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble InRelease
+2025-12-08T21:27:18.842Z Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates InRelease [126 kB]
+2025-12-08T21:27:18.845Z Hit:5 http://security.ubuntu.com/ubuntu noble-security InRelease
+2025-12-08T21:27:18.886Z Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-backports InRelease [126 kB]
+2025-12-08T21:27:18.888Z Hit:8 https://packages.microsoft.com/repos/azure-cli noble InRelease
+2025-12-08T21:27:18.929Z Hit:9 https://packages.microsoft.com/ubuntu/24.04/prod noble InRelease
+2025-12-08T21:27:18.936Z Get:10 https://pkgs.tailscale.com/stable/ubuntu noble InRelease
+2025-12-08T21:27:19.013Z Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 Packages [1627 kB]
+2025-12-08T21:27:19.069Z Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 Components [175 kB]
+2025-12-08T21:27:19.082Z Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Packages [1501 kB]
+2025-12-08T21:27:19.108Z Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/universe amd64 Components [377 kB]
+2025-12-08T21:27:19.121Z Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/restricted amd64 Components [212 B]
+2025-12-08T21:27:19.135Z Get:16 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/multiverse amd64 Components [940 B]
+2025-12-08T21:27:19.151Z Get:17 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-backports/main amd64 Components [7156 B]
+2025-12-08T21:27:19.162Z Get:18 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-backports/universe amd64 Components [11.0 kB]
+2025-12-08T21:27:19.175Z Get:19 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-backports/restricted amd64 Components [212 B]
+2025-12-08T21:27:19.188Z Get:20 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-backports/multiverse amd64 Components [212 B]
+2025-12-08T21:27:20.329Z Fetched 3959 kB in 1s (6945 kB/s)
+2025-12-08T21:27:26.589Z Reading package lists...
+2025-12-08T21:27:26.598Z + /usr/bin/sudo /usr/bin/apt-get install -y gcc g++ libasound2-dev libfontconfig-dev libwayland-dev libx11-xcb-dev libxkbcommon-x11-dev libssl-dev libzstd-dev libvulkan1 libgit2-dev make cmake clang jq git curl gettext-base elfutils libsqlite3-dev musl-tools musl-dev build-essential mold libstdc++-14-dev
+2025-12-08T21:27:26.615Z Reading package lists...
+2025-12-08T21:27:26.754Z Building dependency tree...
+2025-12-08T21:27:26.755Z Reading state information...
+2025-12-08T21:27:26.862Z gcc is already the newest version (4:13.2.0-7ubuntu1).
+2025-12-08T21:27:26.862Z g++ is already the newest version (4:13.2.0-7ubuntu1).
+2025-12-08T21:27:26.862Z libssl-dev is already the newest version (3.0.13-0ubuntu3.6).
+2025-12-08T21:27:26.862Z libzstd-dev is already the newest version (1.5.5+dfsg2-2build1.1).
+2025-12-08T21:27:26.862Z libzstd-dev set to manually installed.
+2025-12-08T21:27:26.862Z libvulkan1 is already the newest version (1.3.275.0-1build1).
+2025-12-08T21:27:26.862Z libvulkan1 set to manually installed.
+2025-12-08T21:27:26.862Z make is already the newest version (4.3-4.1build2).
+2025-12-08T21:27:26.862Z jq is already the newest version (1.7.1-3ubuntu0.24.04.1).
+2025-12-08T21:27:26.862Z git is already the newest version (1:2.51.2-0ppa1~ubuntu24.04.1).
+2025-12-08T21:27:26.862Z git set to manually installed.
+2025-12-08T21:27:26.862Z curl is already the newest version (8.5.0-2ubuntu10.6).
+2025-12-08T21:27:26.862Z gettext-base is already the newest version (0.21-14ubuntu2).
+2025-12-08T21:27:26.862Z gettext-base set to manually installed.
+2025-12-08T21:27:26.862Z libsqlite3-dev is already the newest version (3.45.1-1ubuntu2.5).
+2025-12-08T21:27:26.862Z build-essential is already the newest version (12.10ubuntu1).
+2025-12-08T21:27:26.862Z build-essential set to manually installed.
+2025-12-08T21:27:26.863Z libstdc++-14-dev is already the newest version (14.2.0-4ubuntu2~24.04).
+2025-12-08T21:27:26.863Z libstdc++-14-dev set to manually installed.
+2025-12-08T21:27:26.863Z The following additional packages will be installed:
+2025-12-08T21:27:26.863Z   bzip2-doc cmake-data libasm1t64 libbrotli-dev libbz2-dev libfreetype-dev
+2025-12-08T21:27:26.863Z   libgit2-1.7 libhttp-parser-dev libhttp-parser2.9 libjsoncpp25 libpng-dev
+2025-12-08T21:27:26.864Z   libpng-tools libpthread-stubs0-dev librhash0 libssh2-1-dev libwayland-bin
+2025-12-08T21:27:26.864Z   libx11-dev libxau-dev libxcb-xkb-dev libxcb-xkb1 libxcb1-dev libxdmcp-dev
+2025-12-08T21:27:26.864Z   libxkbcommon-dev libxkbcommon-x11-0 musl uuid-dev x11proto-dev
+2025-12-08T21:27:26.864Z   xorg-sgml-doctools xtrans-dev
+2025-12-08T21:27:26.864Z Suggested packages:
+2025-12-08T21:27:26.864Z   cmake-doc cmake-format elpa-cmake-mode ninja-build libasound2-doc
+2025-12-08T21:27:26.864Z   freetype2-doc libwayland-doc libx11-doc libxcb-doc
+2025-12-08T21:27:26.917Z The following NEW packages will be installed:
+2025-12-08T21:27:26.917Z   bzip2-doc clang cmake cmake-data elfutils libasm1t64 libasound2-dev
+2025-12-08T21:27:26.917Z   libbrotli-dev libbz2-dev libfontconfig-dev libfreetype-dev libgit2-1.7
+2025-12-08T21:27:26.917Z   libgit2-dev libhttp-parser-dev libhttp-parser2.9 libjsoncpp25 libpng-dev
+2025-12-08T21:27:26.917Z   libpng-tools libpthread-stubs0-dev librhash0 libssh2-1-dev libwayland-bin
+2025-12-08T21:27:26.917Z   libwayland-dev libx11-dev libx11-xcb-dev libxau-dev libxcb-xkb-dev
+2025-12-08T21:27:26.918Z   libxcb-xkb1 libxcb1-dev libxdmcp-dev libxkbcommon-dev libxkbcommon-x11-0
+2025-12-08T21:27:26.918Z   libxkbcommon-x11-dev mold musl musl-dev musl-tools uuid-dev x11proto-dev
+2025-12-08T21:27:26.918Z   xorg-sgml-doctools xtrans-dev
+2025-12-08T21:27:26.958Z 0 upgraded, 41 newly installed, 0 to remove and 56 not upgraded.
+2025-12-08T21:27:26.958Z Need to get 23.2 MB of archives.
+2025-12-08T21:27:26.958Z After this operation, 95.0 MB of additional disk space will be used.
+2025-12-08T21:27:26.958Z Get:1 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 bzip2-doc all 1.0.8-5.1build0.1 [499 kB]
+2025-12-08T21:27:27.026Z Get:2 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 clang amd64 1:18.0-59~exp2 [5846 B]
+2025-12-08T21:27:27.048Z Get:3 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libjsoncpp25 amd64 1.9.5-6build1 [82.8 kB]
+2025-12-08T21:27:27.073Z Get:4 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 librhash0 amd64 1.4.3-3build1 [129 kB]
+2025-12-08T21:27:27.097Z Get:5 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 cmake-data all 3.28.3-1build7 [2155 kB]
+2025-12-08T21:27:27.146Z Get:6 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 cmake amd64 3.28.3-1build7 [11.2 MB]
+2025-12-08T21:27:27.253Z Get:7 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 libasm1t64 amd64 0.190-1.1ubuntu0.1 [17.5 kB]
+2025-12-08T21:27:27.282Z Get:8 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 elfutils amd64 0.190-1.1ubuntu0.1 [525 kB]
+2025-12-08T21:27:27.358Z Get:9 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 libasound2-dev amd64 1.2.11-1ubuntu0.1 [115 kB]
+2025-12-08T21:27:27.381Z Get:10 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libbrotli-dev amd64 1.1.0-2build2 [353 kB]
+2025-12-08T21:27:27.459Z Get:11 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 libbz2-dev amd64 1.0.8-5.1build0.1 [33.6 kB]
+2025-12-08T21:27:27.482Z Get:12 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libpng-dev amd64 1.6.43-5build1 [264 kB]
+2025-12-08T21:27:27.509Z Get:13 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libfreetype-dev amd64 2.13.2+dfsg-1build3 [575 kB]
+2025-12-08T21:27:27.546Z Get:14 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble-updates/main amd64 uuid-dev amd64 2.39.3-9ubuntu6.3 [33.5 kB]
+2025-12-08T21:27:27.570Z Get:15 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libfontconfig-dev amd64 2.15.0-1.1ubuntu2 [161 kB]
+2025-12-08T21:27:27.623Z Get:16 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libhttp-parser2.9 amd64 2.9.4-6build1 [22.3 kB]
+2025-12-08T21:27:27.648Z Get:17 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libgit2-1.7 amd64 1.7.2+ds-1ubuntu3 [529 kB]
+2025-12-08T21:27:27.675Z Get:18 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libpng-tools amd64 1.6.43-5build1 [28.5 kB]
+2025-12-08T21:27:27.707Z Get:19 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libpthread-stubs0-dev amd64 0.4-1build3 [4746 B]
+2025-12-08T21:27:27.730Z Get:20 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libssh2-1-dev amd64 1.11.0-4.1build2 [259 kB]
+2025-12-08T21:27:27.767Z Get:21 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 xorg-sgml-doctools all 1:1.11-1.1 [10.9 kB]
+2025-12-08T21:27:27.789Z Get:22 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 x11proto-dev all 2023.2-1 [602 kB]
+2025-12-08T21:27:27.880Z Get:23 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxau-dev amd64 1:1.0.9-1build6 [9570 B]
+2025-12-08T21:27:27.902Z Get:24 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxdmcp-dev amd64 1:1.1.3-0ubuntu6 [26.5 kB]
+2025-12-08T21:27:27.927Z Get:25 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 xtrans-dev all 1.4.0-1 [68.9 kB]
+2025-12-08T21:27:27.950Z Get:26 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxcb1-dev amd64 1.15-1ubuntu2 [85.8 kB]
+2025-12-08T21:27:27.973Z Get:27 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libx11-dev amd64 2:1.8.7-1build1 [732 kB]
+2025-12-08T21:27:28.021Z Get:28 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libx11-xcb-dev amd64 2:1.8.7-1build1 [9950 B]
+2025-12-08T21:27:28.043Z Get:29 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxcb-xkb1 amd64 1.15-1ubuntu2 [32.3 kB]
+2025-12-08T21:27:28.066Z Get:30 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxcb-xkb-dev amd64 1.15-1ubuntu2 [42.5 kB]
+2025-12-08T21:27:28.092Z Get:31 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxkbcommon-dev amd64 1.6.0-1build1 [56.3 kB]
+2025-12-08T21:27:28.119Z Get:32 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxkbcommon-x11-0 amd64 1.6.0-1build1 [14.5 kB]
+2025-12-08T21:27:28.141Z Get:33 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 mold amd64 2.30.0+dfsg-1build1 [2529 kB]
+2025-12-08T21:27:28.194Z Get:34 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libhttp-parser-dev amd64 2.9.4-6build1 [21.5 kB]
+2025-12-08T21:27:28.218Z Get:35 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libgit2-dev amd64 1.7.2+ds-1ubuntu3 [814 kB]
+2025-12-08T21:27:28.255Z Get:36 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libwayland-bin amd64 1.22.0-2.1build1 [20.6 kB]
+2025-12-08T21:27:28.288Z Get:37 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libwayland-dev amd64 1.22.0-2.1build1 [71.3 kB]
+2025-12-08T21:27:28.313Z Get:38 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/main amd64 libxkbcommon-x11-dev amd64 1.6.0-1build1 [5586 B]
+2025-12-08T21:27:28.337Z Get:39 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 musl amd64 1.2.4-2 [416 kB]
+2025-12-08T21:27:28.373Z Get:40 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 musl-dev amd64 1.2.4-2 [616 kB]
+2025-12-08T21:27:28.401Z Get:41 http://us-east-1.ec2.archive.ubuntu.com/ubuntu noble/universe amd64 musl-tools amd64 1.2.4-2 [5540 B]
+2025-12-08T21:27:29.508Z Fetched 23.2 MB in 1s (15.7 MB/s)
+2025-12-08T21:27:29.665Z Selecting previously unselected package bzip2-doc.
+2025-12-08T21:27:29.677Z (Reading database ... 
+2025-12-08T21:27:29.677Z (Reading database ... 5%
+2025-12-08T21:27:29.677Z (Reading database ... 10%
+2025-12-08T21:27:29.677Z (Reading database ... 15%
+2025-12-08T21:27:29.677Z (Reading database ... 20%
+2025-12-08T21:27:29.677Z (Reading database ... 25%
+2025-12-08T21:27:29.677Z (Reading database ... 30%
+2025-12-08T21:27:29.677Z (Reading database ... 35%
+2025-12-08T21:27:29.677Z (Reading database ... 40%
+2025-12-08T21:27:29.677Z (Reading database ... 45%
+2025-12-08T21:27:29.677Z (Reading database ... 50%
+2025-12-08T21:27:30.019Z (Reading database ... 55%
+2025-12-08T21:27:31.274Z (Reading database ... 60%
+2025-12-08T21:27:31.762Z (Reading database ... 65%
+2025-12-08T21:27:32.046Z (Reading database ... 70%
+2025-12-08T21:27:32.248Z (Reading database ... 75%
+2025-12-08T21:27:32.511Z (Reading database ... 80%
+2025-12-08T21:27:34.159Z (Reading database ... 85%
+2025-12-08T21:27:35.232Z (Reading database ... 90%
+2025-12-08T21:27:36.848Z (Reading database ... 95%
+2025-12-08T21:27:36.848Z (Reading database ... 100%
+2025-12-08T21:27:36.848Z (Reading database ... 228891 files and directories currently installed.)
+2025-12-08T21:27:36.852Z Preparing to unpack .../00-bzip2-doc_1.0.8-5.1build0.1_all.deb ...
+2025-12-08T21:27:36.856Z Unpacking bzip2-doc (1.0.8-5.1build0.1) ...
+2025-12-08T21:27:36.957Z Selecting previously unselected package clang.
+2025-12-08T21:27:36.964Z Preparing to unpack .../01-clang_1%3a18.0-59~exp2_amd64.deb ...
+2025-12-08T21:27:36.966Z Unpacking clang (1:18.0-59~exp2) ...
+2025-12-08T21:27:37.070Z Selecting previously unselected package libjsoncpp25:amd64.
+2025-12-08T21:27:37.077Z Preparing to unpack .../02-libjsoncpp25_1.9.5-6build1_amd64.deb ...
+2025-12-08T21:27:37.081Z Unpacking libjsoncpp25:amd64 (1.9.5-6build1) ...
+2025-12-08T21:27:37.123Z Selecting previously unselected package librhash0:amd64.
+2025-12-08T21:27:37.130Z Preparing to unpack .../03-librhash0_1.4.3-3build1_amd64.deb ...
+2025-12-08T21:27:37.132Z Unpacking librhash0:amd64 (1.4.3-3build1) ...
+2025-12-08T21:27:37.204Z Selecting previously unselected package cmake-data.
+2025-12-08T21:27:37.211Z Preparing to unpack .../04-cmake-data_3.28.3-1build7_all.deb ...
+2025-12-08T21:27:37.219Z Unpacking cmake-data (3.28.3-1build7) ...
+2025-12-08T21:27:37.553Z Selecting previously unselected package cmake.
+2025-12-08T21:27:37.562Z Preparing to unpack .../05-cmake_3.28.3-1build7_amd64.deb ...
+2025-12-08T21:27:37.564Z Unpacking cmake (3.28.3-1build7) ...
+2025-12-08T21:27:37.734Z Selecting previously unselected package libasm1t64:amd64.
+2025-12-08T21:27:37.742Z Preparing to unpack .../06-libasm1t64_0.190-1.1ubuntu0.1_amd64.deb ...
+2025-12-08T21:27:37.746Z Unpacking libasm1t64:amd64 (0.190-1.1ubuntu0.1) ...
+2025-12-08T21:27:37.812Z Selecting previously unselected package elfutils.
+2025-12-08T21:27:37.820Z Preparing to unpack .../07-elfutils_0.190-1.1ubuntu0.1_amd64.deb ...
+2025-12-08T21:27:37.821Z Unpacking elfutils (0.190-1.1ubuntu0.1) ...
+2025-12-08T21:27:37.906Z Selecting previously unselected package libasound2-dev:amd64.
+2025-12-08T21:27:37.914Z Preparing to unpack .../08-libasound2-dev_1.2.11-1ubuntu0.1_amd64.deb ...
+2025-12-08T21:27:37.917Z Unpacking libasound2-dev:amd64 (1.2.11-1ubuntu0.1) ...
+2025-12-08T21:27:37.992Z Selecting previously unselected package libbrotli-dev:amd64.
+2025-12-08T21:27:38.000Z Preparing to unpack .../09-libbrotli-dev_1.1.0-2build2_amd64.deb ...
+2025-12-08T21:27:38.025Z Unpacking libbrotli-dev:amd64 (1.1.0-2build2) ...
+2025-12-08T21:27:38.046Z Selecting previously unselected package libbz2-dev:amd64.
+2025-12-08T21:27:38.053Z Preparing to unpack .../10-libbz2-dev_1.0.8-5.1build0.1_amd64.deb ...
+2025-12-08T21:27:38.076Z Unpacking libbz2-dev:amd64 (1.0.8-5.1build0.1) ...
+2025-12-08T21:27:38.096Z Selecting previously unselected package libpng-dev:amd64.
+2025-12-08T21:27:38.103Z Preparing to unpack .../11-libpng-dev_1.6.43-5build1_amd64.deb ...
+2025-12-08T21:27:38.104Z Unpacking libpng-dev:amd64 (1.6.43-5build1) ...
+2025-12-08T21:27:38.141Z Selecting previously unselected package libfreetype-dev:amd64.
+2025-12-08T21:27:38.148Z Preparing to unpack .../12-libfreetype-dev_2.13.2+dfsg-1build3_amd64.deb ...
+2025-12-08T21:27:38.176Z Unpacking libfreetype-dev:amd64 (2.13.2+dfsg-1build3) ...
+2025-12-08T21:27:38.206Z Selecting previously unselected package uuid-dev:amd64.
+2025-12-08T21:27:38.213Z Preparing to unpack .../13-uuid-dev_2.39.3-9ubuntu6.3_amd64.deb ...
+2025-12-08T21:27:38.218Z Unpacking uuid-dev:amd64 (2.39.3-9ubuntu6.3) ...
+2025-12-08T21:27:38.277Z Selecting previously unselected package libfontconfig-dev:amd64.
+2025-12-08T21:27:38.284Z Preparing to unpack .../14-libfontconfig-dev_2.15.0-1.1ubuntu2_amd64.deb ...
+2025-12-08T21:27:38.285Z Unpacking libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...
+2025-12-08T21:27:38.354Z Selecting previously unselected package libhttp-parser2.9:amd64.
+2025-12-08T21:27:38.361Z Preparing to unpack .../15-libhttp-parser2.9_2.9.4-6build1_amd64.deb ...
+2025-12-08T21:27:38.364Z Unpacking libhttp-parser2.9:amd64 (2.9.4-6build1) ...
+2025-12-08T21:27:38.441Z Selecting previously unselected package libgit2-1.7:amd64.
+2025-12-08T21:27:38.448Z Preparing to unpack .../16-libgit2-1.7_1.7.2+ds-1ubuntu3_amd64.deb ...
+2025-12-08T21:27:38.451Z Unpacking libgit2-1.7:amd64 (1.7.2+ds-1ubuntu3) ...
+2025-12-08T21:27:38.491Z Selecting previously unselected package libpng-tools.
+2025-12-08T21:27:38.498Z Preparing to unpack .../17-libpng-tools_1.6.43-5build1_amd64.deb ...
+2025-12-08T21:27:38.503Z Unpacking libpng-tools (1.6.43-5build1) ...
+2025-12-08T21:27:38.570Z Selecting previously unselected package libpthread-stubs0-dev:amd64.
+2025-12-08T21:27:38.577Z Preparing to unpack .../18-libpthread-stubs0-dev_0.4-1build3_amd64.deb ...
+2025-12-08T21:27:38.579Z Unpacking libpthread-stubs0-dev:amd64 (0.4-1build3) ...
+2025-12-08T21:27:38.599Z Selecting previously unselected package libssh2-1-dev:amd64.
+2025-12-08T21:27:38.606Z Preparing to unpack .../19-libssh2-1-dev_1.11.0-4.1build2_amd64.deb ...
+2025-12-08T21:27:38.610Z Unpacking libssh2-1-dev:amd64 (1.11.0-4.1build2) ...
+2025-12-08T21:27:38.720Z Selecting previously unselected package xorg-sgml-doctools.
+2025-12-08T21:27:38.727Z Preparing to unpack .../20-xorg-sgml-doctools_1%3a1.11-1.1_all.deb ...
+2025-12-08T21:27:38.729Z Unpacking xorg-sgml-doctools (1:1.11-1.1) ...
+2025-12-08T21:27:38.771Z Selecting previously unselected package x11proto-dev.
+2025-12-08T21:27:38.778Z Preparing to unpack .../21-x11proto-dev_2023.2-1_all.deb ...
+2025-12-08T21:27:38.800Z Unpacking x11proto-dev (2023.2-1) ...
+2025-12-08T21:27:38.898Z Selecting previously unselected package libxau-dev:amd64.
+2025-12-08T21:27:38.906Z Preparing to unpack .../22-libxau-dev_1%3a1.0.9-1build6_amd64.deb ...
+2025-12-08T21:27:38.908Z Unpacking libxau-dev:amd64 (1:1.0.9-1build6) ...
+2025-12-08T21:27:38.957Z Selecting previously unselected package libxdmcp-dev:amd64.
+2025-12-08T21:27:38.964Z Preparing to unpack .../23-libxdmcp-dev_1%3a1.1.3-0ubuntu6_amd64.deb ...
+2025-12-08T21:27:38.999Z Unpacking libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...
+2025-12-08T21:27:39.015Z Selecting previously unselected package xtrans-dev.
+2025-12-08T21:27:39.022Z Preparing to unpack .../24-xtrans-dev_1.4.0-1_all.deb ...
+2025-12-08T21:27:39.024Z Unpacking xtrans-dev (1.4.0-1) ...
+2025-12-08T21:27:39.092Z Selecting previously unselected package libxcb1-dev:amd64.
+2025-12-08T21:27:39.099Z Preparing to unpack .../25-libxcb1-dev_1.15-1ubuntu2_amd64.deb ...
+2025-12-08T21:27:39.103Z Unpacking libxcb1-dev:amd64 (1.15-1ubuntu2) ...
+2025-12-08T21:27:39.146Z Selecting previously unselected package libx11-dev:amd64.
+2025-12-08T21:27:39.153Z Preparing to unpack .../26-libx11-dev_2%3a1.8.7-1build1_amd64.deb ...
+2025-12-08T21:27:39.155Z Unpacking libx11-dev:amd64 (2:1.8.7-1build1) ...
+2025-12-08T21:27:39.229Z Selecting previously unselected package libx11-xcb-dev:amd64.
+2025-12-08T21:27:39.235Z Preparing to unpack .../27-libx11-xcb-dev_2%3a1.8.7-1build1_amd64.deb ...
+2025-12-08T21:27:39.236Z Unpacking libx11-xcb-dev:amd64 (2:1.8.7-1build1) ...
+2025-12-08T21:27:39.306Z Selecting previously unselected package libxcb-xkb1:amd64.
+2025-12-08T21:27:39.313Z Preparing to unpack .../28-libxcb-xkb1_1.15-1ubuntu2_amd64.deb ...
+2025-12-08T21:27:39.315Z Unpacking libxcb-xkb1:amd64 (1.15-1ubuntu2) ...
+2025-12-08T21:27:39.333Z Selecting previously unselected package libxcb-xkb-dev:amd64.
+2025-12-08T21:27:39.340Z Preparing to unpack .../29-libxcb-xkb-dev_1.15-1ubuntu2_amd64.deb ...
+2025-12-08T21:27:39.373Z Unpacking libxcb-xkb-dev:amd64 (1.15-1ubuntu2) ...
+2025-12-08T21:27:39.392Z Selecting previously unselected package libxkbcommon-dev:amd64.
+2025-12-08T21:27:39.399Z Preparing to unpack .../30-libxkbcommon-dev_1.6.0-1build1_amd64.deb ...
+2025-12-08T21:27:39.428Z Unpacking libxkbcommon-dev:amd64 (1.6.0-1build1) ...
+2025-12-08T21:27:39.480Z Selecting previously unselected package libxkbcommon-x11-0:amd64.
+2025-12-08T21:27:39.487Z Preparing to unpack .../31-libxkbcommon-x11-0_1.6.0-1build1_amd64.deb ...
+2025-12-08T21:27:39.489Z Unpacking libxkbcommon-x11-0:amd64 (1.6.0-1build1) ...
+2025-12-08T21:27:39.536Z Selecting previously unselected package mold.
+2025-12-08T21:27:39.543Z Preparing to unpack .../32-mold_2.30.0+dfsg-1build1_amd64.deb ...
+2025-12-08T21:27:39.545Z Unpacking mold (2.30.0+dfsg-1build1) ...
+2025-12-08T21:27:39.606Z Selecting previously unselected package libhttp-parser-dev:amd64.
+2025-12-08T21:27:39.614Z Preparing to unpack .../33-libhttp-parser-dev_2.9.4-6build1_amd64.deb ...
+2025-12-08T21:27:39.619Z Unpacking libhttp-parser-dev:amd64 (2.9.4-6build1) ...
+2025-12-08T21:27:39.701Z Selecting previously unselected package libgit2-dev:amd64.
+2025-12-08T21:27:39.708Z Preparing to unpack .../34-libgit2-dev_1.7.2+ds-1ubuntu3_amd64.deb ...
+2025-12-08T21:27:39.709Z Unpacking libgit2-dev:amd64 (1.7.2+ds-1ubuntu3) ...
+2025-12-08T21:27:39.768Z Selecting previously unselected package libwayland-bin.
+2025-12-08T21:27:39.775Z Preparing to unpack .../35-libwayland-bin_1.22.0-2.1build1_amd64.deb ...
+2025-12-08T21:27:39.777Z Unpacking libwayland-bin (1.22.0-2.1build1) ...
+2025-12-08T21:27:39.825Z Selecting previously unselected package libwayland-dev:amd64.
+2025-12-08T21:27:39.832Z Preparing to unpack .../36-libwayland-dev_1.22.0-2.1build1_amd64.deb ...
+2025-12-08T21:27:39.833Z Unpacking libwayland-dev:amd64 (1.22.0-2.1build1) ...
+2025-12-08T21:27:39.876Z Selecting previously unselected package libxkbcommon-x11-dev:amd64.
+2025-12-08T21:27:39.883Z Preparing to unpack .../37-libxkbcommon-x11-dev_1.6.0-1build1_amd64.deb ...
+2025-12-08T21:27:39.885Z Unpacking libxkbcommon-x11-dev:amd64 (1.6.0-1build1) ...
+2025-12-08T21:27:39.963Z Selecting previously unselected package musl:amd64.
+2025-12-08T21:27:39.971Z Preparing to unpack .../38-musl_1.2.4-2_amd64.deb ...
+2025-12-08T21:27:39.973Z Unpacking musl:amd64 (1.2.4-2) ...
+2025-12-08T21:27:40.044Z Selecting previously unselected package musl-dev:amd64.
+2025-12-08T21:27:40.051Z Preparing to unpack .../39-musl-dev_1.2.4-2_amd64.deb ...
+2025-12-08T21:27:40.051Z Unpacking musl-dev:amd64 (1.2.4-2) ...
+2025-12-08T21:27:40.132Z Selecting previously unselected package musl-tools.
+2025-12-08T21:27:40.139Z Preparing to unpack .../40-musl-tools_1.2.4-2_amd64.deb ...
+2025-12-08T21:27:40.139Z Unpacking musl-tools (1.2.4-2) ...
+2025-12-08T21:27:40.211Z Setting up bzip2-doc (1.0.8-5.1build0.1) ...
+2025-12-08T21:27:40.245Z Setting up libpng-tools (1.6.43-5build1) ...
+2025-12-08T21:27:40.254Z Setting up libxkbcommon-dev:amd64 (1.6.0-1build1) ...
+2025-12-08T21:27:40.266Z Setting up libpng-dev:amd64 (1.6.43-5build1) ...
+2025-12-08T21:27:40.307Z Setting up libpthread-stubs0-dev:amd64 (0.4-1build3) ...
+2025-12-08T21:27:40.343Z Setting up mold (2.30.0+dfsg-1build1) ...
+2025-12-08T21:27:40.348Z Setting up libxcb-xkb1:amd64 (1.15-1ubuntu2) ...
+2025-12-08T21:27:40.356Z Setting up xtrans-dev (1.4.0-1) ...
+2025-12-08T21:27:40.370Z Setting up libwayland-bin (1.22.0-2.1build1) ...
+2025-12-08T21:27:40.408Z Setting up uuid-dev:amd64 (2.39.3-9ubuntu6.3) ...
+2025-12-08T21:27:40.441Z Setting up clang (1:18.0-59~exp2) ...
+2025-12-08T21:27:40.465Z Setting up libasm1t64:amd64 (0.190-1.1ubuntu0.1) ...
+2025-12-08T21:27:40.479Z Setting up libxkbcommon-x11-0:amd64 (1.6.0-1build1) ...
+2025-12-08T21:27:40.513Z Setting up libjsoncpp25:amd64 (1.9.5-6build1) ...
+2025-12-08T21:27:40.548Z Setting up libssh2-1-dev:amd64 (1.11.0-4.1build2) ...
+2025-12-08T21:27:40.554Z Setting up musl:amd64 (1.2.4-2) ...
+2025-12-08T21:27:40.566Z Setting up librhash0:amd64 (1.4.3-3build1) ...
+2025-12-08T21:27:40.578Z Setting up xorg-sgml-doctools (1:1.11-1.1) ...
+2025-12-08T21:27:40.617Z Setting up cmake-data (3.28.3-1build7) ...
+2025-12-08T21:27:40.657Z Setting up libasound2-dev:amd64 (1.2.11-1ubuntu0.1) ...
+2025-12-08T21:27:40.665Z Setting up libbrotli-dev:amd64 (1.1.0-2build2) ...
+2025-12-08T21:27:40.722Z Setting up libhttp-parser2.9:amd64 (2.9.4-6build1) ...
+2025-12-08T21:27:40.727Z Setting up libbz2-dev:amd64 (1.0.8-5.1build0.1) ...
+2025-12-08T21:27:40.732Z Setting up libhttp-parser-dev:amd64 (2.9.4-6build1) ...
+2025-12-08T21:27:40.764Z Setting up elfutils (0.190-1.1ubuntu0.1) ...
+2025-12-08T21:27:40.775Z Setting up libwayland-dev:amd64 (1.22.0-2.1build1) ...
+2025-12-08T21:27:40.787Z Setting up libfreetype-dev:amd64 (2.13.2+dfsg-1build3) ...
+2025-12-08T21:27:40.799Z Setting up musl-dev:amd64 (1.2.4-2) ...
+2025-12-08T21:27:40.812Z Setting up cmake (3.28.3-1build7) ...
+2025-12-08T21:27:40.850Z Setting up libgit2-1.7:amd64 (1.7.2+ds-1ubuntu3) ...
+2025-12-08T21:27:40.857Z Setting up libgit2-dev:amd64 (1.7.2+ds-1ubuntu3) ...
+2025-12-08T21:27:40.865Z Setting up libfontconfig-dev:amd64 (2.15.0-1.1ubuntu2) ...
+2025-12-08T21:27:40.878Z Setting up musl-tools (1.2.4-2) ...
+2025-12-08T21:27:40.891Z Processing triggers for sgml-base (1.31) ...
+2025-12-08T21:27:40.978Z Processing triggers for install-info (7.1-3build2) ...
+2025-12-08T21:27:41.183Z Setting up x11proto-dev (2023.2-1) ...
+2025-12-08T21:27:41.188Z Setting up libxau-dev:amd64 (1:1.0.9-1build6) ...
+2025-12-08T21:27:41.197Z Processing triggers for libc-bin (2.39-0ubuntu8.6) ...
+2025-12-08T21:27:41.217Z Processing triggers for man-db (2.12.0-4build2) ...
+2025-12-08T21:27:41.222Z Not building database; man-db/auto-update is not 'true'.
+2025-12-08T21:27:41.226Z Setting up libxdmcp-dev:amd64 (1:1.1.3-0ubuntu6) ...
+2025-12-08T21:27:41.269Z Setting up libxcb1-dev:amd64 (1.15-1ubuntu2) ...
+2025-12-08T21:27:41.274Z Setting up libxcb-xkb-dev:amd64 (1.15-1ubuntu2) ...
+2025-12-08T21:27:41.284Z Setting up libx11-dev:amd64 (2:1.8.7-1build1) ...
+2025-12-08T21:27:41.296Z Setting up libxkbcommon-x11-dev:amd64 (1.6.0-1build1) ...
+2025-12-08T21:27:41.308Z Setting up libx11-xcb-dev:amd64 (2:1.8.7-1build1) ...
+2025-12-08T21:27:42.207Z 
+2025-12-08T21:27:42.207Z Running kernel seems to be up-to-date.
+2025-12-08T21:27:42.207Z 
+2025-12-08T21:27:42.207Z No services need to be restarted.
+2025-12-08T21:27:42.207Z 
+2025-12-08T21:27:42.207Z No containers need to be restarted.
+2025-12-08T21:27:42.207Z 
+2025-12-08T21:27:42.207Z No user sessions are running outdated binaries.
+2025-12-08T21:27:42.207Z 
+2025-12-08T21:27:42.207Z No VM guests are running outdated hypervisor (qemu) binaries on this host.
+2025-12-08T21:27:42.259Z + finalize
+2025-12-08T21:27:42.259Z + which rustup
+2025-12-08T21:27:42.259Z + cat
+2025-12-08T21:27:42.260Z + exit 0
+2025-12-08T21:27:42.260Z Note: It's recommended to install and configure Wild or Mold for faster builds.
+2025-12-08T21:27:42.260Z       Run script/install-wild or script/install-mold.
+2025-12-08T21:27:42.260Z 
+2025-12-08T21:27:42.260Z Finished installing Linux dependencies with script/linux
+2025-12-08T21:27:42.263Z ##[group]Run cargo build --release
+2025-12-08T21:27:42.263Z [36;1mcargo build --release[0m
+2025-12-08T21:27:42.264Z shell: /usr/bin/bash -e {0}
+2025-12-08T21:27:42.264Z env:
+2025-12-08T21:27:42.264Z   SCCACHE_PATH: /opt/hostedtoolcache/sccache/0.12.0/x64/sccache
+2025-12-08T21:27:42.264Z   ACTIONS_CACHE_URL: http://10.20.57.70:977/
+2025-12-08T21:27:42.266Z   ACTIONS_RUNTIME_TOKEN: ***
+2025-12-08T21:27:42.266Z ##[endgroup]
+2025-12-08T21:27:43.305Z info: syncing channel updates for '1.91.1-x86_64-unknown-linux-gnu'
+2025-12-08T21:27:43.497Z info: latest update on 2025-11-10, rust version 1.91.1 (ed61e7d7e 2025-11-07)
+2025-12-08T21:27:43.497Z info: downloading component 'cargo'
+2025-12-08T21:27:43.639Z info: downloading component 'clippy'
+2025-12-08T21:27:43.725Z info: downloading component 'rust-std' for 'wasm32-wasip2'
+2025-12-08T21:27:43.919Z info: downloading component 'rust-std'
+2025-12-08T21:27:44.145Z info: downloading component 'rust-std' for 'x86_64-unknown-linux-musl'
+2025-12-08T21:27:44.448Z info: downloading component 'rustc'
+2025-12-08T21:27:44.965Z info: downloading component 'rustfmt'
+2025-12-08T21:27:45.035Z info: installing component 'cargo'
+2025-12-08T21:27:45.559Z info: installing component 'clippy'
+2025-12-08T21:27:45.886Z info: installing component 'rust-std' for 'wasm32-wasip2'
+2025-12-08T21:27:47.001Z info: installing component 'rust-std'
+2025-12-08T21:27:48.368Z info: installing component 'rust-std' for 'x86_64-unknown-linux-musl'
+2025-12-08T21:27:50.137Z info: installing component 'rustc'
+2025-12-08T21:27:53.430Z info: installing component 'rustfmt'
+2025-12-08T21:27:53.775Z     Updating git repository `https://github.com/zed-industries/calloop`
+2025-12-08T21:27:53.992Z     Updating git repository `https://github.com/zed-industries/notify.git`
+2025-12-08T21:27:54.320Z     Updating git repository `https://github.com/zed-industries/windows-capture.git`
+2025-12-08T21:27:54.573Z     Updating crates.io index
+2025-12-08T21:27:54.589Z     Updating git repository `https://github.com/zed-industries/font-kit`
+2025-12-08T21:27:55.023Z     Updating git repository `https://github.com/zed-industries/xim-rs.git`
+2025-12-08T21:27:55.235Z     Updating git repository `https://github.com/zed-industries/scap`
+2025-12-08T21:27:55.675Z     Updating git repository `https://github.com/zed-industries/reqwest.git`
+2025-12-08T21:27:56.078Z     Updating git repository `https://github.com/tree-sitter-grammars/tree-sitter-markdown`
+2025-12-08T21:27:59.647Z     Updating git repository `https://github.com/zed-industries/tree-sitter-typescript`
+2025-12-08T21:28:39.835Z     Updating git repository `https://github.com/zed-industries/tree-sitter-heex`
+2025-12-08T21:28:40.064Z     Updating git repository `https://github.com/zed-industries/async-pipe-rs`
+2025-12-08T21:28:40.365Z     Updating git repository `https://github.com/zed-industries/lsp-types`
+2025-12-08T21:28:40.811Z     Updating git repository `https://github.com/microsoft/python-environment-tools.git`
+2025-12-08T21:28:41.216Z     Updating git repository `https://github.com/tree-sitter/tree-sitter-cpp`
+2025-12-08T21:30:00.738Z     Updating git repository `https://github.com/zed-industries/tree-sitter-git-commit`
+2025-12-08T21:30:00.968Z     Updating git repository `https://github.com/camdencheek/tree-sitter-go-mod`
+2025-12-08T21:30:01.101Z     Updating git repository `https://github.com/zed-industries/tree-sitter-go-work`
+2025-12-08T21:30:01.223Z     Updating git repository `https://github.com/zed-industries/tree-sitter-yaml`
+2025-12-08T21:30:01.514Z     Updating git submodule `https://github.com/yaml/yaml-test-suite`
+2025-12-08T21:30:01.901Z     Updating git repository `https://github.com/zed-industries/dap-types`
+2025-12-08T21:30:02.130Z     Updating git repository `https://github.com/RustAudio/rodio`
+2025-12-08T21:30:02.748Z     Updating git repository `https://github.com/zed-industries/livekit-rust-sdks`
+2025-12-08T21:30:03.273Z     Updating git submodule `https://github.com/livekit/protocol`
+2025-12-08T21:30:03.785Z     Updating git submodule `https://github.com/zed-industries/libyuv`
+2025-12-08T21:30:05.526Z     Updating git repository `https://github.com/zed-industries/candle`
+2025-12-08T21:30:06.177Z     Updating git submodule `https://github.com/NVIDIA/cutlass.git`
+2025-12-08T21:30:08.384Z     Updating git repository `https://github.com/zed-industries/tiktoken-rs`
+2025-12-08T21:30:08.686Z     Updating git submodule `https://github.com/openai/tiktoken.git`
+2025-12-08T21:30:08.841Z     Updating git repository `https://github.com/KillTheMule/nvim-rs`
+2025-12-08T21:30:09.433Z     Updating git repository `https://github.com/zed-industries/gh-workflow`
+2025-12-08T21:30:11.369Z  Downloading crates ...
+2025-12-08T21:30:11.444Z   Downloaded ascii v1.1.0
+2025-12-08T21:30:11.450Z   Downloaded ash-window v0.13.0
+2025-12-08T21:30:11.452Z   Downloaded arrayref v0.3.9
+2025-12-08T21:30:11.459Z   Downloaded alloc-stdlib v0.2.2
+2025-12-08T21:30:11.462Z   Downloaded cfg_aliases v0.2.1
+2025-12-08T21:30:11.465Z   Downloaded arg_enum_proc_macro v0.3.4
+2025-12-08T21:30:11.467Z   Downloaded arrayvec v0.7.6
+2025-12-08T21:30:11.470Z   Downloaded anstyle-parse v0.2.7
+2025-12-08T21:30:11.473Z   Downloaded bytes-utils v0.1.4
+2025-12-08T21:30:11.476Z   Downloaded blade-macros v0.3.0
+2025-12-08T21:30:11.479Z   Downloaded constant_time_eq v0.1.5
+2025-12-08T21:30:11.482Z   Downloaded compression-core v0.4.29
+2025-12-08T21:30:11.485Z   Downloaded block-padding v0.3.3
+2025-12-08T21:30:11.488Z   Downloaded cranelift-entity v0.116.1
+2025-12-08T21:30:11.491Z   Downloaded crash-context v0.6.3
+2025-12-08T21:30:11.494Z   Downloaded data-url v0.3.2
+2025-12-08T21:30:11.498Z   Downloaded deranged v0.5.4
+2025-12-08T21:30:11.503Z   Downloaded derive_arbitrary v1.4.2
+2025-12-08T21:30:11.507Z   Downloaded dlib v0.5.2
+2025-12-08T21:30:11.511Z   Downloaded doxygen-rs v0.4.2
+2025-12-08T21:30:11.515Z   Downloaded extended v0.1.0
+2025-12-08T21:30:11.518Z   Downloaded futures-core v0.3.31
+2025-12-08T21:30:11.521Z   Downloaded errno v0.3.14
+2025-12-08T21:30:11.524Z   Downloaded event-listener-strategy v0.5.4
+2025-12-08T21:30:11.527Z   Downloaded float_next_after v1.0.0
+2025-12-08T21:30:11.530Z   Downloaded futures-util v0.3.31
+2025-12-08T21:30:11.538Z   Downloaded gemm-common v0.18.2
+2025-12-08T21:30:11.542Z   Downloaded imagesize v0.13.0
+2025-12-08T21:30:11.544Z   Downloaded jupyter-websocket-client v0.15.0
+2025-12-08T21:30:11.547Z   Downloaded imgref v1.12.0
+2025-12-08T21:30:11.549Z   Downloaded gemm-f64 v0.18.2
+2025-12-08T21:30:11.551Z   Downloaded gpu-alloc-ash v0.7.0
+2025-12-08T21:30:11.552Z   Downloaded heck v0.3.3
+2025-12-08T21:30:11.554Z   Downloaded idna_adapter v1.2.1
+2025-12-08T21:30:11.556Z   Downloaded ignore v0.4.24
+2025-12-08T21:30:11.559Z   Downloaded nu-ansi-term v0.50.3
+2025-12-08T21:30:11.561Z   Downloaded ipnet v2.11.0
+2025-12-08T21:30:11.563Z   Downloaded inout v0.1.4
+2025-12-08T21:30:11.565Z   Downloaded jobserver v0.1.34
+2025-12-08T21:30:11.569Z   Downloaded io-lifetimes v2.0.4
+2025-12-08T21:30:11.571Z   Downloaded lyon_algorithms v1.0.16
+2025-12-08T21:30:11.573Z   Downloaded inotify-sys v0.1.5
+2025-12-08T21:30:11.575Z   Downloaded json_dotpath v1.1.0
+2025-12-08T21:30:11.577Z   Downloaded pest_derive v2.8.3
+2025-12-08T21:30:11.579Z   Downloaded itertools v0.14.0
+2025-12-08T21:30:11.583Z   Downloaded exec v0.3.1
+2025-12-08T21:30:11.585Z   Downloaded num-complex v0.4.6
+2025-12-08T21:30:11.587Z   Downloaded num-iter v0.1.45
+2025-12-08T21:30:11.588Z   Downloaded num_threads v0.1.7
+2025-12-08T21:30:11.591Z   Downloaded paste v1.0.15
+2025-12-08T21:30:11.593Z   Downloaded parking_lot_core v0.9.12
+2025-12-08T21:30:11.595Z   Downloaded ordered-stream v0.2.0
+2025-12-08T21:30:11.597Z   Downloaded percent-encoding v2.3.2
+2025-12-08T21:30:11.598Z   Downloaded minimal-lexical v0.2.1
+2025-12-08T21:30:11.601Z   Downloaded pem v3.0.6
+2025-12-08T21:30:11.603Z   Downloaded outref v0.5.2
+2025-12-08T21:30:11.604Z   Downloaded pbkdf2 v0.11.0
+2025-12-08T21:30:11.606Z   Downloaded pbjson-build v0.6.2
+2025-12-08T21:30:11.608Z   Downloaded phf_macros v0.11.3
+2025-12-08T21:30:11.609Z   Downloaded pin-project-lite v0.2.16
+2025-12-08T21:30:11.612Z   Downloaded piper v0.2.4
+2025-12-08T21:30:11.614Z   Downloaded pin-utils v0.1.0
+2025-12-08T21:30:11.616Z   Downloaded phf_macros v0.12.1
+2025-12-08T21:30:11.617Z   Downloaded pest v2.8.3
+2025-12-08T21:30:11.621Z   Downloaded potential_utf v0.1.3
+2025-12-08T21:30:11.622Z   Downloaded powerfmt v0.2.0
+2025-12-08T21:30:11.624Z   Downloaded pkcs8 v0.10.2
+2025-12-08T21:30:11.626Z   Downloaded grid v0.18.0
+2025-12-08T21:30:11.628Z   Downloaded proc-macro-error-attr2 v2.0.0
+2025-12-08T21:30:11.630Z   Downloaded postcard v1.1.3
+2025-12-08T21:30:11.632Z   Downloaded plain v0.2.3
+2025-12-08T21:30:11.633Z   Downloaded prost v0.12.6
+2025-12-08T21:30:11.635Z   Downloaded proc-macro2 v1.0.101
+2025-12-08T21:30:11.637Z   Downloaded polling v3.11.0
+2025-12-08T21:30:11.640Z   Downloaded precomputed-hash v0.1.1
+2025-12-08T21:30:11.641Z   Downloaded pulley-interpreter v29.0.1
+2025-12-08T21:30:11.643Z   Downloaded profiling-procmacros v1.0.17
+2025-12-08T21:30:11.645Z   Downloaded icu_provider v2.0.0
+2025-12-08T21:30:11.647Z   Downloaded self_cell v1.2.0
+2025-12-08T21:30:11.648Z   Downloaded prost-derive v0.12.6
+2025-12-08T21:30:11.650Z   Downloaded scratch v1.0.9
+2025-12-08T21:30:11.651Z   Downloaded ref-cast v1.0.25
+2025-12-08T21:30:11.654Z   Downloaded rustc-hash v2.1.1
+2025-12-08T21:30:11.656Z   Downloaded serde_urlencoded v0.7.1
+2025-12-08T21:30:11.658Z   Downloaded runtimelib v0.30.0
+2025-12-08T21:30:11.660Z   Downloaded rust-embed-impl v8.7.2
+2025-12-08T21:30:11.661Z   Downloaded rand v0.9.2
+2025-12-08T21:30:11.664Z   Downloaded rtrb v0.3.2
+2025-12-08T21:30:11.665Z   Downloaded quinn v0.11.9
+2025-12-08T21:30:11.667Z   Downloaded rustix-linux-procfs v0.1.1
+2025-12-08T21:30:11.669Z   Downloaded smol_str v0.2.2
+2025-12-08T21:30:11.670Z   Downloaded rustversion v1.0.22
+2025-12-08T21:30:11.672Z   Downloaded scopeguard v1.2.0
+2025-12-08T21:30:11.674Z   Downloaded schemars_derive v1.0.4
+2025-12-08T21:30:11.676Z   Downloaded scoped-tls v1.0.1
+2025-12-08T21:30:11.677Z   Downloaded rustc_version v0.4.1
+2025-12-08T21:30:11.678Z   Downloaded same-file v1.0.6
+2025-12-08T21:30:11.680Z   Downloaded sval_ref v2.15.0
+2025-12-08T21:30:11.681Z   Downloaded jsonwebtoken v9.3.1
+2025-12-08T21:30:11.684Z   Downloaded seq-macro v0.3.6
+2025-12-08T21:30:11.686Z   Downloaded serde_spanned v0.6.9
+2025-12-08T21:30:11.688Z   Downloaded serde_derive v1.0.228
+2025-12-08T21:30:11.690Z   Downloaded symphonia-utils-xiph v0.5.5
+2025-12-08T21:30:11.691Z   Downloaded stacksafe-macro v0.1.4
+2025-12-08T21:30:11.693Z   Downloaded sha1 v0.10.6
+2025-12-08T21:30:11.694Z   Downloaded sharded-slab v0.1.7
+2025-12-08T21:30:11.696Z   Downloaded strum v0.27.2
+2025-12-08T21:30:11.698Z   Downloaded symphonia v0.5.5
+2025-12-08T21:30:11.699Z   Downloaded tagptr v0.2.0
+2025-12-08T21:30:11.700Z   Downloaded spin v0.9.8
+2025-12-08T21:30:11.702Z   Downloaded symphonia-codec-pcm v0.5.5
+2025-12-08T21:30:11.703Z   Downloaded strsim v0.11.1
+2025-12-08T21:30:11.704Z   Downloaded symphonia-codec-aac v0.5.5
+2025-12-08T21:30:11.705Z   Downloaded tinystr v0.8.1
+2025-12-08T21:30:11.707Z   Downloaded spki v0.7.3
+2025-12-08T21:30:11.708Z   Downloaded tower-service v0.3.3
+2025-12-08T21:30:11.709Z   Downloaded psm v0.1.27
+2025-12-08T21:30:11.711Z   Downloaded quick-error v2.0.1
+2025-12-08T21:30:11.712Z   Downloaded symphonia-format-riff v0.5.5
+2025-12-08T21:30:11.713Z   Downloaded thread_local v1.1.9
+2025-12-08T21:30:11.714Z   Downloaded system-interface v0.27.3
+2025-12-08T21:30:11.716Z   Downloaded time-core v0.1.6
+2025-12-08T21:30:11.718Z   Downloaded typeid v1.0.3
+2025-12-08T21:30:11.719Z   Downloaded tracing-core v0.1.35
+2025-12-08T21:30:11.721Z   Downloaded toml v0.8.23
+2025-12-08T21:30:11.722Z   Downloaded toml_datetime v0.7.3
+2025-12-08T21:30:11.724Z   Downloaded vsimd v0.8.0
+2025-12-08T21:30:11.726Z   Downloaded wasm-bindgen-macro-support v0.2.104
+2025-12-08T21:30:11.726Z   Downloaded toml_write v0.1.2
+2025-12-08T21:30:11.727Z   Downloaded rustls-platform-verifier v0.5.3
+2025-12-08T21:30:11.729Z   Downloaded try-lock v0.2.5
+2025-12-08T21:30:11.731Z   Downloaded tree-sitter-css v0.23.2
+2025-12-08T21:30:11.732Z   Downloaded wasmtime-math v29.0.1
+2025-12-08T21:30:11.732Z   Downloaded tree-sitter-html v0.23.2
+2025-12-08T21:30:11.733Z   Downloaded tokio-util v0.7.16
+2025-12-08T21:30:11.736Z   Downloaded tracing-log v0.2.0
+2025-12-08T21:30:11.737Z   Downloaded untrusted v0.7.1
+2025-12-08T21:30:11.738Z   Downloaded tree-sitter-json v0.24.8
+2025-12-08T21:30:11.739Z   Downloaded unicode-vo v0.1.0
+2025-12-08T21:30:11.739Z   Downloaded tower v0.5.2
+2025-12-08T21:30:11.743Z   Downloaded tree-sitter v0.25.10
+2025-12-08T21:30:11.746Z   Downloaded wasm-encoder v0.221.3
+2025-12-08T21:30:11.747Z   Downloaded value-bag-serde1 v1.11.1
+2025-12-08T21:30:11.748Z   Downloaded wasmtime-jit-icache-coherence v29.0.1
+2025-12-08T21:30:11.749Z   Downloaded wasmtime-component-util v29.0.1
+2025-12-08T21:30:11.749Z   Downloaded utf8parse v0.2.2
+2025-12-08T21:30:11.749Z   Downloaded wasm-bindgen v0.2.104
+2025-12-08T21:30:11.750Z   Downloaded uuid v1.18.1
+2025-12-08T21:30:11.752Z   Downloaded yoke-derive v0.8.0
+2025-12-08T21:30:11.752Z   Downloaded wayland-sys v0.31.7
+2025-12-08T21:30:11.753Z   Downloaded wasmtime-c-api-macros v29.0.1
+2025-12-08T21:30:11.754Z   Downloaded smallvec v1.15.1
+2025-12-08T21:30:11.755Z   Downloaded wasmtime-wit-bindgen v29.0.1
+2025-12-08T21:30:11.756Z   Downloaded wayland-protocols-plasma v0.2.0
+2025-12-08T21:30:11.758Z   Downloaded which v4.4.2
+2025-12-08T21:30:11.758Z   Downloaded wiggle-generate v29.0.1
+2025-12-08T21:30:11.759Z   Downloaded which v6.0.3
+2025-12-08T21:30:11.760Z   Downloaded web-time v1.1.0
+2025-12-08T21:30:11.761Z   Downloaded symphonia-codec-vorbis v0.5.5
+2025-12-08T21:30:11.761Z   Downloaded tree-sitter-bash v0.25.1
+2025-12-08T21:30:11.768Z   Downloaded zerofrom v0.1.6
+2025-12-08T21:30:11.769Z   Downloaded zvariant_utils v3.2.1
+2025-12-08T21:30:11.769Z   Downloaded zvariant_derive v5.8.0
+2025-12-08T21:30:11.770Z   Downloaded zstd-safe v5.0.2+zstd.1.5.2
+2025-12-08T21:30:11.771Z   Downloaded winch-codegen v29.0.1
+2025-12-08T21:30:11.773Z   Downloaded zerocopy-derive v0.8.27
+2025-12-08T21:30:11.775Z   Downloaded wasmtime-wasi v29.0.1
+2025-12-08T21:30:11.778Z   Downloaded webpki-roots v0.26.8
+2025-12-08T21:30:11.780Z   Downloaded winnow v0.7.13
+2025-12-08T21:30:11.783Z   Downloaded utf-8 v0.7.6
+2025-12-08T21:30:11.784Z   Downloaded libc v0.2.177
+2025-12-08T21:30:11.796Z   Downloaded yeslogic-fontconfig-sys v6.0.0
+2025-12-08T21:30:11.799Z   Downloaded wasm-bindgen-macro v0.2.104
+2025-12-08T21:30:11.799Z   Downloaded zeroize_derive v1.4.2
+2025-12-08T21:30:11.799Z   Downloaded serde_json_lenient v0.2.4
+2025-12-08T21:30:11.800Z   Downloaded zeroize v1.8.2
+2025-12-08T21:30:11.801Z   Downloaded zstd v0.11.2+zstd.1.5.2
+2025-12-08T21:30:11.802Z   Downloaded zune-inflate v0.2.54
+2025-12-08T21:30:11.803Z   Downloaded tracing v0.1.43
+2025-12-08T21:30:11.805Z   Downloaded witx v0.9.1
+2025-12-08T21:30:11.806Z   Downloaded zune-jpeg v0.4.21
+2025-12-08T21:30:11.807Z   Downloaded zeromq v0.5.0-pre
+2025-12-08T21:30:11.809Z   Downloaded wax v0.6.0
+2025-12-08T21:30:11.810Z   Downloaded zbus v5.12.0
+2025-12-08T21:30:11.814Z   Downloaded zvariant v5.8.0
+2025-12-08T21:30:11.816Z   Downloaded tree-sitter-go v0.23.4
+2025-12-08T21:30:11.817Z   Downloaded x11rb v0.13.2
+2025-12-08T21:30:11.820Z   Downloaded typenum v1.19.0
+2025-12-08T21:30:11.821Z   Downloaded zip v1.1.4
+2025-12-08T21:30:11.822Z   Downloaded zerotrie v0.2.2
+2025-12-08T21:30:11.824Z   Downloaded yawc v0.2.5
+2025-12-08T21:30:11.825Z   Downloaded zip v0.6.6
+2025-12-08T21:30:11.826Z   Downloaded zerovec v0.11.4
+2025-12-08T21:30:11.828Z   Downloaded regex-syntax v0.8.8
+2025-12-08T21:30:11.831Z   Downloaded xkeysym v0.2.1
+2025-12-08T21:30:11.832Z   Downloaded xcb v1.6.0
+2025-12-08T21:30:11.835Z   Downloaded wasmtime-c-api-impl v29.0.1
+2025-12-08T21:30:11.837Z   Downloaded yaml-rust2 v0.8.1
+2025-12-08T21:30:11.845Z   Downloaded ttf-parser v0.25.1
+2025-12-08T21:30:11.849Z   Downloaded tree-sitter-python v0.25.0
+2025-12-08T21:30:11.851Z   Downloaded smol v2.0.2
+2025-12-08T21:30:11.853Z   Downloaded naga v25.0.1
+2025-12-08T21:30:11.861Z   Downloaded zerocopy v0.8.27
+2025-12-08T21:30:11.867Z   Downloaded unicode-width v0.2.2
+2025-12-08T21:30:11.870Z   Downloaded wasmparser v0.221.3
+2025-12-08T21:30:11.873Z   Downloaded syn v1.0.109
+2025-12-08T21:30:11.876Z   Downloaded skrifa v0.37.0
+2025-12-08T21:30:11.880Z   Downloaded ttf-parser v0.21.1
+2025-12-08T21:30:11.883Z   Downloaded wit-parser v0.221.3
+2025-12-08T21:30:11.891Z   Downloaded usvg v0.45.1
+2025-12-08T21:30:11.893Z   Downloaded vte v0.15.0
+2025-12-08T21:30:11.893Z   Downloaded wayland-protocols v0.32.9
+2025-12-08T21:30:11.896Z   Downloaded tungstenite v0.26.2
+2025-12-08T21:30:11.897Z   Downloaded yazi v0.2.1
+2025-12-08T21:30:11.899Z   Downloaded xattr v0.2.3
+2025-12-08T21:30:11.899Z   Downloaded wiggle-macro v29.0.1
+2025-12-08T21:30:11.899Z   Downloaded x11rb-protocol v0.13.2
+2025-12-08T21:30:11.904Z   Downloaded wayland-scanner v0.31.7
+2025-12-08T21:30:11.905Z   Downloaded wayland-protocols-wlr v0.3.9
+2025-12-08T21:30:11.906Z   Downloaded wasmprinter v0.221.3
+2025-12-08T21:30:11.906Z   Downloaded wasm-bindgen-backend v0.2.104
+2025-12-08T21:30:11.907Z   Downloaded ucd-trie v0.1.7
+2025-12-08T21:30:11.907Z   Downloaded tinyvec v1.10.0
+2025-12-08T21:30:11.908Z   Downloaded yansi v1.0.1
+2025-12-08T21:30:11.909Z   Downloaded zstd-sys v2.0.16+zstd.1.5.7
+2025-12-08T21:30:11.916Z   Downloaded xcursor v0.3.10
+2025-12-08T21:30:11.916Z   Downloaded wasmtime-slab v29.0.1
+2025-12-08T21:30:11.917Z   Downloaded wasmtime-asm-macros v29.0.1
+2025-12-08T21:30:11.917Z   Downloaded wasmtime v29.0.1
+2025-12-08T21:30:11.925Z   Downloaded wasm-bindgen-shared v0.2.104
+2025-12-08T21:30:11.925Z   Downloaded unicode-xid v0.2.6
+2025-12-08T21:30:11.925Z   Downloaded tree-sitter-regex v0.24.3
+2025-12-08T21:30:11.926Z   Downloaded tree-sitter-diff v0.1.0
+2025-12-08T21:30:11.926Z   Downloaded tokio v1.48.0
+2025-12-08T21:30:11.939Z   Downloaded tiff v0.10.3
+2025-12-08T21:30:11.944Z   Downloaded libsqlite3-sys v0.30.1
+2025-12-08T21:30:11.977Z   Downloaded urlencoding v2.1.3
+2025-12-08T21:30:11.977Z   Downloaded rust-stemmers v1.2.0
+2025-12-08T21:30:11.994Z   Downloaded unindent v0.2.4
+2025-12-08T21:30:11.995Z   Downloaded symphonia-bundle-mp3 v0.5.5
+2025-12-08T21:30:11.996Z   Downloaded waker-fn v1.2.0
+2025-12-08T21:30:11.996Z   Downloaded wasmtime-component-macro v29.0.1
+2025-12-08T21:30:12.000Z   Downloaded vcpkg v0.2.15
+2025-12-08T21:30:12.013Z   Downloaded wasmtime-environ v29.0.1
+2025-12-08T21:30:12.015Z   Downloaded tower-layer v0.3.3
+2025-12-08T21:30:12.015Z   Downloaded toml_writer v1.0.4
+2025-12-08T21:30:12.016Z   Downloaded tokio-macros v2.6.0
+2025-12-08T21:30:12.016Z   Downloaded zerovec-derive v0.11.1
+2025-12-08T21:30:12.016Z   Downloaded zeno v0.3.3
+2025-12-08T21:30:12.017Z   Downloaded yoke-derive v0.7.5
+2025-12-08T21:30:12.017Z   Downloaded x11 v2.21.0
+2025-12-08T21:30:12.018Z   Downloaded wasmtime-cranelift v29.0.1
+2025-12-08T21:30:12.021Z   Downloaded zune-core v0.4.12
+2025-12-08T21:30:12.021Z   Downloaded zbus_names v4.2.0
+2025-12-08T21:30:12.021Z   Downloaded wiggle v29.0.1
+2025-12-08T21:30:12.022Z   Downloaded weezl v0.1.10
+2025-12-08T21:30:12.023Z   Downloaded wayland-protocols v0.31.2
+2025-12-08T21:30:12.026Z   Downloaded wayland-backend v0.3.11
+2025-12-08T21:30:12.027Z   Downloaded wast v35.0.2
+2025-12-08T21:30:12.029Z   Downloaded libgit2-sys v0.18.2+1.9.1
+2025-12-08T21:30:12.049Z   Downloaded time-macros v0.2.24
+2025-12-08T21:30:12.050Z   Downloaded thiserror v2.0.17
+2025-12-08T21:30:12.051Z   Downloaded symphonia-format-ogg v0.5.5
+2025-12-08T21:30:12.052Z   Downloaded zerofrom-derive v0.1.6
+2025-12-08T21:30:12.052Z   Downloaded zbus_macros v5.12.0
+2025-12-08T21:30:12.053Z   Downloaded yoke v0.8.0
+2025-12-08T21:30:12.053Z   Downloaded yoke v0.7.5
+2025-12-08T21:30:12.054Z   Downloaded xmlparser v0.13.6
+2025-12-08T21:30:12.055Z   Downloaded xml5ever v0.18.1
+2025-12-08T21:30:12.055Z   Downloaded xkbcommon v0.8.0
+2025-12-08T21:30:12.056Z   Downloaded x11-clipboard v0.9.3
+2025-12-08T21:30:12.057Z   Downloaded writeable v0.6.1
+2025-12-08T21:30:12.057Z   Downloaded wayland-cursor v0.31.11
+2025-12-08T21:30:12.057Z   Downloaded tree-sitter-rust v0.24.0
+2025-12-08T21:30:12.061Z   Downloaded sval_nested v2.15.0
+2025-12-08T21:30:12.062Z   Downloaded linux-raw-sys v0.4.15
+2025-12-08T21:30:12.080Z   Downloaded xmlwriter v0.1.0
+2025-12-08T21:30:12.080Z   Downloaded wayland-client v0.31.11
+2025-12-08T21:30:12.081Z   Downloaded tinyvec_macros v0.1.1
+2025-12-08T21:30:12.081Z   Downloaded tiny-keccak v2.0.2
+2025-12-08T21:30:12.082Z   Downloaded thiserror-impl v1.0.69
+2025-12-08T21:30:12.083Z   Downloaded symphonia-format-isomp4 v0.5.5
+2025-12-08T21:30:12.084Z   Downloaded symphonia-bundle-flac v0.5.5
+2025-12-08T21:30:12.084Z   Downloaded sval v2.15.0
+2025-12-08T21:30:12.085Z   Downloaded rustls-webpki v0.101.7
+2025-12-08T21:30:12.089Z   Downloaded wasmtime-winch v29.0.1
+2025-12-08T21:30:12.089Z   Downloaded wasmtime-versioned-export-macros v29.0.1
+2025-12-08T21:30:12.089Z   Downloaded unicode_categories v0.1.1
+2025-12-08T21:30:12.090Z   Downloaded unicode-segmentation v1.12.0
+2025-12-08T21:30:12.091Z   Downloaded synchronoise v1.0.1
+2025-12-08T21:30:12.092Z   Downloaded sval_serde v2.15.0
+2025-12-08T21:30:12.092Z   Downloaded sval_json v2.15.0
+2025-12-08T21:30:12.092Z   Downloaded subtle v2.6.1
+2025-12-08T21:30:12.093Z   Downloaded wasmtime-fiber v29.0.1
+2025-12-08T21:30:12.093Z   Downloaded url v2.5.7
+2025-12-08T21:30:12.094Z   Downloaded take-until v0.2.0
+2025-12-08T21:30:12.095Z   Downloaded sync_wrapper v1.0.2
+2025-12-08T21:30:12.095Z   Downloaded svg_fmt v0.4.5
+2025-12-08T21:30:12.095Z   Downloaded strict-num v0.1.1
+2025-12-08T21:30:12.095Z   Downloaded ttf-parser v0.20.0
+2025-12-08T21:30:12.099Z   Downloaded tracing-subscriber v0.3.22
+2025-12-08T21:30:12.101Z   Downloaded value-bag-sval2 v1.11.1
+2025-12-08T21:30:12.101Z   Downloaded v_frame v0.3.9
+2025-12-08T21:30:12.102Z   Downloaded linux-raw-sys v0.11.0
+2025-12-08T21:30:12.124Z   Downloaded tree-sitter-c v0.23.4
+2025-12-08T21:30:12.126Z   Downloaded string_cache v0.8.9
+2025-12-08T21:30:12.127Z   Downloaded static_assertions v1.1.0
+2025-12-08T21:30:12.127Z   Downloaded unicode-script v0.5.7
+2025-12-08T21:30:12.128Z   Downloaded unicode-linebreak v0.1.5
+2025-12-08T21:30:12.128Z   Downloaded unicode-ident v1.0.19
+2025-12-08T21:30:12.129Z   Downloaded unicode-general-category v1.1.0
+2025-12-08T21:30:12.130Z   Downloaded unicase v2.8.1
+2025-12-08T21:30:12.130Z   Downloaded ug v0.4.0
+2025-12-08T21:30:12.131Z   Downloaded serial2 v0.2.33
+2025-12-08T21:30:12.132Z   Downloaded want v0.3.1
+2025-12-08T21:30:12.132Z   Downloaded walkdir v2.5.0
+2025-12-08T21:30:12.133Z   Downloaded version_check v0.9.5
+2025-12-08T21:30:12.133Z   Downloaded value-bag v1.11.1
+2025-12-08T21:30:12.134Z   Downloaded uuid-simd v0.8.0
+2025-12-08T21:30:12.134Z   Downloaded utf8_iter v1.0.4
+2025-12-08T21:30:12.134Z   Downloaded untrusted v0.9.0
+2025-12-08T21:30:12.135Z   Downloaded unicode-properties v0.1.3
+2025-12-08T21:30:12.135Z   Downloaded unicode-bidi-mirroring v0.4.0
+2025-12-08T21:30:12.136Z   Downloaded trait-variant v0.1.2
+2025-12-08T21:30:12.136Z   Downloaded strength_reduce v0.2.4
+2025-12-08T21:30:12.136Z   Downloaded smart-default v0.7.1
+2025-12-08T21:30:12.137Z   Downloaded simd-adler32 v0.3.7
+2025-12-08T21:30:12.137Z   Downloaded signature v2.2.0
+2025-12-08T21:30:12.138Z   Downloaded simplecss v0.2.2
+2025-12-08T21:30:12.138Z   Downloaded simple_asn1 v0.6.3
+2025-12-08T21:30:12.139Z   Downloaded shlex v1.3.0
+2025-12-08T21:30:12.139Z   Downloaded unicode-ccc v0.2.0
+2025-12-08T21:30:12.139Z   Downloaded unicode-bidi v0.3.18
+2025-12-08T21:30:12.140Z   Downloaded uds v0.4.2
+2025-12-08T21:30:12.141Z   Downloaded toml_edit v0.22.27
+2025-12-08T21:30:12.142Z   Downloaded toml v0.9.8
+2025-12-08T21:30:12.143Z   Downloaded rav1e v0.7.1
+2025-12-08T21:30:12.157Z   Downloaded transpose v0.2.3
+2025-12-08T21:30:12.157Z   Downloaded unicode-ccc v0.4.0
+2025-12-08T21:30:12.158Z   Downloaded tree-sitter-language v0.1.5
+2025-12-08T21:30:12.158Z   Downloaded simd_helpers v0.1.0
+2025-12-08T21:30:12.158Z   Downloaded serde_spanned v1.0.3
+2025-12-08T21:30:12.158Z   Downloaded seahash v4.1.0
+2025-12-08T21:30:12.159Z   Downloaded tower-http v0.6.6
+2025-12-08T21:30:12.161Z   Downloaded toml_edit v0.23.7
+2025-12-08T21:30:12.162Z   Downloaded serde_derive_internals v0.29.1
+2025-12-08T21:30:12.163Z   Downloaded ring v0.17.14
+2025-12-08T21:30:12.178Z   Downloaded tracing-attributes v0.1.31
+2025-12-08T21:30:12.179Z   Downloaded sysinfo v0.31.4
+2025-12-08T21:30:12.182Z   Downloaded scroll v0.12.0
+2025-12-08T21:30:12.182Z   Downloaded reqwest v0.11.27
+2025-12-08T21:30:12.185Z   Downloaded toml_parser v1.0.4
+2025-12-08T21:30:12.185Z   Downloaded syn v2.0.106
+2025-12-08T21:30:12.189Z   Downloaded swash v0.2.6
+2025-12-08T21:30:12.192Z   Downloaded nix v0.30.1
+2025-12-08T21:30:12.196Z   Downloaded tree-sitter-jsdoc v0.23.2
+2025-12-08T21:30:12.196Z   Downloaded time v0.3.44
+2025-12-08T21:30:12.199Z   Downloaded nix v0.29.0
+2025-12-08T21:30:12.202Z   Downloaded nix v0.28.0
+2025-12-08T21:30:12.206Z   Downloaded unicode-bidi-mirroring v0.2.0
+2025-12-08T21:30:12.206Z   Downloaded toml_datetime v0.6.11
+2025-12-08T21:30:12.207Z   Downloaded tokio-rustls v0.26.2
+2025-12-08T21:30:12.207Z   Downloaded tiny_http v0.8.2
+2025-12-08T21:30:12.208Z   Downloaded tiny-skia v0.11.4
+2025-12-08T21:30:12.212Z   Downloaded safetensors v0.4.5
+2025-12-08T21:30:12.212Z   Downloaded tungstenite v0.27.0
+2025-12-08T21:30:12.213Z   Downloaded tokio-tungstenite v0.26.2
+2025-12-08T21:30:12.214Z   Downloaded tokio-socks v0.5.2
+2025-12-08T21:30:12.215Z   Downloaded taffy v0.9.0
+2025-12-08T21:30:12.217Z   Downloaded symphonia-metadata v0.5.5
+2025-12-08T21:30:12.217Z   Downloaded rustc-hash v1.1.0
+2025-12-08T21:30:12.218Z   Downloaded portable-atomic v1.11.1
+2025-12-08T21:30:12.220Z   Downloaded sysinfo v0.37.2
+2025-12-08T21:30:12.223Z   Downloaded rgb v0.8.52
+2025-12-08T21:30:12.224Z   Downloaded lyon_tessellation v1.0.16
+2025-12-08T21:30:12.226Z   Downloaded tokio-stream v0.1.17
+2025-12-08T21:30:12.227Z   Downloaded tokio-rustls v0.24.1
+2025-12-08T21:30:12.227Z   Downloaded thiserror v1.0.69
+2025-12-08T21:30:12.229Z   Downloaded tempfile v3.23.0
+2025-12-08T21:30:12.230Z   Downloaded target-lexicon v0.13.3
+2025-12-08T21:30:12.230Z   Downloaded stop-words v0.9.0
+2025-12-08T21:30:12.232Z   Downloaded pretty_assertions v1.4.1
+2025-12-08T21:30:12.232Z   Downloaded tiny-skia-path v0.11.4
+2025-12-08T21:30:12.233Z   Downloaded thiserror-impl v2.0.17
+2025-12-08T21:30:12.233Z   Downloaded terminal_size v0.4.3
+2025-12-08T21:30:12.234Z   Downloaded symphonia-core v0.5.5
+2025-12-08T21:30:12.235Z   Downloaded reborrow v0.5.5
+2025-12-08T21:30:12.235Z   Downloaded realfft v3.5.0
+2025-12-08T21:30:12.236Z   Downloaded nbformat v0.15.0
+2025-12-08T21:30:12.237Z   Downloaded termcolor v1.4.1
+2025-12-08T21:30:12.237Z   Downloaded tendril v0.4.3
+2025-12-08T21:30:12.238Z   Downloaded sync_wrapper v0.1.2
+2025-12-08T21:30:12.238Z   Downloaded strum_macros v0.27.2
+2025-12-08T21:30:12.239Z   Downloaded prettyplease v0.2.37
+2025-12-08T21:30:12.240Z   Downloaded synstructure v0.13.2
+2025-12-08T21:30:12.240Z   Downloaded nom v8.0.0
+2025-12-08T21:30:12.242Z   Downloaded lmdb-master-sys v0.2.5
+2025-12-08T21:30:12.244Z   Downloaded sval_fmt v2.15.0
+2025-12-08T21:30:12.244Z   Downloaded sval_dynamic v2.15.0
+2025-12-08T21:30:12.244Z   Downloaded strum v0.26.3
+2025-12-08T21:30:12.245Z   Downloaded primal-check v0.3.4
+2025-12-08T21:30:12.245Z   Downloaded nom v7.1.3
+2025-12-08T21:30:12.247Z   Downloaded libm v0.2.15
+2025-12-08T21:30:12.250Z   Downloaded string_cache_codegen v0.5.4
+2025-12-08T21:30:12.250Z   Downloaded spirv v0.3.0+sdk-1.3.268.0
+2025-12-08T21:30:12.251Z   Downloaded ppv-lite86 v0.2.21
+2025-12-08T21:30:12.251Z   Downloaded pest_generator v2.8.3
+2025-12-08T21:30:12.252Z   Downloaded oo7 v0.5.0
+2025-12-08T21:30:12.253Z   Downloaded num-format v0.4.4
+2025-12-08T21:30:12.254Z   Downloaded sys-locale v0.3.2
+2025-12-08T21:30:12.254Z   Downloaded sval_buffer v2.15.0
+2025-12-08T21:30:12.255Z   Downloaded sqlformat v0.2.6
+2025-12-08T21:30:12.255Z   Downloaded sptr v0.3.2
+2025-12-08T21:30:12.255Z   Downloaded rustls v0.23.33
+2025-12-08T21:30:12.260Z   Downloaded rust-embed v8.7.2
+2025-12-08T21:30:12.263Z   Downloaded phf_shared v0.11.3
+2025-12-08T21:30:12.264Z   Downloaded once_cell v1.21.3
+2025-12-08T21:30:12.264Z   Downloaded stacker v0.1.22
+2025-12-08T21:30:12.265Z   Downloaded rustls-webpki v0.103.7
+2025-12-08T21:30:12.266Z   Downloaded rustls v0.21.12
+2025-12-08T21:30:12.270Z   Downloaded streaming-iterator v0.1.9
+2025-12-08T21:30:12.270Z   Downloaded palette_derive v0.7.6
+2025-12-08T21:30:12.270Z   Downloaded openssl-probe v0.1.6
+2025-12-08T21:30:12.271Z   Downloaded open v5.3.2
+2025-12-08T21:30:12.271Z   Downloaded memchr v2.7.6
+2025-12-08T21:30:12.273Z   Downloaded strum_macros v0.26.4
+2025-12-08T21:30:12.273Z   Downloaded stable_deref_trait v1.2.1
+2025-12-08T21:30:12.274Z   Downloaded socket2 v0.6.1
+2025-12-08T21:30:12.274Z   Downloaded slab v0.4.11
+2025-12-08T21:30:12.275Z   Downloaded sha1_smol v1.0.1
+2025-12-08T21:30:12.275Z   Downloaded prost-build v0.9.0
+2025-12-08T21:30:12.334Z   Downloaded serde_core v1.0.228
+2025-12-08T21:30:12.335Z   Downloaded rustybuzz v0.14.1
+2025-12-08T21:30:12.338Z   Downloaded markup5ever_rcdom v0.3.0
+2025-12-08T21:30:12.339Z   Downloaded svgtypes v0.15.3
+2025-12-08T21:30:12.339Z   Downloaded stacksafe v0.1.4
+2025-12-08T21:30:12.340Z   Downloaded slotmap v1.0.7
+2025-12-08T21:30:12.340Z   Downloaded shell-words v1.1.0
+2025-12-08T21:30:12.341Z   Downloaded sha2 v0.10.9
+2025-12-08T21:30:12.342Z   Downloaded serde_path_to_error v0.1.20
+2025-12-08T21:30:12.342Z   Downloaded rustix v1.1.2
+2025-12-08T21:30:12.350Z   Downloaded signal-hook-registry v1.4.6
+2025-12-08T21:30:12.350Z   Downloaded rustfft v6.4.1
+2025-12-08T21:30:12.354Z   Downloaded num v0.4.3
+2025-12-08T21:30:12.354Z   Downloaded new_debug_unreachable v1.0.6
+2025-12-08T21:30:12.354Z   Downloaded nanorand v0.7.0
+2025-12-08T21:30:12.355Z   Downloaded multimap v0.10.1
+2025-12-08T21:30:12.355Z   Downloaded memfd v0.6.5
+2025-12-08T21:30:12.356Z   Downloaded md-5 v0.10.6
+2025-12-08T21:30:12.356Z   Downloaded markup5ever v0.12.1
+2025-12-08T21:30:12.357Z   Downloaded regex-automata v0.4.13
+2025-12-08T21:30:12.362Z   Downloaded multimap v0.8.3
+2025-12-08T21:30:12.363Z   Downloaded maybe-owned v0.3.4
+2025-12-08T21:30:12.363Z   Downloaded serde_json v1.0.145
+2025-12-08T21:30:12.365Z   Downloaded spin v0.10.0
+2025-12-08T21:30:12.367Z   Downloaded socket2 v0.5.10
+2025-12-08T21:30:12.367Z   Downloaded siphasher v1.0.1
+2025-12-08T21:30:12.367Z   Downloaded signal-hook v0.3.18
+2025-12-08T21:30:12.368Z   Downloaded shellexpand v3.1.1
+2025-12-08T21:30:12.369Z   Downloaded shellexpand v2.1.2
+2025-12-08T21:30:12.369Z   Downloaded serde v1.0.228
+2025-12-08T21:30:12.370Z   Downloaded rustybuzz v0.20.1
+2025-12-08T21:30:12.373Z   Downloaded pxfm v0.1.25
+2025-12-08T21:30:12.382Z   Downloaded nanoid v0.4.0
+2025-12-08T21:30:12.382Z   Downloaded kurbo v0.11.3
+2025-12-08T21:30:12.384Z   Downloaded serde_repr v0.1.20
+2025-12-08T21:30:12.385Z   Downloaded serde_fmt v1.0.3
+2025-12-08T21:30:12.385Z   Downloaded noop_proc_macro v0.3.0
+2025-12-08T21:30:12.385Z   Downloaded mac v0.1.1
+2025-12-08T21:30:12.385Z   Downloaded semver v1.0.27
+2025-12-08T21:30:12.386Z   Downloaded rustix v0.38.44
+2025-12-08T21:30:12.393Z   Downloaded read-fonts v0.35.0
+2025-12-08T21:30:12.398Z   Downloaded maybe-rayon v0.1.1
+2025-12-08T21:30:12.399Z   Downloaded schemars v1.0.4
+2025-12-08T21:30:12.403Z   Downloaded ryu v1.0.20
+2025-12-08T21:30:12.404Z   Downloaded rustls-pki-types v1.12.0
+2025-12-08T21:30:12.405Z   Downloaded rustls-native-certs v0.6.3
+2025-12-08T21:30:12.405Z   Downloaded regalloc2 v0.11.2
+2025-12-08T21:30:12.407Z   Downloaded raw-cpuid v11.6.0
+2025-12-08T21:30:12.408Z   Downloaded sct v0.7.1
+2025-12-08T21:30:12.409Z   Downloaded rustls-pemfile v1.0.4
+2025-12-08T21:30:12.410Z   Downloaded scroll_derive v0.12.1
+2025-12-08T21:30:12.410Z   Downloaded rustls-native-certs v0.8.2
+2025-12-08T21:30:12.411Z   Downloaded litemap v0.8.0
+2025-12-08T21:30:12.411Z   Downloaded linkify v0.10.0
+2025-12-08T21:30:12.412Z   Downloaded lazy_static v1.5.0
+2025-12-08T21:30:12.412Z   Downloaded regex-lite v0.1.8
+2025-12-08T21:30:12.413Z   Downloaded regex v1.12.2
+2025-12-08T21:30:12.416Z   Downloaded rayon v1.11.0
+2025-12-08T21:30:12.418Z   Downloaded kv-log-macro v1.0.7
+2025-12-08T21:30:12.419Z   Downloaded jupyter-protocol v0.10.0
+2025-12-08T21:30:12.419Z   Downloaded rustix-openpty v0.2.0
+2025-12-08T21:30:12.420Z   Downloaded reqwest v0.12.24
+2025-12-08T21:30:12.422Z   Downloaded referencing v0.37.4
+2025-12-08T21:30:12.423Z   Downloaded raw-cpuid v10.7.0
+2025-12-08T21:30:12.424Z   Downloaded rangemap v1.6.0
+2025-12-08T21:30:12.425Z   Downloaded lebe v0.5.3
+2025-12-08T21:30:12.425Z   Downloaded leb128 v0.2.5
+2025-12-08T21:30:12.425Z   Downloaded rustls-pemfile v2.2.0
+2025-12-08T21:30:12.426Z   Downloaded rust-embed-utils v8.7.2
+2025-12-08T21:30:12.426Z   Downloaded libloading v0.8.9
+2025-12-08T21:30:12.427Z   Downloaded imara-diff v0.1.8
+2025-12-08T21:30:12.428Z   Downloaded rustc-demangle v0.1.26
+2025-12-08T21:30:12.429Z   Downloaded ref-cast-impl v1.0.25
+2025-12-08T21:30:12.429Z   Downloaded resvg v0.45.1
+2025-12-08T21:30:12.430Z   Downloaded rand_chacha v0.9.0
+2025-12-08T21:30:12.431Z   Downloaded indexmap v2.11.4
+2025-12-08T21:30:12.432Z   Downloaded rsa v0.9.9
+2025-12-08T21:30:12.433Z   Downloaded is-terminal v0.4.16
+2025-12-08T21:30:12.434Z   Downloaded icu_properties_data v2.0.1
+2025-12-08T21:30:12.437Z   Downloaded is_terminal_polyfill v1.70.1
+2025-12-08T21:30:12.437Z   Downloaded image v0.25.8
+2025-12-08T21:30:12.440Z   Downloaded quinn-proto v0.11.13
+2025-12-08T21:30:12.443Z   Downloaded image-webp v0.2.4
+2025-12-08T21:30:12.443Z   Downloaded quick-xml v0.37.5
+2025-12-08T21:30:12.445Z   Downloaded quick-xml v0.30.0
+2025-12-08T21:30:12.447Z   Downloaded is_executable v1.0.5
+2025-12-08T21:30:12.448Z   Downloaded is-docker v0.2.0
+2025-12-08T21:30:12.448Z   Downloaded ravif v0.11.20
+2025-12-08T21:30:12.448Z   Downloaded quote v1.0.41
+2025-12-08T21:30:12.449Z   Downloaded is-wsl v0.4.0
+2025-12-08T21:30:12.449Z   Downloaded ident_case v1.0.1
+2025-12-08T21:30:12.449Z   Downloaded icu_collections v2.0.0
+2025-12-08T21:30:12.451Z   Downloaded iana-time-zone v0.1.64
+2025-12-08T21:30:12.452Z   Downloaded hashbrown v0.15.5
+2025-12-08T21:30:12.454Z   Downloaded rayon-core v1.13.0
+2025-12-08T21:30:12.455Z   Downloaded raw-window-handle v0.6.2
+2025-12-08T21:30:12.455Z   Downloaded rand_distr v0.5.1
+2025-12-08T21:30:12.456Z   Downloaded qoi v0.4.1
+2025-12-08T21:30:12.457Z   Downloaded postage v0.5.0
+2025-12-08T21:30:12.461Z   Downloaded idna v1.1.0
+2025-12-08T21:30:12.463Z   Downloaded icu_normalizer_data v2.0.0
+2025-12-08T21:30:12.463Z   Downloaded pulp v0.21.5
+2025-12-08T21:30:12.465Z   Downloaded pulldown-cmark v0.12.2
+2025-12-08T21:30:12.467Z   Downloaded hyper-rustls v0.27.7
+2025-12-08T21:30:12.467Z   Downloaded html5ever v0.27.0
+2025-12-08T21:30:12.468Z   Downloaded roxmltree v0.20.0
+2025-12-08T21:30:12.471Z   Downloaded range-map v0.2.0
+2025-12-08T21:30:12.472Z   Downloaded rand_core v0.9.3
+2025-12-08T21:30:12.472Z   Downloaded rand v0.8.5
+2025-12-08T21:30:12.473Z   Downloaded quinn-udp v0.5.14
+2025-12-08T21:30:12.474Z   Downloaded pulp v0.18.22
+2025-12-08T21:30:12.475Z   Downloaded prost-types v0.12.6
+2025-12-08T21:30:12.476Z   Downloaded prost-types v0.9.0
+2025-12-08T21:30:12.476Z   Downloaded http v0.2.12
+2025-12-08T21:30:12.477Z   Downloaded rand_core v0.6.4
+2025-12-08T21:30:12.478Z   Downloaded prost v0.9.0
+2025-12-08T21:30:12.478Z   Downloaded id-arena v2.2.1
+2025-12-08T21:30:12.479Z   Downloaded procfs-core v0.16.0
+2025-12-08T21:30:12.480Z   Downloaded icu_normalizer v2.0.0
+2025-12-08T21:30:12.481Z   Downloaded http-body v1.0.1
+2025-12-08T21:30:12.481Z   Downloaded rand_chacha v0.3.1
+2025-12-08T21:30:12.481Z   Downloaded http-body v0.4.6
+2025-12-08T21:30:12.482Z   Downloaded handlebars v4.5.0
+2025-12-08T21:30:12.484Z   Downloaded http-body-util v0.1.3
+2025-12-08T21:30:12.484Z   Downloaded hashbrown v0.16.1
+2025-12-08T21:30:12.486Z   Downloaded freetype-sys v0.20.1
+2025-12-08T21:30:12.525Z   Downloaded prost-derive v0.9.0
+2025-12-08T21:30:12.525Z   Downloaded prost-build v0.12.6
+2025-12-08T21:30:12.526Z   Downloaded profiling v1.0.17
+2025-12-08T21:30:12.526Z   Downloaded proc-macro-error2 v2.0.1
+2025-12-08T21:30:12.527Z   Downloaded proc-macro-crate v3.4.0
+2025-12-08T21:30:12.527Z   Downloaded phf_generator v0.11.3
+2025-12-08T21:30:12.528Z   Downloaded heed-types v0.21.0
+2025-12-08T21:30:12.528Z   Downloaded png v0.18.0
+2025-12-08T21:30:12.530Z   Downloaded http v1.3.1
+2025-12-08T21:30:12.531Z   Downloaded heed-traits v0.20.0
+2025-12-08T21:30:12.531Z   Downloaded h2 v0.3.27
+2025-12-08T21:30:12.533Z   Downloaded aws-lc-sys v0.32.3
+2025-12-08T21:30:12.624Z   Downloaded png v0.17.16
+2025-12-08T21:30:12.625Z   Downloaded hexf-parse v0.2.1
+2025-12-08T21:30:12.625Z   Downloaded portable-pty v0.9.0
+2025-12-08T21:30:12.626Z   Downloaded pori v0.0.0
+2025-12-08T21:30:12.626Z   Downloaded pollster v0.2.5
+2025-12-08T21:30:12.627Z   Downloaded pico-args v0.5.0
+2025-12-08T21:30:12.627Z   Downloaded hashbrown v0.14.5
+2025-12-08T21:30:12.629Z   Downloaded pem-rfc7468 v0.7.0
+2025-12-08T21:30:12.629Z   Downloaded half v2.7.1
+2025-12-08T21:30:12.630Z   Downloaded petgraph v0.6.5
+2025-12-08T21:30:12.637Z   Downloaded hidden-trait v0.1.2
+2025-12-08T21:30:12.637Z   Downloaded hex v0.4.3
+2025-12-08T21:30:12.638Z   Downloaded pin-project-internal v1.1.10
+2025-12-08T21:30:12.638Z   Downloaded pciid-parser v0.8.0
+2025-12-08T21:30:12.641Z   Downloaded pkcs1 v0.7.5
+2025-12-08T21:30:12.642Z   Downloaded phf_shared v0.12.1
+2025-12-08T21:30:12.642Z   Downloaded pest_meta v2.8.3
+2025-12-08T21:30:12.643Z   Downloaded jiff v0.2.15
+2025-12-08T21:30:12.649Z   Downloaded phf v0.12.1
+2025-12-08T21:30:12.649Z   Downloaded password-hash v0.4.2
+2025-12-08T21:30:12.650Z   Downloaded gpu-alloc-types v0.3.0
+2025-12-08T21:30:12.650Z   Downloaded fs_extra v1.3.0
+2025-12-08T21:30:12.650Z   Downloaded pkg-config v0.3.32
+2025-12-08T21:30:12.651Z   Downloaded object v0.37.3
+2025-12-08T21:30:12.655Z   Downloaded object v0.36.7
+2025-12-08T21:30:12.658Z   Downloaded moxcms v0.7.7
+2025-12-08T21:30:12.661Z   Downloaded moka v0.12.11
+2025-12-08T21:30:12.665Z   Downloaded pathfinder_simd v0.5.5
+2025-12-08T21:30:12.665Z   Downloaded palette v0.7.6
+2025-12-08T21:30:12.669Z   Downloaded num-bigint-dig v0.8.6
+2025-12-08T21:30:12.670Z   Downloaded pin-project v1.1.10
+2025-12-08T21:30:12.673Z   Downloaded phf_generator v0.12.1
+2025-12-08T21:30:12.674Z   Downloaded fs2 v0.4.3
+2025-12-08T21:30:12.674Z   Downloaded phf v0.11.3
+2025-12-08T21:30:12.674Z   Downloaded parking_lot v0.12.5
+2025-12-08T21:30:12.675Z   Downloaded phf_codegen v0.11.3
+2025-12-08T21:30:12.675Z   Downloaded pathdiff v0.2.3
+2025-12-08T21:30:12.676Z   Downloaded num-bigint v0.4.6
+2025-12-08T21:30:12.677Z   Downloaded minidump-common v0.21.2
+2025-12-08T21:30:12.678Z   Downloaded fs-set-times v0.20.3
+2025-12-08T21:30:12.678Z   Downloaded pbjson v0.6.0
+2025-12-08T21:30:12.679Z   Downloaded partial-json-fixer v0.5.3
+2025-12-08T21:30:12.679Z   Downloaded option-ext v0.2.0
+2025-12-08T21:30:12.679Z   Downloaded libz-sys v1.1.22
+2025-12-08T21:30:12.687Z   Downloaded futures-channel v0.3.31
+2025-12-08T21:30:12.688Z   Downloaded futures v0.3.31
+2025-12-08T21:30:12.689Z   Downloaded mio v1.1.0
+2025-12-08T21:30:12.691Z   Downloaded num-rational v0.4.2
+2025-12-08T21:30:12.691Z   Downloaded miniz_oxide v0.8.9
+2025-12-08T21:30:12.692Z   Downloaded minidumper v0.8.3
+2025-12-08T21:30:12.693Z   Downloaded futures-executor v0.3.31
+2025-12-08T21:30:12.693Z   Downloaded exr v1.73.0
+2025-12-08T21:30:12.696Z   Downloaded pbjson-types v0.6.0
+2025-12-08T21:30:12.697Z   Downloaded pathfinder_geometry v0.5.1
+2025-12-08T21:30:12.697Z   Downloaded parse_int v0.9.0
+2025-12-08T21:30:12.698Z   Downloaded parking v2.2.1
+2025-12-08T21:30:12.698Z   Downloaded page_size v0.6.0
+2025-12-08T21:30:12.698Z   Downloaded pbkdf2 v0.12.2
+2025-12-08T21:30:12.698Z   Downloaded ordered-float v2.10.1
+2025-12-08T21:30:12.699Z   Downloaded optfield v0.4.0
+2025-12-08T21:30:12.699Z   Downloaded num-traits v0.2.19
+2025-12-08T21:30:12.700Z   Downloaded num-derive v0.4.2
+2025-12-08T21:30:12.701Z   Downloaded num-integer v0.1.46
+2025-12-08T21:30:12.701Z   Downloaded mint v0.5.9
+2025-12-08T21:30:12.701Z   Downloaded mime_guess v2.0.5
+2025-12-08T21:30:12.702Z   Downloaded lyon_geom v1.0.17
+2025-12-08T21:30:12.703Z   Downloaded num_enum_derive v0.7.4
+2025-12-08T21:30:12.703Z   Downloaded num_enum v0.7.4
+2025-12-08T21:30:12.704Z   Downloaded num-cmp v0.1.0
+2025-12-08T21:30:12.705Z   Downloaded lyon v1.0.16
+2025-12-08T21:30:12.705Z   Downloaded lru-slab v0.1.2
+2025-12-08T21:30:12.705Z   Downloaded equator v0.4.2
+2025-12-08T21:30:12.705Z   Downloaded num_cpus v1.17.0
+2025-12-08T21:30:12.706Z   Downloaded num-conv v0.1.0
+2025-12-08T21:30:12.706Z   Downloaded minidump-writer v0.8.9
+2025-12-08T21:30:12.708Z   Downloaded jsonschema v0.37.4
+2025-12-08T21:30:12.711Z   Downloaded find-msvc-tools v0.1.4
+2025-12-08T21:30:12.711Z   Downloaded mime v0.3.17
+2025-12-08T21:30:12.712Z   Downloaded memmap2 v0.9.8
+2025-12-08T21:30:12.712Z   Downloaded lyon_path v1.0.16
+2025-12-08T21:30:12.713Z   Downloaded loop9 v0.1.5
+2025-12-08T21:30:12.713Z   Downloaded log v0.4.28
+2025-12-08T21:30:12.714Z   Downloaded lock_api v0.4.14
+2025-12-08T21:30:12.714Z   Downloaded itertools v0.12.1
+2025-12-08T21:30:12.716Z   Downloaded ipc-channel v0.19.0
+2025-12-08T21:30:12.718Z   Downloaded errno v0.2.8
+2025-12-08T21:30:12.718Z   Downloaded equator-macro v0.4.2
+2025-12-08T21:30:12.719Z   Downloaded memoffset v0.9.1
+2025-12-08T21:30:12.719Z   Downloaded itoa v1.0.15
+2025-12-08T21:30:12.719Z   Downloaded itertools v0.10.5
+2025-12-08T21:30:12.721Z   Downloaded inotify v0.11.0
+2025-12-08T21:30:12.722Z   Downloaded erased-serde v0.4.8
+2025-12-08T21:30:12.722Z   Downloaded itertools v0.11.0
+2025-12-08T21:30:12.724Z   Downloaded iri-string v0.7.8
+2025-12-08T21:30:12.726Z   Downloaded equivalent v1.0.2
+2025-12-08T21:30:12.727Z   Downloaded hyper v0.14.32
+2025-12-08T21:30:12.729Z   Downloaded httpdate v1.0.3
+2025-12-08T21:30:12.729Z   Downloaded link-cplusplus v1.0.12
+2025-12-08T21:30:12.730Z   Downloaded hyper v1.7.0
+2025-12-08T21:30:12.732Z   Downloaded hkdf v0.12.4
+2025-12-08T21:30:12.733Z   Downloaded gimli v0.31.1
+2025-12-08T21:30:12.735Z   Downloaded io-extras v0.18.4
+2025-12-08T21:30:12.736Z   Downloaded inventory v0.3.21
+2025-12-08T21:30:12.737Z   Downloaded httparse v1.10.1
+2025-12-08T21:30:12.737Z   Downloaded gimli v0.32.3
+2025-12-08T21:30:12.740Z   Downloaded dtor v0.0.6
+2025-12-08T21:30:12.740Z   Downloaded human_bytes v0.4.3
+2025-12-08T21:30:12.741Z   Downloaded heed v0.21.0
+2025-12-08T21:30:12.742Z   Downloaded indoc v2.0.6
+2025-12-08T21:30:12.742Z   Downloaded hound v3.5.1
+2025-12-08T21:30:12.743Z   Downloaded goblin v0.8.2
+2025-12-08T21:30:12.745Z   Downloaded git2 v0.20.2
+2025-12-08T21:30:12.748Z   Downloaded humantime v2.3.0
+2025-12-08T21:30:12.748Z   Downloaded hmac v0.12.1
+2025-12-08T21:30:12.749Z   Downloaded gemm-f32 v0.18.2
+2025-12-08T21:30:12.749Z   Downloaded heck v0.5.0
+2025-12-08T21:30:12.749Z   Downloaded hashlink v0.8.4
+2025-12-08T21:30:12.750Z   Downloaded gemm-c32 v0.18.2
+2025-12-08T21:30:12.750Z   Downloaded futures-task v0.3.31
+2025-12-08T21:30:12.751Z   Downloaded dotenvy v0.15.7
+2025-12-08T21:30:12.751Z   Downloaded home v0.5.11
+2025-12-08T21:30:12.752Z   Downloaded gemm-f16 v0.17.1
+2025-12-08T21:30:12.752Z   Downloaded flate2 v1.1.4
+2025-12-08T21:30:12.753Z   Downloaded fastrand v2.3.0
+2025-12-08T21:30:12.754Z   Downloaded glob v0.3.3
+2025-12-08T21:30:12.754Z   Downloaded gemm-f16 v0.18.2
+2025-12-08T21:30:12.754Z   Downloaded gemm-common v0.17.1
+2025-12-08T21:30:12.755Z   Downloaded gemm-c32 v0.17.1
+2025-12-08T21:30:12.755Z   Downloaded gemm v0.18.2
+2025-12-08T21:30:12.755Z   Downloaded gemm-f32 v0.17.1
+2025-12-08T21:30:12.756Z   Downloaded fontdb v0.23.0
+2025-12-08T21:30:12.757Z   Downloaded fontdb v0.16.2
+2025-12-08T21:30:12.757Z   Downloaded flume v0.11.1
+2025-12-08T21:30:12.759Z   Downloaded fluent-uri v0.4.1
+2025-12-08T21:30:12.759Z   Downloaded fancy-regex v0.16.2
+2025-12-08T21:30:12.761Z   Downloaded dirs v5.0.1
+2025-12-08T21:30:12.761Z   Downloaded icu_locale_core v2.0.0
+2025-12-08T21:30:12.763Z   Downloaded hyper-util v0.1.17
+2025-12-08T21:30:12.765Z   Downloaded heck v0.4.1
+2025-12-08T21:30:12.765Z   Downloaded gpu-alloc v0.6.0
+2025-12-08T21:30:12.765Z   Downloaded globset v0.4.17
+2025-12-08T21:30:12.766Z   Downloaded gif v0.13.3
+2025-12-08T21:30:12.766Z   Downloaded gemm-c64 v0.17.1
+2025-12-08T21:30:12.766Z   Downloaded futures-lite v1.13.0
+2025-12-08T21:30:12.767Z   Downloaded form_urlencoded v1.2.2
+2025-12-08T21:30:12.767Z   Downloaded fork v0.4.0
+2025-12-08T21:30:12.768Z   Downloaded float8 v0.4.2
+2025-12-08T21:30:12.768Z   Downloaded encoding_rs v0.8.35
+2025-12-08T21:30:12.777Z   Downloaded cosmic-text v0.14.2
+2025-12-08T21:30:12.787Z   Downloaded getrandom v0.3.4
+2025-12-08T21:30:12.788Z   Downloaded getrandom v0.2.16
+2025-12-08T21:30:12.789Z   Downloaded gethostname v1.1.0
+2025-12-08T21:30:12.789Z   Downloaded gemm v0.17.1
+2025-12-08T21:30:12.790Z   Downloaded foldhash v0.1.5
+2025-12-08T21:30:12.790Z   Downloaded fnv v1.0.7
+2025-12-08T21:30:12.790Z   Downloaded icu_properties v2.0.1
+2025-12-08T21:30:12.791Z   Downloaded hyper-rustls v0.24.2
+2025-12-08T21:30:12.792Z   Downloaded h2 v0.4.12
+2025-12-08T21:30:12.794Z   Downloaded generic-array v0.14.7
+2025-12-08T21:30:12.794Z   Downloaded gemm-f64 v0.17.1
+2025-12-08T21:30:12.794Z   Downloaded gemm-c64 v0.18.2
+2025-12-08T21:30:12.795Z   Downloaded fxhash v0.2.1
+2025-12-08T21:30:12.795Z   Downloaded futures-macro v0.3.31
+2025-12-08T21:30:12.795Z   Downloaded futures-lite v2.6.1
+2025-12-08T21:30:12.796Z   Downloaded futures-io v0.3.31
+2025-12-08T21:30:12.796Z   Downloaded fraction v0.15.3
+2025-12-08T21:30:12.798Z   Downloaded fontconfig-parser v0.5.8
+2025-12-08T21:30:12.799Z   Downloaded font-types v0.10.0
+2025-12-08T21:30:12.799Z   Downloaded float-cmp v0.9.0
+2025-12-08T21:30:12.800Z   Downloaded fixedbitset v0.4.2
+2025-12-08T21:30:12.800Z   Downloaded euclid v0.22.11
+2025-12-08T21:30:12.801Z   Downloaded cxxbridge-macro v1.0.187
+2025-12-08T21:30:12.802Z   Downloaded cxx-build v1.0.187
+2025-12-08T21:30:12.804Z   Downloaded cursor-icon v1.2.0
+2025-12-08T21:30:12.804Z   Downloaded crossbeam-utils v0.8.21
+2025-12-08T21:30:12.805Z   Downloaded crossbeam v0.8.4
+2025-12-08T21:30:12.805Z   Downloaded crash-handler v0.6.3
+2025-12-08T21:30:12.806Z   Downloaded cranelift-codegen-meta v0.116.1
+2025-12-08T21:30:12.807Z   Downloaded cranelift-codegen v0.116.1
+2025-12-08T21:30:12.817Z   Downloaded codespan-reporting v0.13.0
+2025-12-08T21:30:12.819Z   Downloaded clap_builder v4.5.49
+2025-12-08T21:30:12.822Z   Downloaded ciborium v0.2.2
+2025-12-08T21:30:12.822Z   Downloaded foldhash v0.2.0
+2025-12-08T21:30:12.822Z   Downloaded filedescriptor v0.8.3
+2025-12-08T21:30:12.823Z   Downloaded fax_derive v0.2.0
+2025-12-08T21:30:12.823Z   Downloaded fax v0.2.6
+2025-12-08T21:30:12.823Z   Downloaded fastrand v1.9.0
+2025-12-08T21:30:12.824Z   Downloaded etagere v0.2.15
+2025-12-08T21:30:12.824Z   Downloaded emojis v0.6.4
+2025-12-08T21:30:12.825Z   Downloaded cxx v1.0.187
+2025-12-08T21:30:12.830Z   Downloaded ctor v0.4.3
+2025-12-08T21:30:12.831Z   Downloaded crunchy v0.2.4
+2025-12-08T21:30:12.831Z   Downloaded crossbeam-epoch v0.9.18
+2025-12-08T21:30:12.832Z   Downloaded cranelift-native v0.116.1
+2025-12-08T21:30:12.833Z   Downloaded colorchoice v1.0.4
+2025-12-08T21:30:12.833Z   Downloaded codespan-reporting v0.12.0
+2025-12-08T21:30:12.834Z   Downloaded cipher v0.4.4
+2025-12-08T21:30:12.835Z   Downloaded ciborium-io v0.2.2
+2025-12-08T21:30:12.835Z   Downloaded futures-sink v0.3.31
+2025-12-08T21:30:12.835Z   Downloaded fallible-iterator v0.3.0
+2025-12-08T21:30:12.835Z   Downloaded crypto-common v0.1.6
+2025-12-08T21:30:12.836Z   Downloaded crossbeam-queue v0.3.12
+2025-12-08T21:30:12.836Z   Downloaded crc32fast v1.5.0
+2025-12-08T21:30:12.837Z   Downloaded const_format v0.2.35
+2025-12-08T21:30:12.838Z   Downloaded color_quant v1.1.0
+2025-12-08T21:30:12.838Z   Downloaded float-ord v0.3.2
+2025-12-08T21:30:12.838Z   Downloaded filetime v0.2.26
+2025-12-08T21:30:12.839Z   Downloaded fdeflate v0.3.7
+2025-12-08T21:30:12.839Z   Downloaded fast-srgb8 v1.0.0
+2025-12-08T21:30:12.840Z   Downloaded event-listener v2.5.3
+2025-12-08T21:30:12.840Z   Downloaded env_logger v0.11.8
+2025-12-08T21:30:12.841Z   Downloaded embedded-io v0.4.0
+2025-12-08T21:30:12.841Z   Downloaded dunce v1.0.5
+2025-12-08T21:30:12.841Z   Downloaded darling_macro v0.20.11
+2025-12-08T21:30:12.842Z   Downloaded darling_core v0.20.11
+2025-12-08T21:30:12.843Z   Downloaded cxxbridge-flags v1.0.187
+2025-12-08T21:30:12.843Z   Downloaded ctor-proc-macro v0.0.6
+2025-12-08T21:30:12.843Z   Downloaded crossbeam-deque v0.8.6
+2025-12-08T21:30:12.844Z   Downloaded cranelift-bforest v0.116.1
+2025-12-08T21:30:12.844Z   Downloaded cpp_demangle v0.4.5
+2025-12-08T21:30:12.845Z   Downloaded cpal v0.16.0
+2025-12-08T21:30:12.847Z   Downloaded cobs v0.3.0
+2025-12-08T21:30:12.847Z   Downloaded cmake v0.1.54
+2025-12-08T21:30:12.848Z   Downloaded circular-buffer v1.2.0
+2025-12-08T21:30:12.848Z   Downloaded cap-primitives v3.4.4
+2025-12-08T21:30:12.851Z   Downloaded event-listener v5.4.1
+2025-12-08T21:30:12.852Z   Downloaded env_filter v0.1.4
+2025-12-08T21:30:12.852Z   Downloaded enumflags2_derive v0.7.12
+2025-12-08T21:30:12.852Z   Downloaded enumflags2 v0.7.12
+2025-12-08T21:30:12.853Z   Downloaded embedded-io v0.6.1
+2025-12-08T21:30:12.853Z   Downloaded email_address v0.2.9
+2025-12-08T21:30:12.853Z   Downloaded dyn-stack v0.10.0
+2025-12-08T21:30:12.854Z   Downloaded dyn-clone v1.0.20
+2025-12-08T21:30:12.854Z   Downloaded dasp_sample v0.11.0
+2025-12-08T21:30:12.854Z   Downloaded cranelift-control v0.116.1
+2025-12-08T21:30:12.855Z   Downloaded core_maths v0.1.1
+2025-12-08T21:30:12.855Z   Downloaded concurrent-queue v2.5.0
+2025-12-08T21:30:12.857Z   Downloaded compression-codecs v0.4.31
+2025-12-08T21:30:12.858Z   Downloaded blade-graphics v0.7.0
+2025-12-08T21:30:12.867Z   Downloaded env_logger v0.10.2
+2025-12-08T21:30:12.868Z   Downloaded dashmap v5.5.3
+2025-12-08T21:30:12.868Z   Downloaded cranelift-bitset v0.116.1
+2025-12-08T21:30:12.869Z   Downloaded convert_case v0.8.0
+2025-12-08T21:30:12.869Z   Downloaded const-random v0.1.18
+2025-12-08T21:30:12.869Z   Downloaded clap_derive v4.5.49
+2025-12-08T21:30:12.870Z   Downloaded brotli v8.0.2
+2025-12-08T21:30:12.876Z   Downloaded futf v0.1.5
+2025-12-08T21:30:12.877Z   Downloaded endi v1.1.0
+2025-12-08T21:30:12.877Z   Downloaded either v1.15.0
+2025-12-08T21:30:12.877Z   Downloaded ec4rs v1.2.0
+2025-12-08T21:30:12.878Z   Downloaded dyn-stack-macros v0.1.3
+2025-12-08T21:30:12.878Z   Downloaded dyn-stack v0.13.2
+2025-12-08T21:30:12.878Z   Downloaded dtor-proc-macro v0.0.5
+2025-12-08T21:30:12.879Z   Downloaded darling v0.20.11
+2025-12-08T21:30:12.880Z   Downloaded cranelift-frontend v0.116.1
+2025-12-08T21:30:12.880Z   Downloaded cranelift-codegen-shared v0.116.1
+2025-12-08T21:30:12.881Z   Downloaded const-random-macro v0.1.16
+2025-12-08T21:30:12.881Z   Downloaded command-fds v0.3.2
+2025-12-08T21:30:12.881Z   Downloaded ciborium-ll v0.2.2
+2025-12-08T21:30:12.882Z   Downloaded chunked_transfer v1.5.0
+2025-12-08T21:30:12.882Z   Downloaded calloop-wayland-source v0.4.1
+2025-12-08T21:30:12.882Z   Downloaded cached v0.56.0
+2025-12-08T21:30:12.883Z   Downloaded byteorder-lite v0.1.0
+2025-12-08T21:30:12.884Z   Downloaded built v0.7.7
+2025-12-08T21:30:12.884Z   Downloaded bstr v1.12.0
+2025-12-08T21:30:12.887Z   Downloaded downcast-rs v1.2.1
+2025-12-08T21:30:12.888Z   Downloaded deunicode v1.6.2
+2025-12-08T21:30:12.889Z   Downloaded derive_more-impl v2.0.1
+2025-12-08T21:30:12.890Z   Downloaded derive_more v2.0.1
+2025-12-08T21:30:12.893Z   Downloaded const-oid v0.9.6
+2025-12-08T21:30:12.894Z   Downloaded chrono v0.4.42
+2025-12-08T21:30:12.896Z   Downloaded bzip2-sys v0.1.13+1.0.8
+2025-12-08T21:30:12.901Z   Downloaded bytes v1.10.1
+2025-12-08T21:30:12.902Z   Downloaded bytemuck v1.24.0
+2025-12-08T21:30:12.903Z   Downloaded documented-macros v0.9.2
+2025-12-08T21:30:12.903Z   Downloaded documented v0.9.2
+2025-12-08T21:30:12.903Z   Downloaded der v0.7.10
+2025-12-08T21:30:12.905Z   Downloaded cap-time-ext v3.4.4
+2025-12-08T21:30:12.905Z   Downloaded cap-fs-ext v3.4.4
+2025-12-08T21:30:12.906Z   Downloaded by_address v1.2.1
+2025-12-08T21:30:12.906Z   Downloaded bumpalo v3.19.0
+2025-12-08T21:30:12.907Z   Downloaded ash v0.38.0+1.3.281
+2025-12-08T21:30:12.912Z   Downloaded alacritty_terminal v0.25.1-rc1
+2025-12-08T21:30:12.943Z   Downloaded displaydoc v0.2.5
+2025-12-08T21:30:12.944Z   Downloaded dirs-sys v0.5.0
+2025-12-08T21:30:12.945Z   Downloaded dirs-sys v0.4.1
+2025-12-08T21:30:12.945Z   Downloaded dirs-sys v0.3.7
+2025-12-08T21:30:12.945Z   Downloaded dirs v6.0.0
+2025-12-08T21:30:12.946Z   Downloaded dirs v4.0.0
+2025-12-08T21:30:12.946Z   Downloaded digest v0.10.7
+2025-12-08T21:30:12.946Z   Downloaded diffy v0.4.2
+2025-12-08T21:30:12.947Z   Downloaded diff v0.1.13
+2025-12-08T21:30:12.948Z   Downloaded derive_more v0.99.20
+2025-12-08T21:30:12.949Z   Downloaded cfg_aliases v0.1.1
+2025-12-08T21:30:12.949Z   Downloaded cfg-if v1.0.4
+2025-12-08T21:30:12.950Z   Downloaded cap-std v3.4.4
+2025-12-08T21:30:12.951Z   Downloaded cached_proc_macro_types v0.1.1
+2025-12-08T21:30:12.951Z   Downloaded bzip2 v0.4.4
+2025-12-08T21:30:12.951Z   Downloaded byteorder v1.5.0
+2025-12-08T21:30:12.952Z   Downloaded brotli-decompressor v5.0.0
+2025-12-08T21:30:12.954Z   Downloaded borrow-or-share v0.2.4
+2025-12-08T21:30:12.954Z   Downloaded bm25 v2.3.2
+2025-12-08T21:30:12.955Z   Downloaded base64 v0.22.1
+2025-12-08T21:30:12.956Z   Downloaded aws-smithy-runtime v1.9.3
+2025-12-08T21:30:12.958Z   Downloaded aws-sdk-sts v1.88.0
+2025-12-08T21:30:12.961Z   Downloaded aws-sdk-bedrockruntime v1.109.0
+2025-12-08T21:30:12.968Z   Downloaded aws-lc-rs v1.14.1
+2025-12-08T21:30:12.971Z   Downloaded aws-config v1.8.8
+2025-12-08T21:30:12.973Z   Downloaded async-std v1.13.2
+2025-12-08T21:30:12.979Z   Downloaded ashpd v0.12.0
+2025-12-08T21:30:12.981Z   Downloaded bitstream-io v2.6.0
+2025-12-08T21:30:12.982Z   Downloaded base64 v0.21.7
+2025-12-08T21:30:12.983Z   Downloaded backtrace v0.3.76
+2025-12-08T21:30:12.985Z   Downloaded aws-smithy-xml v0.60.11
+2025-12-08T21:30:12.985Z   Downloaded aws-smithy-types v1.3.3
+2025-12-08T21:30:12.986Z   Downloaded aws-smithy-runtime-api v1.9.1
+2025-12-08T21:30:12.988Z   Downloaded aws-smithy-http-client v1.1.3
+2025-12-08T21:30:12.989Z   Downloaded aws-sigv4 v1.3.5
+2025-12-08T21:30:13.000Z   Downloaded aws-sdk-ssooidc v1.88.0
+2025-12-08T21:30:13.002Z   Downloaded aws-sdk-sso v1.86.0
+2025-12-08T21:30:13.004Z   Downloaded aws-runtime v1.5.12
+2025-12-08T21:30:13.005Z   Downloaded async-compression v0.4.32
+2025-12-08T21:30:13.007Z   Downloaded ashpd v0.11.0
+2025-12-08T21:30:13.009Z   Downloaded aho-corasick v1.1.3
+2025-12-08T21:30:13.011Z   Downloaded aes v0.8.4
+2025-12-08T21:30:13.012Z   Downloaded deflate64 v0.1.10
+2025-12-08T21:30:13.012Z   Downloaded debugid v0.8.0
+2025-12-08T21:30:13.013Z   Downloaded data-encoding v2.9.0
+2025-12-08T21:30:13.014Z   Downloaded crossbeam-channel v0.5.15
+2025-12-08T21:30:13.015Z   Downloaded cranelift-isle v0.116.1
+2025-12-08T21:30:13.016Z   Downloaded cap-rand v3.4.4
+2025-12-08T21:30:13.016Z   Downloaded cap-net-ext v3.4.4
+2025-12-08T21:30:13.017Z   Downloaded cached_proc_macro v0.25.0
+2025-12-08T21:30:13.017Z   Downloaded bytemuck_derive v1.10.2
+2025-12-08T21:30:13.017Z   Downloaded blocking v1.6.2
+2025-12-08T21:30:13.018Z   Downloaded bitflags v2.9.4
+2025-12-08T21:30:13.019Z   Downloaded bincode v1.3.3
+2025-12-08T21:30:13.019Z   Downloaded aws-smithy-eventstream v0.60.12
+2025-12-08T21:30:13.020Z   Downloaded atomic-waker v1.1.2
+2025-12-08T21:30:13.020Z   Downloaded async_zip v0.0.18
+2025-12-08T21:30:13.022Z   Downloaded async-trait v0.1.89
+2025-12-08T21:30:13.023Z   Downloaded async-task v4.7.1
+2025-12-08T21:30:13.024Z   Downloaded async-tar v0.5.1
+2025-12-08T21:30:13.025Z   Downloaded async-process v2.5.0
+2025-12-08T21:30:13.025Z   Downloaded async-net v2.0.0
+2025-12-08T21:30:13.026Z   Downloaded async-lock v2.8.0
+2025-12-08T21:30:13.026Z   Downloaded async-io v2.6.0
+2025-12-08T21:30:13.027Z   Downloaded async-fs v2.2.0
+2025-12-08T21:30:13.028Z   Downloaded async-channel v1.9.0
+2025-12-08T21:30:13.028Z   Downloaded ahash v0.8.12
+2025-12-08T21:30:13.029Z   Downloaded agent-client-protocol-schema v0.10.0
+2025-12-08T21:30:13.029Z   Downloaded clap v4.5.49
+2025-12-08T21:30:13.032Z   Downloaded block-buffer v0.10.4
+2025-12-08T21:30:13.032Z   Downloaded blade-util v0.3.0
+2025-12-08T21:30:13.032Z   Downloaded bitflags v1.3.2
+2025-12-08T21:30:13.033Z   Downloaded base64ct v1.8.0
+2025-12-08T21:30:13.034Z   Downloaded aws-smithy-json v0.61.6
+2025-12-08T21:30:13.034Z   Downloaded aws-smithy-async v1.2.6
+2025-12-08T21:30:13.035Z   Downloaded aws-credential-types v1.2.8
+2025-12-08T21:30:13.035Z   Downloaded av1-grain v0.2.4
+2025-12-08T21:30:13.036Z   Downloaded async-tungstenite v0.31.0
+2025-12-08T21:30:13.037Z   Downloaded cc v1.2.41
+2025-12-08T21:30:13.038Z   Downloaded bytecount v0.6.9
+2025-12-08T21:30:13.038Z   Downloaded bit_field v0.10.3
+2025-12-08T21:30:13.039Z   Downloaded aws-types v1.3.9
+2025-12-08T21:30:13.039Z   Downloaded avif-serialize v0.8.6
+2025-12-08T21:30:13.039Z   Downloaded async-lock v3.4.1
+2025-12-08T21:30:13.040Z   Downloaded async-executor v1.13.3
+2025-12-08T21:30:13.041Z   Downloaded allocator-api2 v0.2.21
+2025-12-08T21:30:13.042Z   Downloaded cpufeatures v0.2.17
+2025-12-08T21:30:13.042Z   Downloaded convert_case v0.4.0
+2025-12-08T21:30:13.042Z   Downloaded const_format_proc_macros v0.2.34
+2025-12-08T21:30:13.043Z   Downloaded clap_lex v0.7.6
+2025-12-08T21:30:13.043Z   Downloaded bit-set v0.8.0
+2025-12-08T21:30:13.043Z   Downloaded base64-simd v0.8.0
+2025-12-08T21:30:13.044Z   Downloaded aws-smithy-query v0.60.8
+2025-12-08T21:30:13.044Z   Downloaded aws-smithy-http v0.62.4
+2025-12-08T21:30:13.045Z   Downloaded autocfg v1.5.0
+2025-12-08T21:30:13.045Z   Downloaded asynchronous-codec v0.7.0
+2025-12-08T21:30:13.046Z   Downloaded async-global-executor v2.4.1
+2025-12-08T21:30:13.046Z   Downloaded async-channel v2.5.0
+2025-12-08T21:30:13.047Z   Downloaded async-attributes v1.1.2
+2025-12-08T21:30:13.047Z   Downloaded alloc-no-stdlib v2.0.4
+2025-12-08T21:30:13.047Z   Downloaded addr2line v0.25.1
+2025-12-08T21:30:13.048Z   Downloaded bit-vec v0.8.0
+2025-12-08T21:30:13.048Z   Downloaded aws-smithy-observability v0.1.4
+2025-12-08T21:30:13.049Z   Downloaded atomic v0.5.3
+2025-12-08T21:30:13.049Z   Downloaded async-signal v0.2.13
+2025-12-08T21:30:13.049Z   Downloaded async-recursion v1.1.1
+2025-12-08T21:30:13.050Z   Downloaded async-broadcast v0.7.2
+2025-12-08T21:30:13.051Z   Downloaded arbitrary v1.4.2
+2025-12-08T21:30:13.052Z   Downloaded cbc v0.1.2
+2025-12-08T21:30:13.052Z   Downloaded async-dispatcher v0.1.2
+2025-12-08T21:30:13.053Z   Downloaded any_vec v0.14.0
+2025-12-08T21:30:13.054Z   Downloaded as-raw-xcb-connection v1.0.1
+2025-12-08T21:30:13.054Z   Downloaded arraydeque v0.5.1
+2025-12-08T21:30:13.054Z   Downloaded approx v0.5.1
+2025-12-08T21:30:13.055Z   Downloaded anstyle-query v1.1.4
+2025-12-08T21:30:13.055Z   Downloaded anstream v0.6.21
+2025-12-08T21:30:13.056Z   Downloaded alsa-sys v0.3.1
+2025-12-08T21:30:13.056Z   Downloaded anyhow v1.0.100
+2025-12-08T21:30:13.057Z   Downloaded agent-client-protocol v0.9.0
+2025-12-08T21:30:13.058Z   Downloaded adler2 v2.0.1
+2025-12-08T21:30:13.058Z   Downloaded anstyle v1.0.13
+2025-12-08T21:30:13.059Z   Downloaded alsa v0.9.1
+2025-12-08T21:30:13.059Z   Downloaded aligned-vec v0.6.4
+2025-12-08T21:30:13.060Z   Downloaded ambient-authority v0.0.2
+2025-12-08T21:30:13.545Z    Compiling quote v1.0.41
+2025-12-08T21:30:13.545Z    Compiling proc-macro2 v1.0.101
+2025-12-08T21:30:14.014Z    Compiling unicode-ident v1.0.19
+2025-12-08T21:30:14.054Z    Compiling libc v0.2.177
+2025-12-08T21:30:14.163Z    Compiling serde_core v1.0.228
+2025-12-08T21:30:14.232Z    Compiling serde v1.0.228
+2025-12-08T21:30:14.395Z    Compiling syn v2.0.106
+2025-12-08T21:30:16.022Z    Compiling cfg-if v1.0.4
+2025-12-08T21:30:16.446Z    Compiling serde_derive v1.0.228
+2025-12-08T21:30:16.628Z    Compiling typeid v1.0.3
+2025-12-08T21:30:16.687Z    Compiling erased-serde v0.4.8
+2025-12-08T21:30:16.746Z    Compiling shlex v1.3.0
+2025-12-08T21:30:16.811Z    Compiling jobserver v0.1.34
+2025-12-08T21:30:16.932Z    Compiling find-msvc-tools v0.1.4
+2025-12-08T21:30:17.000Z    Compiling cc v1.2.41
+2025-12-08T21:30:17.855Z    Compiling serde_fmt v1.0.3
+2025-12-08T21:30:17.904Z    Compiling value-bag-serde1 v1.11.1
+2025-12-08T21:30:17.921Z    Compiling value-bag v1.11.1
+2025-12-08T21:30:17.924Z    Compiling memchr v2.7.6
+2025-12-08T21:30:18.212Z    Compiling log v0.4.28
+2025-12-08T21:30:18.292Z    Compiling autocfg v1.5.0
+2025-12-08T21:30:18.412Z    Compiling bitflags v2.9.4
+2025-12-08T21:30:18.419Z    Compiling once_cell v1.21.3
+2025-12-08T21:30:18.496Z    Compiling version_check v0.9.5
+2025-12-08T21:30:18.560Z    Compiling libm v0.2.15
+2025-12-08T21:30:18.598Z    Compiling scopeguard v1.2.0
+2025-12-08T21:30:18.624Z    Compiling lock_api v0.4.14
+2025-12-08T21:30:18.659Z    Compiling smallvec v1.15.1
+2025-12-08T21:30:18.758Z    Compiling allocator-api2 v0.2.21
+2025-12-08T21:30:18.947Z    Compiling equivalent v1.0.2
+2025-12-08T21:30:18.967Z    Compiling pin-project-lite v0.2.16
+2025-12-08T21:30:18.986Z    Compiling foldhash v0.2.0
+2025-12-08T21:30:19.047Z    Compiling itoa v1.0.15
+2025-12-08T21:30:19.084Z    Compiling hashbrown v0.16.1
+2025-12-08T21:30:19.389Z    Compiling indexmap v2.11.4
+2025-12-08T21:30:19.752Z    Compiling getrandom v0.3.4
+2025-12-08T21:30:19.831Z    Compiling num-traits v0.2.19
+2025-12-08T21:30:19.973Z    Compiling typenum v1.19.0
+2025-12-08T21:30:20.177Z    Compiling getrandom v0.2.16
+2025-12-08T21:30:20.260Z    Compiling generic-array v0.14.7
+2025-12-08T21:30:20.300Z    Compiling futures-core v0.3.31
+2025-12-08T21:30:20.342Z    Compiling serde_json v1.0.145
+2025-12-08T21:30:20.391Z    Compiling ryu v1.0.20
+2025-12-08T21:30:20.468Z    Compiling rustix v1.1.2
+2025-12-08T21:30:20.591Z    Compiling linux-raw-sys v0.11.0
+2025-12-08T21:30:20.615Z    Compiling zerocopy v0.8.27
+2025-12-08T21:30:20.721Z    Compiling crossbeam-utils v0.8.21
+2025-12-08T21:30:20.793Z    Compiling zerocopy-derive v0.8.27
+2025-12-08T21:30:21.483Z    Compiling anyhow v1.0.100
+2025-12-08T21:30:21.563Z    Compiling futures-io v0.3.31
+2025-12-08T21:30:21.617Z    Compiling rand_core v0.6.4
+2025-12-08T21:30:21.700Z    Compiling slab v0.4.11
+2025-12-08T21:30:21.978Z    Compiling parking_lot_core v0.9.12
+2025-12-08T21:30:22.795Z    Compiling futures-macro v0.3.31
+2025-12-08T21:30:23.049Z    Compiling subtle v2.6.1
+2025-12-08T21:30:23.326Z    Compiling signal-hook-registry v1.4.6
+2025-12-08T21:30:23.737Z    Compiling bytes v1.10.1
+2025-12-08T21:30:23.829Z    Compiling futures-sink v0.3.31
+2025-12-08T21:30:23.956Z    Compiling const-oid v0.9.6
+2025-12-08T21:30:24.032Z    Compiling either v1.15.0
+2025-12-08T21:30:24.044Z    Compiling crypto-common v0.1.6
+2025-12-08T21:30:24.099Z    Compiling pin-utils v0.1.0
+2025-12-08T21:30:24.117Z    Compiling parking_lot v0.12.5
+2025-12-08T21:30:24.591Z    Compiling block-buffer v0.10.4
+2025-12-08T21:30:24.633Z    Compiling digest v0.10.7
+2025-12-08T21:30:24.712Z    Compiling synstructure v0.13.2
+2025-12-08T21:30:24.906Z    Compiling futures-channel v0.3.31
+2025-12-08T21:30:24.981Z    Compiling crc32fast v1.5.0
+2025-12-08T21:30:25.042Z    Compiling bytemuck_derive v1.10.2
+2025-12-08T21:30:25.360Z    Compiling futures-task v0.3.31
+2025-12-08T21:30:25.408Z    Compiling pkg-config v0.3.32
+2025-12-08T21:30:25.450Z    Compiling bytemuck v1.24.0
+2025-12-08T21:30:25.549Z    Compiling futures-util v0.3.31
+2025-12-08T21:30:25.591Z    Compiling zerofrom-derive v0.1.6
+2025-12-08T21:30:26.015Z    Compiling heck v0.5.0
+2025-12-08T21:30:26.088Z    Compiling cpufeatures v0.2.17
+2025-12-08T21:30:26.430Z    Compiling thiserror v2.0.17
+2025-12-08T21:30:26.652Z    Compiling tracing-core v0.1.35
+2025-12-08T21:30:26.944Z    Compiling thiserror-impl v2.0.17
+2025-12-08T21:30:26.973Z    Compiling tracing-attributes v0.1.31
+2025-12-08T21:30:27.384Z    Compiling yoke-derive v0.8.0
+2025-12-08T21:30:27.400Z    Compiling tracing v0.1.43
+2025-12-08T21:30:27.531Z    Compiling mio v1.1.0
+2025-12-08T21:30:27.713Z    Compiling displaydoc v0.2.5
+2025-12-08T21:30:27.745Z    Compiling sha2 v0.10.9
+2025-12-08T21:30:27.910Z    Compiling aho-corasick v1.1.3
+2025-12-08T21:30:28.083Z    Compiling tokio-macros v2.6.0
+2025-12-08T21:30:28.281Z    Compiling socket2 v0.6.1
+2025-12-08T21:30:28.534Z    Compiling regex-syntax v0.8.8
+2025-12-08T21:30:29.541Z    Compiling regex-automata v0.4.13
+2025-12-08T21:30:30.749Z    Compiling tokio v1.48.0
+2025-12-08T21:30:34.590Z    Compiling zerovec-derive v0.11.1
+2025-12-08T21:30:34.958Z    Compiling zeroize_derive v1.4.2
+2025-12-08T21:30:35.123Z    Compiling stable_deref_trait v1.2.1
+2025-12-08T21:30:35.145Z    Compiling zeroize v1.8.2
+2025-12-08T21:30:35.199Z    Compiling ppv-lite86 v0.2.21
+2025-12-08T21:30:35.319Z    Compiling spin v0.9.8
+2025-12-08T21:30:35.387Z    Compiling fnv v1.0.7
+2025-12-08T21:30:35.410Z    Compiling lazy_static v1.5.0
+2025-12-08T21:30:35.550Z    Compiling thiserror v1.0.69
+2025-12-08T21:30:35.615Z    Compiling atomic-waker v1.1.2
+2025-12-08T21:30:35.670Z    Compiling thiserror-impl v1.0.69
+2025-12-08T21:30:35.709Z    Compiling fastrand v2.3.0
+2025-12-08T21:30:36.000Z    Compiling regex v1.12.2
+2025-12-08T21:30:36.143Z    Compiling zerofrom v0.1.6
+2025-12-08T21:30:36.179Z    Compiling httparse v1.10.1
+2025-12-08T21:30:36.279Z    Compiling http v1.3.1
+2025-12-08T21:30:36.374Z    Compiling crossbeam-epoch v0.9.18
+2025-12-08T21:30:36.903Z    Compiling num-integer v0.1.46
+2025-12-08T21:30:37.060Z    Compiling icu_normalizer_data v2.0.0
+2025-12-08T21:30:37.175Z    Compiling icu_properties_data v2.0.1
+2025-12-08T21:30:37.217Z    Compiling cfg_aliases v0.2.1
+2025-12-08T21:30:37.312Z    Compiling parking v2.2.1
+2025-12-08T21:30:37.355Z    Compiling crossbeam-deque v0.8.6
+2025-12-08T21:30:37.429Z    Compiling ring v0.17.14
+2025-12-08T21:30:37.582Z    Compiling percent-encoding v2.3.2
+2025-12-08T21:30:39.176Z    Compiling rand_core v0.9.3
+2025-12-08T21:30:39.252Z    Compiling dunce v1.0.5
+2025-12-08T21:30:39.272Z    Compiling rand_chacha v0.9.0
+2025-12-08T21:30:39.624Z    Compiling tokio-util v0.7.16
+2025-12-08T21:30:39.927Z    Compiling concurrent-queue v2.5.0
+2025-12-08T21:30:40.006Z    Compiling async-io v2.6.0
+2025-12-08T21:30:40.242Z    Compiling rand v0.9.2
+2025-12-08T21:30:40.525Z    Compiling encoding_rs v0.8.35
+2025-12-08T21:30:41.915Z    Compiling untrusted v0.9.0
+2025-12-08T21:30:41.946Z    Compiling yoke v0.8.0
+2025-12-08T21:30:42.011Z    Compiling arrayvec v0.7.6
+2025-12-08T21:30:42.098Z    Compiling cmake v0.1.54
+2025-12-08T21:30:42.225Z    Compiling fs_extra v1.3.0
+2025-12-08T21:30:42.313Z    Compiling rayon-core v1.13.0
+2025-12-08T21:30:42.355Z    Compiling aws-lc-sys v0.32.3
+2025-12-08T21:31:02.603Z    Compiling zerovec v0.11.4
+2025-12-08T21:31:03.088Z    Compiling event-listener v5.4.1
+2025-12-08T21:31:03.177Z    Compiling form_urlencoded v1.2.2
+2025-12-08T21:31:03.246Z    Compiling http-body v1.0.1
+2025-12-08T21:31:03.284Z    Compiling aws-lc-rs v1.14.1
+2025-12-08T21:31:03.374Z    Compiling event-listener-strategy v0.5.4
+2025-12-08T21:31:03.407Z    Compiling rayon v1.11.0
+2025-12-08T21:31:04.417Z    Compiling futures-lite v2.6.1
+2025-12-08T21:31:04.762Z    Compiling rustls-pki-types v1.12.0
+2025-12-08T21:31:05.108Z    Compiling polling v3.11.0
+2025-12-08T21:31:05.220Z    Compiling termcolor v1.4.1
+2025-12-08T21:31:05.582Z    Compiling tinystr v0.8.1
+2025-12-08T21:31:05.645Z    Compiling litemap v0.8.0
+2025-12-08T21:31:05.730Z    Compiling crunchy v0.2.4
+2025-12-08T21:31:05.788Z    Compiling untrusted v0.7.1
+2025-12-08T21:31:05.838Z    Compiling writeable v0.6.1
+2025-12-08T21:31:05.966Z    Compiling icu_locale_core v2.0.0
+2025-12-08T21:31:06.784Z    Compiling potential_utf v0.1.3
+2025-12-08T21:31:06.834Z    Compiling zerotrie v0.2.2
+2025-12-08T21:31:06.977Z    Compiling ipnet v2.11.0
+2025-12-08T21:31:07.327Z    Compiling async-task v4.7.1
+2025-12-08T21:31:07.400Z    Compiling tiny-keccak v2.0.2
+2025-12-08T21:31:07.445Z    Compiling icu_provider v2.0.0
+2025-12-08T21:31:07.589Z    Compiling icu_collections v2.0.0
+2025-12-08T21:31:07.853Z    Compiling base64 v0.22.1
+2025-12-08T21:31:08.009Z    Compiling rustls v0.23.33
+2025-12-08T21:31:08.047Z    Compiling semver v1.0.27
+2025-12-08T21:31:08.196Z    Compiling ref-cast v1.0.25
+2025-12-08T21:31:08.499Z    Compiling async-channel v2.5.0
+2025-12-08T21:31:08.572Z    Compiling http-body-util v0.1.3
+2025-12-08T21:31:08.692Z    Compiling simd-adler32 v0.3.7
+2025-12-08T21:31:09.337Z    Compiling const-random-macro v0.1.16
+2025-12-08T21:31:09.425Z    Compiling icu_properties v2.0.1
+2025-12-08T21:31:09.938Z    Compiling icu_normalizer v2.0.0
+2025-12-08T21:31:10.334Z    Compiling piper v0.2.4
+2025-12-08T21:31:10.406Z    Compiling ahash v0.8.12
+2025-12-08T21:31:10.452Z    Compiling ref-cast-impl v1.0.25
+2025-12-08T21:31:10.591Z    Compiling bitflags v1.3.2
+2025-12-08T21:31:10.609Z    Compiling paste v1.0.15
+2025-12-08T21:31:10.669Z    Compiling tower-service v0.3.3
+2025-12-08T21:31:10.690Z    Compiling try-lock v0.2.5
+2025-12-08T21:31:10.715Z    Compiling want v0.3.1
+2025-12-08T21:31:10.795Z    Compiling blocking v1.6.2
+2025-12-08T21:31:10.950Z    Compiling idna_adapter v1.2.1
+2025-12-08T21:31:10.984Z    Compiling const-random v0.1.18
+2025-12-08T21:31:11.005Z    Compiling async-lock v3.4.1
+2025-12-08T21:31:11.258Z    Compiling rand_distr v0.5.1
+2025-12-08T21:31:11.491Z    Compiling utf8_iter v1.0.4
+2025-12-08T21:31:11.535Z    Compiling adler2 v2.0.1
+2025-12-08T21:31:11.574Z    Compiling syn v1.0.109
+2025-12-08T21:31:11.658Z    Compiling miniz_oxide v0.8.9
+2025-12-08T21:31:12.124Z    Compiling idna v1.1.0
+2025-12-08T21:31:12.782Z    Compiling half v2.7.1
+2025-12-08T21:31:13.234Z    Compiling futures-executor v0.3.31
+2025-12-08T21:31:13.506Z    Compiling futures v0.3.31
+2025-12-08T21:31:13.526Z    Compiling url v2.5.7
+2025-12-08T21:31:15.837Z    Compiling async-signal v0.2.13
+2025-12-08T21:31:15.933Z    Compiling async-executor v1.13.3
+2025-12-08T21:31:16.109Z    Compiling openssl-probe v0.1.6
+2025-12-08T21:31:16.208Z    Compiling rustc-hash v2.1.1
+2025-12-08T21:31:16.236Z    Compiling async-process v2.5.0
+2025-12-08T21:31:16.972Z    Compiling flate2 v1.1.4
+2025-12-08T21:31:17.160Z    Compiling num-complex v0.4.6
+2025-12-08T21:31:17.346Z    Compiling serde_derive_internals v0.29.1
+2025-12-08T21:31:17.648Z    Compiling sha1_smol v1.0.1
+2025-12-08T21:31:17.725Z    Compiling uuid v1.18.1
+2025-12-08T21:31:17.923Z    Compiling schemars_derive v1.0.4
+2025-12-08T21:31:18.458Z    Compiling memoffset v0.9.1
+2025-12-08T21:31:18.500Z    Compiling pin-project-internal v1.1.10
+2025-12-08T21:31:18.848Z    Compiling rustix v0.38.44
+2025-12-08T21:31:18.995Z    Compiling h2 v0.4.12
+2025-12-08T21:31:21.879Z    Compiling bstr v1.12.0
+2025-12-08T21:31:22.046Z    Compiling same-file v1.0.6
+2025-12-08T21:31:22.150Z    Compiling linux-raw-sys v0.4.15
+2025-12-08T21:31:24.331Z    Compiling walkdir v2.5.0
+2025-12-08T21:31:24.420Z    Compiling globset v0.4.17
+2025-12-08T21:31:24.641Z    Compiling hyper v1.7.0
+2025-12-08T21:31:25.727Z    Compiling hashbrown v0.14.5
+2025-12-08T21:31:26.014Z    Compiling libloading v0.8.9
+2025-12-08T21:31:26.776Z    Compiling hyper-util v0.1.17
+2025-12-08T21:31:27.742Z    Compiling rust-embed-utils v8.7.2
+2025-12-08T21:31:27.802Z    Compiling async-fs v2.2.0
+2025-12-08T21:31:28.068Z    Compiling async-net v2.0.0
+2025-12-08T21:31:28.408Z    Compiling nix v0.29.0
+2025-12-08T21:31:28.501Z    Compiling nix v0.30.1
+2025-12-08T21:31:28.597Z    Compiling sync_wrapper v1.0.2
+2025-12-08T21:31:28.624Z    Compiling foldhash v0.1.5
+2025-12-08T21:31:28.680Z    Compiling tower-layer v0.3.3
+2025-12-08T21:31:28.758Z    Compiling serde_json_lenient v0.2.4
+2025-12-08T21:31:28.798Z    Compiling tower v0.5.2
+2025-12-08T21:31:29.015Z    Compiling hashbrown v0.15.5
+2025-12-08T21:31:29.306Z    Compiling rust-embed-impl v8.7.2
+2025-12-08T21:31:29.501Z    Compiling rustls-native-certs v0.8.2
+2025-12-08T21:31:30.219Z    Compiling dyn-clone v1.0.20
+2025-12-08T21:31:30.255Z    Compiling schemars v1.0.4
+2025-12-08T21:31:32.538Z    Compiling winnow v0.7.13
+2025-12-08T21:31:33.986Z    Compiling pin-project v1.1.10
+2025-12-08T21:31:34.006Z    Compiling fastrand v1.9.0
+2025-12-08T21:31:34.088Z    Compiling waker-fn v1.2.0
+2025-12-08T21:31:34.114Z    Compiling unicase v2.8.1
+2025-12-08T21:31:34.183Z    Compiling futures-lite v1.13.0
+2025-12-08T21:31:34.484Z    Compiling toml_parser v1.0.4
+2025-12-08T21:31:34.712Z    Compiling smol v2.0.2
+2025-12-08T21:31:35.136Z    Compiling tempfile v3.23.0
+2025-12-08T21:31:35.406Z    Compiling async-trait v0.1.89
+2025-12-08T21:31:35.681Z    Compiling deflate64 v0.1.10
+2025-12-08T21:31:35.833Z    Compiling toml_datetime v0.7.3
+2025-12-08T21:31:35.907Z    Compiling compression-core v0.4.29
+2025-12-08T21:31:35.940Z    Compiling compression-codecs v0.4.31
+2025-12-08T21:31:36.026Z    Compiling toml_edit v0.23.7
+2025-12-08T21:31:36.571Z    Compiling num-bigint v0.4.6
+2025-12-08T21:31:37.573Z    Compiling dirs-sys v0.3.7
+2025-12-08T21:31:37.780Z    Compiling home v0.5.11
+2025-12-08T21:31:37.817Z    Compiling dirs v4.0.0
+2025-12-08T21:31:37.854Z    Compiling rust-embed v8.7.2
+2025-12-08T21:31:37.880Z    Compiling proc-macro-crate v3.4.0
+2025-12-08T21:31:38.033Z    Compiling async-compression v0.4.32
+2025-12-08T21:31:38.163Z    Compiling collections v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/collections)
+2025-12-08T21:31:38.180Z    Compiling rustversion v1.0.22
+2025-12-08T21:31:39.416Z    Compiling async_zip v0.0.18
+2025-12-08T21:31:39.767Z    Compiling which v6.0.3
+2025-12-08T21:31:39.930Z    Compiling command-fds v0.3.2
+2025-12-08T21:31:40.043Z    Compiling itertools v0.14.0
+2025-12-08T21:31:40.792Z    Compiling take-until v0.2.0
+2025-12-08T21:31:40.918Z    Compiling util v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/util)
+2025-12-08T21:31:42.436Z    Compiling rustls-webpki v0.103.7
+2025-12-08T21:31:43.756Z    Compiling rustc_version v0.4.1
+2025-12-08T21:31:43.845Z    Compiling serde_urlencoded v0.7.1
+2025-12-08T21:31:44.127Z    Compiling siphasher v1.0.1
+2025-12-08T21:31:44.400Z    Compiling time-core v0.1.6
+2025-12-08T21:31:44.445Z    Compiling num-conv v0.1.0
+2025-12-08T21:31:44.487Z    Compiling hex v0.4.3
+2025-12-08T21:31:44.579Z    Compiling num-rational v0.4.2
+2025-12-08T21:31:45.045Z    Compiling tokio-rustls v0.26.2
+2025-12-08T21:31:45.155Z    Compiling hyper-rustls v0.27.7
+2025-12-08T21:31:45.366Z    Compiling strum_macros v0.27.2
+2025-12-08T21:31:46.110Z    Compiling event-listener v2.5.3
+2025-12-08T21:31:47.038Z    Compiling mime v0.3.17
+2025-12-08T21:31:47.174Z    Compiling memmap2 v0.9.8
+2025-12-08T21:31:47.286Z    Compiling async-channel v1.9.0
+2025-12-08T21:31:47.337Z    Compiling mime_guess v2.0.5
+2025-12-08T21:31:47.430Z    Compiling dlib v0.5.2
+2025-12-08T21:31:47.457Z    Compiling async-global-executor v2.4.1
+2025-12-08T21:31:48.064Z    Compiling async-attributes v1.1.2
+2025-12-08T21:31:48.156Z    Compiling rand_chacha v0.3.1
+2025-12-08T21:31:48.367Z    Compiling kv-log-macro v1.0.7
+2025-12-08T21:31:48.402Z    Compiling async-std v1.13.2
+2025-12-08T21:31:50.412Z    Compiling rand v0.8.5
+2025-12-08T21:31:50.765Z    Compiling num-iter v0.1.45
+2025-12-08T21:31:50.797Z    Compiling wayland-sys v0.31.7
+2025-12-08T21:31:50.852Z    Compiling hmac v0.12.1
+2025-12-08T21:31:50.892Z    Compiling itertools v0.12.1
+2025-12-08T21:31:51.591Z    Compiling enumflags2_derive v0.7.12
+2025-12-08T21:31:51.762Z    Compiling byteorder v1.5.0
+2025-12-08T21:31:51.936Z    Compiling unicode-width v0.2.2
+2025-12-08T21:31:52.016Z    Compiling new_debug_unreachable v1.0.6
+2025-12-08T21:31:52.470Z    Compiling strum v0.27.2
+2025-12-08T21:31:52.496Z    Compiling zvariant_utils v3.2.1
+2025-12-08T21:31:52.504Z    Compiling rustls-pemfile v2.2.0
+2025-12-08T21:31:52.585Z    Compiling tokio-socks v0.5.2
+2025-12-08T21:31:52.655Z    Compiling wayland-backend v0.3.11
+2025-12-08T21:31:52.796Z    Compiling downcast-rs v1.2.1
+2025-12-08T21:31:52.820Z    Compiling zed-reqwest v0.12.15-zed (https://github.com/zed-industries/reqwest.git?rev=c15662463bda39148ba154100dd44d3fba5873a4#c1566246)
+2025-12-08T21:31:54.881Z    Compiling zvariant_derive v5.8.0
+2025-12-08T21:31:55.994Z    Compiling quick-xml v0.37.5
+2025-12-08T21:31:56.271Z    Compiling filetime v0.2.26
+2025-12-08T21:31:56.344Z    Compiling xattr v0.2.3
+2025-12-08T21:31:56.447Z    Compiling convert_case v0.4.0
+2025-12-08T21:31:56.556Z    Compiling minimal-lexical v0.2.1
+2025-12-08T21:31:56.651Z    Compiling tinyvec_macros v0.1.1
+2025-12-08T21:31:56.668Z    Compiling scoped-tls v1.0.1
+2025-12-08T21:31:56.692Z    Compiling wayland-client v0.31.11
+2025-12-08T21:31:57.672Z    Compiling tinyvec v1.10.0
+2025-12-08T21:31:57.852Z    Compiling nom v7.1.3
+2025-12-08T21:31:58.379Z    Compiling derive_more v0.99.20
+2025-12-08T21:31:58.828Z    Compiling async-tar v0.5.1
+2025-12-08T21:31:59.284Z    Compiling wayland-scanner v0.31.7
+2025-12-08T21:31:59.340Z    Compiling num v0.4.3
+2025-12-08T21:31:59.361Z    Compiling strum_macros v0.26.4
+2025-12-08T21:31:59.841Z    Compiling slotmap v1.0.7
+2025-12-08T21:31:59.986Z    Compiling http_client v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/http_client)
+2025-12-08T21:32:01.691Z    Compiling enumflags2 v0.7.12
+2025-12-08T21:32:01.749Z    Compiling crossbeam-queue v0.3.12
+2025-12-08T21:32:01.802Z    Compiling equator-macro v0.4.2
+2025-12-08T21:32:02.002Z    Compiling thread_local v1.1.9
+2025-12-08T21:32:02.094Z    Compiling bit-vec v0.8.0
+2025-12-08T21:32:02.193Z    Compiling static_assertions v1.1.0
+2025-12-08T21:32:02.211Z    Compiling unicode-segmentation v1.12.0
+2025-12-08T21:32:02.398Z    Compiling option-ext v0.2.0
+2025-12-08T21:32:02.423Z    Compiling nu-ansi-term v0.50.3
+2025-12-08T21:32:02.584Z    Compiling endi v1.1.0
+2025-12-08T21:32:02.622Z    Compiling powerfmt v0.2.0
+2025-12-08T21:32:02.691Z    Compiling deranged v0.5.4
+2025-12-08T21:32:03.249Z    Compiling zvariant v5.8.0
+2025-12-08T21:32:04.876Z    Compiling bit-set v0.8.0
+2025-12-08T21:32:04.941Z    Compiling equator v0.4.2
+2025-12-08T21:32:05.342Z    Compiling time-macros v0.2.24
+2025-12-08T21:32:06.013Z    Compiling sharded-slab v0.1.7
+2025-12-08T21:32:06.287Z    Compiling tracing-log v0.2.0
+2025-12-08T21:32:06.395Z    Compiling euclid v0.22.11
+2025-12-08T21:32:06.719Z    Compiling num-derive v0.4.2
+2025-12-08T21:32:06.894Z    Compiling num_threads v0.1.7
+2025-12-08T21:32:06.956Z    Compiling ash v0.38.0+1.3.281
+2025-12-08T21:32:07.093Z    Compiling roxmltree v0.20.0
+2025-12-08T21:32:07.106Z    Compiling ztracing v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ztracing)
+2025-12-08T21:32:07.241Z    Compiling time v0.3.44
+2025-12-08T21:32:07.756Z    Compiling fontconfig-parser v0.5.8
+2025-12-08T21:32:08.495Z    Compiling zbus_names v4.2.0
+2025-12-08T21:32:09.134Z    Compiling tracing-subscriber v0.3.22
+2025-12-08T21:32:10.065Z    Compiling aligned-vec v0.6.4
+2025-12-08T21:32:10.139Z    Compiling fdeflate v0.3.7
+2025-12-08T21:32:10.226Z    Compiling async-broadcast v0.7.2
+2025-12-08T21:32:10.315Z    Compiling block-padding v0.3.3
+2025-12-08T21:32:10.364Z    Compiling core_maths v0.1.1
+2025-12-08T21:32:10.397Z    Compiling profiling-procmacros v1.0.17
+2025-12-08T21:32:10.419Z    Compiling num_cpus v1.17.0
+2025-12-08T21:32:10.484Z    Compiling built v0.7.7
+2025-12-08T21:32:10.607Z    Compiling ztracing_macro v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ztracing_macro)
+2025-12-08T21:32:10.661Z    Compiling unicode-script v0.5.7
+2025-12-08T21:32:10.770Z    Compiling unicode-properties v0.1.3
+2025-12-08T21:32:10.825Z    Compiling rustc-hash v1.1.0
+2025-12-08T21:32:10.828Z    Compiling float-cmp v0.9.0
+2025-12-08T21:32:10.863Z    Compiling strict-num v0.1.1
+2025-12-08T21:32:10.932Z    Compiling rav1e v0.7.1
+2025-12-08T21:32:10.939Z    Compiling profiling v1.0.17
+2025-12-08T21:32:10.957Z    Compiling ttf-parser v0.25.1
+2025-12-08T21:32:11.665Z    Compiling inout v0.1.4
+2025-12-08T21:32:11.706Z    Compiling v_frame v0.3.9
+2025-12-08T21:32:12.900Z    Compiling zbus_macros v5.12.0
+2025-12-08T21:32:14.020Z    Compiling lyon_geom v1.0.17
+2025-12-08T21:32:14.228Z    Compiling pathfinder_simd v0.5.5
+2025-12-08T21:32:14.278Z    Compiling naga v25.0.1
+2025-12-08T21:32:14.417Z    Compiling x11 v2.21.0
+2025-12-08T21:32:14.470Z    Compiling freetype-sys v0.20.1
+2025-12-08T21:32:14.543Z    Compiling yeslogic-fontconfig-sys v6.0.0
+2025-12-08T21:32:14.589Z    Compiling font-types v0.10.0
+2025-12-08T21:32:14.731Z    Compiling quick-xml v0.30.0
+2025-12-08T21:32:14.971Z    Compiling ordered-stream v0.2.0
+2025-12-08T21:32:15.084Z    Compiling gpu-alloc-types v0.3.0
+2025-12-08T21:32:15.200Z    Compiling psm v0.1.27
+2025-12-08T21:32:15.261Z    Compiling serde_repr v0.1.20
+2025-12-08T21:32:15.395Z    Compiling quick-error v2.0.1
+2025-12-08T21:32:15.489Z    Compiling xcursor v0.3.10
+2025-12-08T21:32:15.828Z    Compiling as-raw-xcb-connection v1.0.1
+2025-12-08T21:32:15.849Z    Compiling num-bigint-dig v0.8.6
+2025-12-08T21:32:15.891Z    Compiling arrayref v0.3.9
+2025-12-08T21:32:15.914Z    Compiling tiny-skia-path v0.11.4
+2025-12-08T21:32:16.598Z    Compiling zbus v5.12.0
+2025-12-08T21:32:18.138Z    Compiling xcb v1.6.0
+2025-12-08T21:32:19.149Z    Compiling read-fonts v0.35.0
+2025-12-08T21:32:27.131Z    Compiling lyon_path v1.0.16
+2025-12-08T21:32:27.550Z    Compiling av1-grain v0.2.4
+2025-12-08T21:32:28.525Z    Compiling cipher v0.4.4
+2025-12-08T21:32:28.640Z    Compiling sum_tree v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/sum_tree)
+2025-12-08T21:32:28.874Z    Compiling codespan-reporting v0.12.0
+2025-12-08T21:32:29.260Z    Compiling strum v0.26.3
+2025-12-08T21:32:29.331Z    Compiling maybe-rayon v0.1.1
+2025-12-08T21:32:29.351Z    Compiling kurbo v0.11.3
+2025-12-08T21:32:29.492Z    Compiling rgb v0.8.52
+2025-12-08T21:32:29.621Z    Compiling gethostname v1.1.0
+2025-12-08T21:32:29.649Z    Compiling spirv v0.3.0+sdk-1.3.268.0
+2025-12-08T21:32:30.262Z    Compiling stacker v0.1.22
+2025-12-08T21:32:30.319Z    Compiling fax_derive v0.2.0
+2025-12-08T21:32:30.324Z    Compiling arg_enum_proc_macro v0.3.4
+2025-12-08T21:32:30.478Z    Compiling proc-macro-error-attr2 v2.0.0
+2025-12-08T21:32:30.478Z    Compiling simd_helpers v0.1.0
+2025-12-08T21:32:30.549Z    Compiling unicode-ccc v0.4.0
+2025-12-08T21:32:30.581Z    Compiling noop_proc_macro v0.3.0
+2025-12-08T21:32:30.612Z    Compiling hexf-parse v0.2.1
+2025-12-08T21:32:30.646Z    Compiling weezl v0.1.10
+2025-12-08T21:32:30.668Z    Compiling xim-parser v0.2.1 (https://github.com/zed-industries/xim-rs.git?rev=16f35a2c881b815a2b6cdfd6687988e84f8447d8#16f35a2c)
+2025-12-08T21:32:30.751Z    Compiling raw-window-handle v0.6.2
+2025-12-08T21:32:30.818Z    Compiling zune-core v0.4.12
+2025-12-08T21:32:30.896Z    Compiling x11rb-protocol v0.13.2
+2025-12-08T21:32:30.974Z    Compiling bitstream-io v2.6.0
+2025-12-08T21:32:31.131Z    Compiling unicode-bidi-mirroring v0.4.0
+2025-12-08T21:32:31.162Z    Compiling unicode-bidi v0.3.18
+2025-12-08T21:32:31.685Z    Compiling imgref v1.12.0
+2025-12-08T21:32:31.761Z    Compiling loop9 v0.1.5
+2025-12-08T21:32:35.494Z    Compiling rustybuzz v0.20.1
+2025-12-08T21:32:38.743Z    Compiling x11rb v0.13.2
+2025-12-08T21:32:42.869Z    Compiling zune-jpeg v0.4.21
+2025-12-08T21:32:43.288Z    Compiling ash-window v0.13.0
+2025-12-08T21:32:46.606Z    Compiling proc-macro-error2 v2.0.1
+2025-12-08T21:32:46.689Z    Compiling fax v0.2.6
+2025-12-08T21:32:46.820Z    Compiling svgtypes v0.15.3
+2025-12-08T21:32:47.872Z    Compiling skrifa v0.37.0
+2025-12-08T21:32:52.718Z    Compiling gpu-alloc-ash v0.7.0
+2025-12-08T21:32:53.996Z    Compiling gpu-alloc v0.6.0
+2025-12-08T21:32:54.419Z    Compiling fontdb v0.23.0
+2025-12-08T21:32:55.001Z    Compiling png v0.17.16
+2025-12-08T21:32:55.768Z    Compiling dirs-sys v0.4.1
+2025-12-08T21:32:55.922Z    Compiling wayland-protocols v0.32.9
+2025-12-08T21:33:01.015Z    Compiling hidden-trait v0.1.2
+2025-12-08T21:33:01.159Z    Compiling zune-inflate v0.2.54
+2025-12-08T21:33:01.318Z    Compiling avif-serialize v0.8.6
+2025-12-08T21:33:01.599Z    Compiling pxfm v0.1.25
+2025-12-08T21:33:03.702Z    Compiling is-docker v0.2.0
+2025-12-08T21:33:03.780Z    Compiling simplecss v0.2.2
+2025-12-08T21:33:03.860Z    Compiling atomic v0.5.3
+2025-12-08T21:33:03.921Z    Compiling yazi v0.2.1
+2025-12-08T21:33:04.182Z    Compiling byteorder-lite v0.1.0
+2025-12-08T21:33:04.278Z    Compiling zed-font-kit v0.14.1-zed (https://github.com/zed-industries/font-kit?rev=110523127440aefb11ce0cf280ae7c5071337ec5#11052312)
+2025-12-08T21:33:04.282Z    Compiling sys-locale v0.3.2
+2025-12-08T21:33:04.321Z    Compiling lebe v0.5.3
+2025-12-08T21:33:04.380Z    Compiling unicode-ccc v0.2.0
+2025-12-08T21:33:04.382Z    Compiling mint v0.5.9
+2025-12-08T21:33:04.415Z    Compiling pico-args v0.5.0
+2025-12-08T21:33:04.515Z    Compiling float_next_after v1.0.0
+2025-12-08T21:33:04.518Z    Compiling color_quant v1.1.0
+2025-12-08T21:33:04.540Z    Compiling bit_field v0.10.3
+2025-12-08T21:33:04.586Z    Compiling dtor-proc-macro v0.0.5
+2025-12-08T21:33:04.613Z    Compiling ttf-parser v0.20.0
+2025-12-08T21:33:04.663Z    Compiling imagesize v0.13.0
+2025-12-08T21:33:05.002Z    Compiling unicode-bidi-mirroring v0.2.0
+2025-12-08T21:33:05.034Z    Compiling unicode-vo v0.1.0
+2025-12-08T21:33:05.069Z    Compiling xmlwriter v0.1.0
+2025-12-08T21:33:05.185Z    Compiling data-url v0.3.2
+2025-12-08T21:33:05.433Z    Compiling zeno v0.3.3
+2025-12-08T21:33:05.748Z    Compiling ttf-parser v0.21.1
+2025-12-08T21:33:06.237Z    Compiling pollster v0.2.5
+2025-12-08T21:33:06.278Z    Compiling postage v0.5.0
+2025-12-08T21:33:06.464Z    Compiling swash v0.2.6
+2025-12-08T21:33:07.576Z    Compiling rustybuzz v0.14.1
+2025-12-08T21:33:10.670Z    Compiling fontdb v0.16.2
+2025-12-08T21:33:11.221Z    Compiling usvg v0.45.1
+2025-12-08T21:33:11.621Z    Compiling dtor v0.0.6
+2025-12-08T21:33:11.644Z    Compiling exr v1.73.0
+2025-12-08T21:33:14.455Z    Compiling gif v0.13.3
+2025-12-08T21:33:14.930Z    Compiling lyon_tessellation v1.0.16
+2025-12-08T21:33:15.183Z    Compiling blade-graphics v0.7.0
+2025-12-08T21:33:15.665Z    Compiling image-webp v0.2.4
+2025-12-08T21:33:16.651Z    Compiling is-wsl v0.4.0
+2025-12-08T21:33:16.730Z    Compiling moxcms v0.7.7
+2025-12-08T21:33:17.719Z    Compiling ravif v0.11.20
+2025-12-08T21:33:26.300Z    Compiling dirs v5.0.1
+2025-12-08T21:33:26.347Z    Compiling tiny-skia v0.11.4
+2025-12-08T21:33:28.218Z    Compiling pathfinder_geometry v0.5.1
+2025-12-08T21:33:28.301Z    Compiling tiff v0.10.3
+2025-12-08T21:33:28.996Z    Compiling stacksafe-macro v0.1.4
+2025-12-08T21:33:29.265Z    Compiling gpui v0.2.2 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/gpui)
+2025-12-08T21:33:29.409Z    Compiling cbc v0.1.2
+2025-12-08T21:33:29.453Z    Compiling aes v0.8.4
+2025-12-08T21:33:29.724Z    Compiling lyon_algorithms v1.0.16
+2025-12-08T21:33:30.077Z    Compiling ashpd v0.12.0
+2025-12-08T21:33:30.352Z    Compiling png v0.18.0
+2025-12-08T21:33:31.182Z    Compiling perf v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/tooling/perf)
+2025-12-08T21:33:31.317Z    Compiling wayland-protocols v0.31.2
+2025-12-08T21:33:35.270Z    Compiling pbkdf2 v0.12.2
+2025-12-08T21:33:35.310Z    Compiling hkdf v0.12.4
+2025-12-08T21:33:35.353Z    Compiling calloop v0.14.3 (https://github.com/zed-industries/calloop#eb6b4fd1)
+2025-12-08T21:33:35.806Z    Compiling sysinfo v0.31.4
+2025-12-08T21:33:36.687Z    Compiling xim-ctext v0.3.0 (https://github.com/zed-industries/xim-rs.git?rev=16f35a2c881b815a2b6cdfd6687988e84f8447d8#16f35a2c)
+2025-12-08T21:33:36.786Z    Compiling filedescriptor v0.8.3
+2025-12-08T21:33:36.858Z    Compiling qoi v0.4.1
+2025-12-08T21:33:36.951Z    Compiling md-5 v0.10.6
+2025-12-08T21:33:36.993Z    Compiling nanorand v0.7.0
+2025-12-08T21:33:37.103Z    Compiling derive_refineable v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/refineable/derive_refineable)
+2025-12-08T21:33:37.295Z    Compiling pathdiff v0.2.3
+2025-12-08T21:33:37.326Z    Compiling grid v0.18.0
+2025-12-08T21:33:37.412Z    Compiling smol_str v0.2.2
+2025-12-08T21:33:37.501Z    Compiling xkeysym v0.2.1
+2025-12-08T21:33:37.594Z    Compiling self_cell v1.2.0
+2025-12-08T21:33:37.621Z    Compiling ctor-proc-macro v0.0.6
+2025-12-08T21:33:37.696Z    Compiling unicode-linebreak v0.1.5
+2025-12-08T21:33:37.787Z    Compiling float-ord v0.3.2
+2025-12-08T21:33:37.814Z    Compiling svg_fmt v0.4.5
+2025-12-08T21:33:37.908Z    Compiling rangemap v1.6.0
+2025-12-08T21:33:37.994Z    Compiling etagere v0.2.15
+2025-12-08T21:33:38.038Z    Compiling cosmic-text v0.14.2
+2025-12-08T21:33:38.860Z    Compiling xkbcommon v0.8.0
+2025-12-08T21:33:39.003Z    Compiling ctor v0.4.3
+2025-12-08T21:33:39.026Z    Compiling taffy v0.9.0
+2025-12-08T21:33:39.966Z    Compiling open v5.3.2
+2025-12-08T21:33:40.021Z    Compiling refineable v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/refineable)
+2025-12-08T21:33:40.054Z    Compiling flume v0.11.1
+2025-12-08T21:33:40.187Z    Compiling oo7 v0.5.0
+2025-12-08T21:33:40.704Z    Compiling image v0.25.8
+2025-12-08T21:33:45.528Z    Compiling zed-xim v0.4.0-zed (https://github.com/zed-industries/xim-rs.git?rev=16f35a2c881b815a2b6cdfd6687988e84f8447d8#16f35a2c)
+2025-12-08T21:33:45.658Z    Compiling zed-scap v0.0.8-zed (https://github.com/zed-industries/scap?rev=4afea48c3b002197176fb19cd0f9b180dd36eaac#4afea48c)
+2025-12-08T21:33:46.231Z    Compiling calloop-wayland-source v0.4.1
+2025-12-08T21:33:46.272Z    Compiling wayland-protocols-plasma v0.2.0
+2025-12-08T21:33:48.916Z    Compiling util_macros v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/util_macros)
+2025-12-08T21:33:49.030Z    Compiling lyon v1.0.16
+2025-12-08T21:33:49.074Z    Compiling stacksafe v0.1.4
+2025-12-08T21:33:49.116Z    Compiling resvg v0.45.1
+2025-12-08T21:33:49.684Z    Compiling blade-util v0.3.0
+2025-12-08T21:33:49.762Z    Compiling wayland-protocols-wlr v0.3.9
+2025-12-08T21:33:51.185Z    Compiling ashpd v0.11.0
+2025-12-08T21:33:53.177Z    Compiling x11-clipboard v0.9.3
+2025-12-08T21:33:53.819Z    Compiling wayland-cursor v0.31.11
+2025-12-08T21:33:54.051Z    Compiling gpui_macros v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/gpui_macros)
+2025-12-08T21:33:54.535Z    Compiling spin v0.10.0
+2025-12-08T21:33:54.609Z    Compiling blade-macros v0.3.0
+2025-12-08T21:33:54.758Z    Compiling inventory v0.3.21
+2025-12-08T21:33:54.792Z    Compiling circular-buffer v1.2.0
+2025-12-08T21:33:54.888Z    Compiling seahash v4.1.0
+2025-12-08T21:33:57.211Z    Compiling tree-sitter-language v0.1.5
+2025-12-08T21:33:57.232Z    Compiling iana-time-zone v0.1.64
+2025-12-08T21:33:58.129Z    Compiling fixedbitset v0.4.2
+2025-12-08T21:33:58.192Z    Compiling petgraph v0.6.5
+2025-12-08T21:33:58.623Z    Compiling vcpkg v0.2.15
+2025-12-08T21:33:58.854Z    Compiling chrono v0.4.42
+2025-12-08T21:34:00.122Z    Compiling unicode-xid v0.2.6
+2025-12-08T21:34:00.151Z    Compiling itertools v0.10.5
+2025-12-08T21:34:00.620Z    Compiling cranelift-isle v0.116.1
+2025-12-08T21:34:00.691Z    Compiling prost-derive v0.9.0
+2025-12-08T21:34:01.196Z    Compiling cranelift-bitset v0.116.1
+2025-12-08T21:34:01.280Z    Compiling cranelift-codegen-shared v0.116.1
+2025-12-08T21:34:01.310Z    Compiling target-lexicon v0.13.3
+2025-12-08T21:34:01.613Z    Compiling cranelift-codegen-meta v0.116.1
+2025-12-08T21:34:02.555Z    Compiling cranelift-entity v0.116.1
+2025-12-08T21:34:03.605Z    Compiling cobs v0.3.0
+2025-12-08T21:34:03.669Z    Compiling wasmtime-versioned-export-macros v29.0.1
+2025-12-08T21:34:03.767Z    Compiling postcard v1.1.3
+2025-12-08T21:34:03.911Z    Compiling cranelift-codegen v0.116.1
+2025-12-08T21:34:04.207Z    Compiling which v4.4.2
+2025-12-08T21:34:04.293Z    Compiling gimli v0.31.1
+2025-12-08T21:34:06.424Z    Compiling bumpalo v3.19.0
+2025-12-08T21:34:06.541Z    Compiling wasmparser v0.221.3
+2025-12-08T21:34:06.604Z    Compiling arbitrary v1.4.2
+2025-12-08T21:34:07.117Z    Compiling cranelift-control v0.116.1
+2025-12-08T21:34:07.157Z    Compiling regalloc2 v0.11.2
+2025-12-08T21:34:08.865Z    Compiling prost-build v0.9.0
+2025-12-08T21:34:10.463Z    Compiling cranelift-bforest v0.116.1
+2025-12-08T21:34:10.591Z    Compiling prost v0.9.0
+2025-12-08T21:34:10.716Z    Compiling object v0.36.7
+2025-12-08T21:34:10.808Z    Compiling cpp_demangle v0.4.5
+2025-12-08T21:34:32.644Z    Compiling prost-types v0.9.0
+2025-12-08T21:34:45.479Z    Compiling heck v0.3.3
+2025-12-08T21:34:45.535Z    Compiling id-arena v2.2.1
+2025-12-08T21:34:45.580Z    Compiling multimap v0.8.3
+2025-12-08T21:34:45.628Z    Compiling leb128 v0.2.5
+2025-12-08T21:34:46.154Z    Compiling wasm-encoder v0.221.3
+2025-12-08T21:34:46.766Z    Compiling wit-parser v0.221.3
+2025-12-08T21:34:48.615Z    Compiling wasmprinter v0.221.3
+2025-12-08T21:34:54.889Z    Compiling wasmtime-fiber v29.0.1
+2025-12-08T21:34:55.001Z    Compiling wasmtime-component-macro v29.0.1
+2025-12-08T21:34:55.053Z    Compiling wasmtime-component-util v29.0.1
+2025-12-08T21:34:55.085Z    Compiling rustc-demangle v0.1.26
+2025-12-08T21:34:55.168Z    Compiling wasmtime-wit-bindgen v29.0.1
+2025-12-08T21:34:55.392Z    Compiling wasmtime-environ v29.0.1
+2025-12-08T21:34:55.658Z    Compiling cranelift-frontend v0.116.1
+2025-12-08T21:34:56.647Z    Compiling cranelift-native v0.116.1
+2025-12-08T21:34:56.694Z    Compiling wasmtime v29.0.1
+2025-12-08T21:34:56.763Z    Compiling ignore v0.4.24
+2025-12-08T21:34:58.513Z    Compiling wasmtime-asm-macros v29.0.1
+2025-12-08T21:34:59.424Z    Compiling wasmtime-cranelift v29.0.1
+2025-12-08T21:35:02.407Z    Compiling paths v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/paths)
+2025-12-08T21:35:02.864Z    Compiling libz-sys v1.1.22
+2025-12-08T21:35:02.965Z    Compiling wasmtime-jit-icache-coherence v29.0.1
+2025-12-08T21:35:02.991Z    Compiling memfd v0.6.5
+2025-12-08T21:35:03.105Z    Compiling wasmtime-math v29.0.1
+2025-12-08T21:35:03.137Z    Compiling trait-variant v0.1.2
+2025-12-08T21:35:03.274Z    Compiling wasmtime-slab v29.0.1
+2025-12-08T21:35:03.324Z    Compiling strsim v0.11.1
+2025-12-08T21:35:03.593Z    Compiling wasmtime-c-api-impl v29.0.1
+2025-12-08T21:35:03.658Z    Compiling sptr v0.3.2
+2025-12-08T21:35:07.295Z    Compiling proto v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/proto)
+2025-12-08T21:35:07.637Z    Compiling release_channel v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/release_channel)
+2025-12-08T21:35:08.096Z    Compiling net v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/net)
+2025-12-08T21:35:08.129Z    Compiling tree-sitter v0.25.10
+2025-12-08T21:35:08.198Z    Compiling libgit2-sys v0.18.2+1.9.1
+2025-12-08T21:35:08.308Z    Compiling urlencoding v2.1.3
+2025-12-08T21:35:28.187Z    Compiling rope v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/rope)
+2025-12-08T21:35:29.480Z    Compiling tree-sitter-json v0.24.8
+2025-12-08T21:35:29.539Z    Compiling wasmtime-c-api-macros v29.0.1
+2025-12-08T21:35:42.800Z    Compiling askpass v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/askpass)
+2025-12-08T21:35:43.145Z    Compiling zstd-sys v2.0.16+zstd.1.5.7
+2025-12-08T21:35:43.251Z    Compiling clock v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/clock)
+2025-12-08T21:35:43.354Z    Compiling inotify-sys v0.1.5
+2025-12-08T21:35:43.384Z    Compiling streaming-iterator v0.1.9
+2025-12-08T21:35:44.000Z    Compiling inotify v0.11.0
+2025-12-08T21:35:44.181Z    Compiling text v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/text)
+2025-12-08T21:35:47.608Z    Compiling serde_path_to_error v0.1.20
+2025-12-08T21:35:47.770Z    Compiling notify-types v2.0.0 (https://github.com/zed-industries/notify.git?rev=b4588b2e5aee68f4c0e100f140e808cbce7b1419#b4588b2e)
+2025-12-08T21:35:47.876Z    Compiling notify v8.2.0 (https://github.com/zed-industries/notify.git?rev=b4588b2e5aee68f4c0e100f140e808cbce7b1419#b4588b2e)
+2025-12-08T21:35:49.200Z    Compiling settings_json v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/settings_json)
+2025-12-08T21:35:49.835Z    Compiling convert_case v0.8.0
+2025-12-08T21:35:50.157Z    Compiling is_executable v1.0.5
+2025-12-08T21:35:50.192Z    Compiling migrator v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/migrator)
+2025-12-08T21:35:51.820Z    Compiling zlog v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/zlog)
+2025-12-08T21:35:52.414Z    Compiling settings_macros v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/settings_macros)
+2025-12-08T21:35:52.520Z    Compiling ec4rs v1.2.0
+2025-12-08T21:35:53.237Z    Compiling zstd-safe v5.0.2+zstd.1.5.2
+2025-12-08T21:35:53.283Z    Compiling utf-8 v0.7.6
+2025-12-08T21:35:53.341Z    Compiling sha1 v0.10.6
+2025-12-08T21:35:53.444Z    Compiling data-encoding v2.9.0
+2025-12-08T21:35:54.286Z    Compiling base64ct v1.8.0
+2025-12-08T21:35:54.396Z    Compiling by_address v1.2.1
+2025-12-08T21:35:54.430Z    Compiling palette v0.7.6
+2025-12-08T21:35:54.497Z    Compiling palette_derive v0.7.6
+2025-12-08T21:35:54.802Z    Compiling pem-rfc7468 v0.7.0
+2025-12-08T21:35:54.976Z    Compiling fast-srgb8 v1.0.0
+2025-12-08T21:35:55.557Z    Compiling git2 v0.20.2
+2025-12-08T21:35:57.423Z    Compiling git v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/git)
+2025-12-08T21:35:58.241Z    Compiling der v0.7.10
+2025-12-08T21:35:59.168Z    Compiling fs v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/fs)
+2025-12-08T21:36:02.859Z    Compiling settings v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/settings)
+2025-12-08T21:36:40.039Z    Compiling theme v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/theme)
+2025-12-08T21:36:47.960Z    Compiling spki v0.7.3
+2025-12-08T21:36:48.113Z    Compiling pkcs8 v0.10.2
+2025-12-08T21:36:48.529Z    Compiling tungstenite v0.27.0
+2025-12-08T21:36:49.849Z    Compiling async-tungstenite v0.31.0
+2025-12-08T21:36:50.210Z    Compiling pkcs1 v0.7.5
+2025-12-08T21:36:50.828Z    Compiling signature v2.2.0
+2025-12-08T21:36:50.921Z    Compiling rsa v0.9.9
+2025-12-08T21:36:51.706Z    Compiling zstd v0.11.2+zstd.1.5.2
+2025-12-08T21:36:51.838Z    Compiling zed_actions v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/zed_actions)
+2025-12-08T21:36:53.516Z    Compiling shellexpand v2.1.2
+2025-12-08T21:36:53.578Z    Compiling task v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/task)
+2025-12-08T21:36:56.161Z    Compiling rpc v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/rpc)
+2025-12-08T21:36:58.833Z    Compiling lsp-types v0.95.1 (https://github.com/zed-industries/lsp-types?rev=b71ab4eeb27d9758be8092020a46fe33fbca4e33#b71ab4ee)
+2025-12-08T21:37:03.711Z    Compiling watch v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/watch)
+2025-12-08T21:37:03.771Z    Compiling language v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/language)
+2025-12-08T21:37:03.833Z    Compiling lsp v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/lsp)
+2025-12-08T21:37:12.707Z    Compiling fuzzy v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/fuzzy)
+2025-12-08T21:37:13.246Z    Compiling diffy v0.4.2
+2025-12-08T21:37:14.254Z    Compiling imara-diff v0.1.8
+2025-12-08T21:37:24.998Z    Compiling http v0.2.12
+2025-12-08T21:37:25.668Z    Compiling rustls v0.21.12
+2025-12-08T21:37:25.723Z    Compiling cloud_llm_client v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/cloud_llm_client)
+2025-12-08T21:37:26.221Z    Compiling ciborium-io v0.2.2
+2025-12-08T21:37:26.250Z    Compiling ciborium-ll v0.2.2
+2025-12-08T21:37:26.351Z    Compiling http-body v0.4.6
+2025-12-08T21:37:26.453Z    Compiling rustls-platform-verifier v0.5.3
+2025-12-08T21:37:27.193Z    Compiling http_client_tls v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/http_client_tls)
+2025-12-08T21:37:27.300Z    Compiling ciborium v0.2.2
+2025-12-08T21:37:27.666Z    Compiling gpui_tokio v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/gpui_tokio)
+2025-12-08T21:37:27.816Z    Compiling webpki-roots v0.26.8
+2025-12-08T21:37:27.859Z    Compiling nom v8.0.0
+2025-12-08T21:37:27.915Z    Compiling cloud_api_types v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/cloud_api_types)
+2025-12-08T21:37:28.148Z    Compiling async-lock v2.8.0
+2025-12-08T21:37:28.310Z    Compiling telemetry_events v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/telemetry_events)
+2025-12-08T21:37:28.449Z    Compiling reborrow v0.5.5
+2025-12-08T21:37:28.480Z    Compiling ascii v1.1.0
+2025-12-08T21:37:28.662Z    Compiling chunked_transfer v1.5.0
+2025-12-08T21:37:28.716Z    Compiling tiny_http v0.8.2
+2025-12-08T21:37:29.241Z    Compiling yawc v0.2.5
+2025-12-08T21:37:30.454Z    Compiling cloud_api_client v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/cloud_api_client)
+2025-12-08T21:37:31.211Z    Compiling telemetry v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/telemetry)
+2025-12-08T21:37:31.278Z    Compiling worktree v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/worktree)
+2025-12-08T21:37:31.339Z    Compiling credentials_provider v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/credentials_provider)
+2025-12-08T21:37:31.982Z    Compiling feature_flags v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/feature_flags)
+2025-12-08T21:37:33.016Z    Compiling client v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/client)
+2025-12-08T21:37:38.534Z    Compiling seq-macro v0.3.6
+2025-12-08T21:37:38.694Z    Compiling base64 v0.21.7
+2025-12-08T21:37:41.347Z    Compiling phf_shared v0.12.1
+2025-12-08T21:37:41.942Z    Compiling prost-derive v0.12.6
+2025-12-08T21:37:42.535Z    Compiling phf_generator v0.12.1
+2025-12-08T21:37:42.899Z    Compiling serde_spanned v0.6.9
+2025-12-08T21:37:42.949Z    Compiling toml_datetime v0.6.11
+2025-12-08T21:37:43.257Z    Compiling toml_write v0.1.2
+2025-12-08T21:37:43.346Z    Compiling toml_edit v0.22.27
+2025-12-08T21:37:51.775Z    Compiling phf_macros v0.12.1
+2025-12-08T21:37:52.102Z    Compiling node_runtime v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/node_runtime)
+2025-12-08T21:37:52.340Z    Compiling icons v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/icons)
+2025-12-08T21:37:52.632Z    Compiling rustls-webpki v0.101.7
+2025-12-08T21:37:53.132Z    Compiling sct v0.7.1
+2025-12-08T21:37:53.212Z    Compiling pulp v0.21.5
+2025-12-08T21:37:53.304Z    Compiling optfield v0.4.0
+2025-12-08T21:37:53.499Z    Compiling documented-macros v0.9.2
+2025-12-08T21:37:53.895Z    Compiling phf v0.12.1
+2025-12-08T21:37:53.960Z    Compiling toml v0.8.23
+2025-12-08T21:37:54.882Z    Compiling rustls-pemfile v1.0.4
+2025-12-08T21:37:55.125Z    Compiling h2 v0.3.27
+2025-12-08T21:37:57.573Z    Compiling dap-types v0.0.1 (https://github.com/zed-industries/dap-types?rev=1b461b310481d01e02b2603c16d7144b926339f8#1b461b31)
+2025-12-08T21:37:58.488Z    Compiling symphonia-core v0.5.5
+2025-12-08T21:37:59.700Z    Compiling socket2 v0.5.10
+2025-12-08T21:37:59.801Z    Compiling httpdate v1.0.3
+2025-12-08T21:37:59.922Z    Compiling dyn-stack-macros v0.1.3
+2025-12-08T21:38:00.001Z    Compiling dyn-stack v0.13.2
+2025-12-08T21:38:00.009Z    Compiling hyper v0.14.32
+2025-12-08T21:38:03.046Z    Compiling dap v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/dap)
+2025-12-08T21:38:03.446Z    Compiling tokio-rustls v0.24.1
+2025-12-08T21:38:03.540Z    Compiling rustls-native-certs v0.6.3
+2025-12-08T21:38:03.844Z    Compiling documented v0.9.2
+2025-12-08T21:38:04.954Z    Compiling component v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/component)
+2025-12-08T21:38:05.756Z    Compiling menu v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/menu)
+2025-12-08T21:38:05.785Z    Compiling raw-cpuid v11.6.0
+2025-12-08T21:38:05.919Z    Compiling ui_macros v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ui_macros)
+2025-12-08T21:38:06.065Z    Compiling ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ui)
+2025-12-08T21:38:06.909Z    Compiling gemm-common v0.18.2
+2025-12-08T21:38:07.450Z    Compiling hyper-rustls v0.24.2
+2025-12-08T21:38:08.368Z    Compiling pulp v0.18.22
+2025-12-08T21:38:08.916Z    Compiling dyn-stack v0.10.0
+2025-12-08T21:38:15.582Z    Compiling raw-cpuid v10.7.0
+2025-12-08T21:38:16.355Z    Compiling signal-hook v0.3.18
+2025-12-08T21:38:16.733Z    Compiling extension v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/extension)
+2025-12-08T21:38:18.311Z    Compiling gemm-common v0.17.1
+2025-12-08T21:38:19.731Z    Compiling symphonia-metadata v0.5.5
+2025-12-08T21:38:19.979Z    Compiling prost v0.12.6
+2025-12-08T21:38:20.139Z    Compiling fancy-regex v0.16.2
+2025-12-08T21:38:20.309Z    Compiling bzip2-sys v0.1.13+1.0.8
+2025-12-08T21:38:20.548Z    Compiling pulldown-cmark v0.12.2
+2025-12-08T21:38:20.597Z    Compiling diff v0.1.13
+2025-12-08T21:38:20.788Z    Compiling yansi v1.0.1
+2025-12-08T21:38:20.945Z    Compiling cursor-icon v1.2.0
+2025-12-08T21:38:21.019Z    Compiling prettyplease v0.2.37
+2025-12-08T21:38:21.137Z    Compiling vte v0.15.0
+2025-12-08T21:38:21.307Z    Compiling pretty_assertions v1.4.1
+2025-12-08T21:38:21.680Z    Compiling prost-types v0.12.6
+2025-12-08T21:38:23.964Z    Compiling const_format_proc_macros v0.2.34
+2025-12-08T21:38:24.035Z    Compiling rustix-openpty v0.2.0
+2025-12-08T21:38:24.153Z    Compiling sysinfo v0.37.2
+2025-12-08T21:38:24.563Z    Compiling scratch v1.0.9
+2025-12-08T21:38:26.667Z    Compiling password-hash v0.4.2
+2025-12-08T21:38:26.807Z    Compiling const_format v0.2.35
+2025-12-08T21:38:26.851Z    Compiling alacritty_terminal v0.25.1-rc1
+2025-12-08T21:38:28.086Z    Compiling buffer_diff v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/buffer_diff)
+2025-12-08T21:38:29.377Z    Compiling pori v0.0.0
+2025-12-08T21:38:29.437Z    Compiling itertools v0.11.0
+2025-12-08T21:38:29.954Z    Compiling snippet v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/snippet)
+2025-12-08T21:38:30.277Z    Compiling linkify v0.10.0
+2025-12-08T21:38:30.388Z    Compiling link-cplusplus v1.0.12
+2025-12-08T21:38:30.539Z    Compiling multimap v0.10.1
+2025-12-08T21:38:30.601Z    Compiling heck v0.4.1
+2025-12-08T21:38:30.676Z    Compiling pbjson-build v0.6.2
+2025-12-08T21:38:30.772Z    Compiling wax v0.6.0
+2025-12-08T21:38:30.989Z    Compiling prost-build v0.12.6
+2025-12-08T21:38:32.630Z    Compiling markdown v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/markdown)
+2025-12-08T21:38:35.552Z    Compiling snippet_provider v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/snippet_provider)
+2025-12-08T21:38:37.536Z    Compiling pbkdf2 v0.11.0
+2025-12-08T21:38:37.541Z    Compiling terminal v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/terminal)
+2025-12-08T21:38:37.621Z    Compiling bzip2 v0.4.4
+2025-12-08T21:38:38.926Z    Compiling symphonia-utils-xiph v0.5.5
+2025-12-08T21:38:38.998Z    Compiling gemm-f32 v0.18.2
+2025-12-08T21:38:39.619Z    Compiling prettier v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/prettier)
+2025-12-08T21:38:40.024Z    Compiling remote v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/remote)
+2025-12-08T21:38:41.236Z    Compiling context_server v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/context_server)
+2025-12-08T21:38:45.788Z    Compiling git_hosting_providers v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/git_hosting_providers)
+2025-12-08T21:38:49.306Z    Compiling constant_time_eq v0.1.5
+2025-12-08T21:38:49.428Z    Compiling sync_wrapper v0.1.2
+2025-12-08T21:38:49.641Z    Compiling cxxbridge-flags v1.0.187
+2025-12-08T21:38:49.865Z    Compiling zip v0.6.6
+2025-12-08T21:38:50.201Z    Compiling cxx v1.0.187
+2025-12-08T21:38:50.279Z    Compiling reqwest v0.11.27
+2025-12-08T21:38:52.063Z    Compiling project v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/project)
+2025-12-08T21:38:55.693Z    Compiling gemm-f16 v0.18.2
+2025-12-08T21:38:56.015Z    Compiling pbjson-types v0.6.0
+2025-12-08T21:38:56.349Z    Compiling gemm-f32 v0.17.1
+2025-12-08T21:38:56.947Z    Compiling gemm-f64 v0.18.2
+2025-12-08T21:38:57.569Z    Compiling gemm-c32 v0.18.2
+2025-12-08T21:38:58.820Z    Compiling gemm-c64 v0.18.2
+2025-12-08T21:39:00.025Z    Compiling libsqlite3-sys v0.30.1
+2025-12-08T21:39:00.142Z    Compiling codespan-reporting v0.13.0
+2025-12-08T21:39:00.387Z    Compiling num_enum_derive v0.7.4
+2025-12-08T21:39:00.871Z    Compiling alsa-sys v0.3.1
+2025-12-08T21:39:00.928Z    Compiling yoke-derive v0.7.5
+2025-12-08T21:39:01.315Z    Compiling crossbeam-channel v0.5.15
+2025-12-08T21:39:01.614Z    Compiling fs2 v0.4.3
+2025-12-08T21:39:01.661Z    Compiling zip v1.1.4
+2025-12-08T21:39:01.728Z    Compiling webrtc-sys-build v0.3.6 (https://github.com/zed-industries/livekit-rust-sdks?rev=5f04705ac3f356350ae31534ffbc476abc9ea83d#5f04705a)
+2025-12-08T21:39:01.914Z    Compiling yoke v0.7.5
+2025-12-08T21:39:02.008Z    Compiling num_enum v0.7.4
+2025-12-08T21:39:02.048Z    Compiling cxx-build v1.0.187
+2025-12-08T21:39:03.378Z    Compiling gemm v0.18.2
+2025-12-08T21:39:03.423Z    Compiling gemm-f16 v0.17.1
+2025-12-08T21:39:07.421Z    Compiling gemm-f64 v0.17.1
+2025-12-08T21:39:08.037Z    Compiling gemm-c32 v0.17.1
+2025-12-08T21:39:09.232Z    Compiling gemm-c64 v0.17.1
+2025-12-08T21:39:10.460Z    Compiling pbjson v0.6.0
+2025-12-08T21:39:10.631Z    Compiling tokio-stream v0.1.17
+2025-12-08T21:39:10.860Z    Compiling safetensors v0.4.5
+2025-12-08T21:39:11.974Z    Compiling glob v0.3.3
+2025-12-08T21:39:12.342Z    Compiling webrtc-sys v0.3.7 (https://github.com/zed-industries/livekit-rust-sdks?rev=5f04705ac3f356350ae31534ffbc476abc9ea83d#5f04705a)
+2025-12-08T21:39:13.221Z    Compiling ug v0.4.0
+2025-12-08T21:39:15.122Z    Compiling livekit-runtime v0.4.0 (https://github.com/zed-industries/livekit-rust-sdks?rev=5f04705ac3f356350ae31534ffbc476abc9ea83d#5f04705a)
+2025-12-08T21:39:16.681Z    Compiling gemm v0.17.1
+2025-12-08T21:39:18.545Z    Compiling float8 v0.4.2
+2025-12-08T21:39:18.765Z    Compiling cxxbridge-macro v1.0.187
+2025-12-08T21:39:20.784Z    Compiling cpal v0.16.0
+2025-12-08T21:39:20.843Z    Compiling extended v0.1.0
+2025-12-08T21:39:20.894Z    Compiling strength_reduce v0.2.4
+2025-12-08T21:39:20.998Z    Compiling transpose v0.2.3
+2025-12-08T21:39:21.056Z    Compiling symphonia-format-riff v0.5.5
+2025-12-08T21:39:21.697Z    Compiling candle-core v0.9.1 (https://github.com/zed-industries/candle?branch=9.1-patched#724d75eb)
+2025-12-08T21:39:56.948Z    Compiling livekit-protocol v0.3.9 (https://github.com/zed-industries/livekit-rust-sdks?rev=5f04705ac3f356350ae31534ffbc476abc9ea83d#5f04705a)
+2025-12-08T21:40:01.880Z    Compiling alsa v0.9.1
+2025-12-08T21:41:17.993Z    Compiling symphonia-format-isomp4 v0.5.5
+2025-12-08T21:41:19.648Z    Compiling symphonia-format-ogg v0.5.5
+2025-12-08T21:41:20.376Z    Compiling symphonia-bundle-flac v0.5.5
+2025-12-08T21:41:20.945Z    Compiling symphonia-codec-vorbis v0.5.5
+2025-12-08T21:41:22.417Z    Compiling symphonia-bundle-mp3 v0.5.5
+2025-12-08T21:41:23.353Z    Compiling symphonia-codec-pcm v0.5.5
+2025-12-08T21:41:23.769Z    Compiling symphonia-codec-aac v0.5.5
+2025-12-08T21:41:24.829Z    Compiling primal-check v0.3.4
+2025-12-08T21:41:24.939Z    Compiling candle-onnx v0.9.1 (https://github.com/zed-industries/candle?branch=9.1-patched#724d75eb)
+2025-12-08T21:41:25.208Z    Compiling dasp_sample v0.11.0
+2025-12-08T21:41:25.306Z    Compiling indoc v2.0.6
+2025-12-08T21:41:27.676Z    Compiling rustfft v6.4.1
+2025-12-08T21:41:31.045Z    Compiling symphonia v0.5.5
+2025-12-08T21:41:32.770Z    Compiling candle-nn v0.9.1 (https://github.com/zed-industries/candle?branch=9.1-patched#724d75eb)
+2025-12-08T21:41:42.880Z    Compiling tungstenite v0.26.2
+2025-12-08T21:41:44.818Z    Compiling rtrb v0.3.2
+2025-12-08T21:41:44.906Z    Compiling unicode_categories v0.1.1
+2025-12-08T21:41:45.003Z    Compiling hound v3.5.1
+2025-12-08T21:41:46.004Z    Compiling rodio v0.21.1 (https://github.com/RustAudio/rodio?rev=e2074c6c2acf07b57cf717e076bdda7a9ac6e70b#e2074c6c)
+2025-12-08T21:41:53.698Z    Compiling sqlformat v0.2.6
+2025-12-08T21:41:55.458Z    Compiling tokio-tungstenite v0.26.2
+2025-12-08T21:41:58.611Z    Compiling libwebrtc v0.3.10 (https://github.com/zed-industries/livekit-rust-sdks?rev=5f04705ac3f356350ae31534ffbc476abc9ea83d#5f04705a)
+2025-12-08T21:42:00.408Z    Compiling realfft v3.5.0
+2025-12-08T21:42:41.021Z    Compiling livekit_api v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/livekit_api)
+2025-12-08T21:42:44.037Z    Compiling simple_asn1 v0.6.3
+2025-12-08T21:42:45.398Z    Compiling pem v3.0.6
+2025-12-08T21:42:48.442Z    Compiling sqlez v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/sqlez)
+2025-12-08T21:42:49.177Z    Compiling jsonwebtoken v9.3.1
+2025-12-08T21:42:50.859Z    Compiling denoise v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/denoise)
+2025-12-08T21:43:00.779Z    Compiling livekit-api v0.4.2 (https://github.com/zed-industries/livekit-rust-sdks?rev=5f04705ac3f356350ae31534ffbc476abc9ea83d#5f04705a)
+2025-12-08T21:43:01.593Z    Compiling crossbeam v0.8.4
+2025-12-08T21:43:04.785Z    Compiling audio v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/audio)
+2025-12-08T21:43:09.721Z    Compiling livekit v0.7.8 (https://github.com/zed-industries/livekit-rust-sdks?rev=5f04705ac3f356350ae31534ffbc476abc9ea83d#5f04705a)
+2025-12-08T21:43:21.536Z    Compiling sqlez_macros v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/sqlez_macros)
+2025-12-08T21:43:22.100Z    Compiling zed_env_vars v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/zed_env_vars)
+2025-12-08T21:43:22.855Z    Compiling nanoid v0.4.0
+2025-12-08T21:43:22.947Z    Compiling livekit_client v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/livekit_client)
+2025-12-08T21:43:27.110Z    Compiling db v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/db)
+2025-12-08T21:43:27.819Z    Compiling session v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/session)
+2025-12-08T21:43:27.946Z    Compiling call v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/call)
+2025-12-08T21:43:28.784Z    Compiling async-recursion v1.1.1
+2025-12-08T21:43:28.990Z    Compiling any_vec v0.14.0
+2025-12-08T21:43:29.136Z    Compiling phf_shared v0.11.3
+2025-12-08T21:43:29.231Z    Compiling phf v0.11.3
+2025-12-08T21:43:29.320Z    Compiling edit_prediction_types v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/edit_prediction_types)
+2025-12-08T21:43:29.672Z    Compiling multi_buffer v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/multi_buffer)
+2025-12-08T21:43:38.874Z    Compiling workspace v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/workspace)
+2025-12-08T21:43:56.105Z    Compiling file_icons v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/file_icons)
+2025-12-08T21:43:56.389Z    Compiling assets v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/assets)
+2025-12-08T21:43:56.942Z    Compiling ordered-float v2.10.1
+2025-12-08T21:43:57.056Z    Compiling emojis v0.6.4
+2025-12-08T21:43:57.502Z    Compiling vim_mode_setting v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/vim_mode_setting)
+2025-12-08T21:43:57.690Z    Compiling editor v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/editor)
+2025-12-08T21:45:44.123Z    Compiling utf8parse v0.2.2
+2025-12-08T21:45:44.671Z    Compiling anstyle-parse v0.2.7
+2025-12-08T21:45:44.945Z    Compiling vsimd v0.8.0
+2025-12-08T21:45:45.319Z    Compiling anstyle-query v1.1.4
+2025-12-08T21:45:45.379Z    Compiling colorchoice v1.0.4
+2025-12-08T21:45:45.431Z    Compiling is_terminal_polyfill v1.70.1
+2025-12-08T21:45:45.479Z    Compiling outref v0.5.2
+2025-12-08T21:45:45.526Z    Compiling anstyle v1.0.13
+2025-12-08T21:45:45.639Z    Compiling anstream v0.6.21
+2025-12-08T21:45:46.471Z    Compiling phf_generator v0.11.3
+2025-12-08T21:45:46.557Z    Compiling base64-simd v0.8.0
+2025-12-08T21:45:46.766Z    Compiling picker v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/picker)
+2025-12-08T21:45:51.655Z    Compiling bytes-utils v0.1.4
+2025-12-08T21:45:51.802Z    Compiling terminal_size v0.4.3
+2025-12-08T21:45:51.913Z    Compiling clap_lex v0.7.6
+2025-12-08T21:45:52.046Z    Compiling clap_builder v4.5.49
+2025-12-08T21:45:56.211Z    Compiling aws-smithy-types v1.3.3
+2025-12-08T21:45:57.529Z    Compiling clap_derive v4.5.49
+2025-12-08T21:45:58.743Z    Compiling clap v4.5.49
+2025-12-08T21:45:58.813Z    Compiling pet-fs v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:45:58.934Z    Compiling is-terminal v0.4.16
+2025-12-08T21:45:58.992Z    Compiling humantime v2.3.0
+2025-12-08T21:45:59.148Z    Compiling env_logger v0.10.2
+2025-12-08T21:45:59.632Z    Compiling pet-core v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:46:00.585Z    Compiling aws-smithy-async v1.2.6
+2025-12-08T21:46:00.749Z    Compiling aws-smithy-runtime-api v1.9.1
+2025-12-08T21:46:02.250Z    Compiling anthropic v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/anthropic)
+2025-12-08T21:46:04.017Z    Compiling open_ai v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/open_ai)
+2025-12-08T21:46:05.093Z    Compiling open_router v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/open_router)
+2025-12-08T21:46:06.322Z    Compiling language_model v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/language_model)
+2025-12-08T21:46:11.034Z    Compiling pet-python-utils v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:46:12.601Z    Compiling io-lifetimes v2.0.4
+2025-12-08T21:46:12.777Z    Compiling command_palette_hooks v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/command_palette_hooks)
+2025-12-08T21:46:13.372Z    Compiling io-extras v0.18.4
+2025-12-08T21:46:13.528Z    Compiling aws-smithy-eventstream v0.60.12
+2025-12-08T21:46:13.909Z    Compiling cap-primitives v3.4.4
+2025-12-08T21:46:14.000Z    Compiling ambient-authority v0.0.2
+2025-12-08T21:46:14.124Z    Compiling aws-smithy-http v0.62.4
+2025-12-08T21:46:14.650Z    Compiling fs-set-times v0.20.3
+2025-12-08T21:46:14.737Z    Compiling aws-credential-types v1.2.8
+2025-12-08T21:46:15.062Z    Compiling search v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/search)
+2025-12-08T21:46:31.361Z    Compiling aws-types v1.3.9
+2025-12-08T21:46:31.508Z    Compiling rustix-linux-procfs v0.1.1
+2025-12-08T21:46:31.682Z    Compiling maybe-owned v0.3.4
+2025-12-08T21:46:32.339Z    Compiling aws-smithy-observability v0.1.4
+2025-12-08T21:46:32.491Z    Compiling aws-smithy-http-client v1.1.3
+2025-12-08T21:46:43.133Z    Compiling phf_macros v0.11.3
+2025-12-08T21:46:43.504Z    Compiling phf_codegen v0.11.3
+2025-12-08T21:46:43.564Z    Compiling string_cache_codegen v0.5.4
+2025-12-08T21:46:43.789Z    Compiling mac v0.1.1
+2025-12-08T21:46:43.824Z    Compiling cap-std v3.4.4
+2025-12-08T21:46:43.963Z    Compiling wast v35.0.2
+2025-12-08T21:46:44.428Z    Compiling futf v0.1.5
+2025-12-08T21:46:44.534Z    Compiling markup5ever v0.12.1
+2025-12-08T21:46:44.761Z    Compiling aws-smithy-runtime v1.9.3
+2025-12-08T21:46:48.694Z    Compiling aws-sigv4 v1.3.5
+2025-12-08T21:46:49.768Z    Compiling pet-virtualenv v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:46:49.950Z    Compiling bincode v1.3.3
+2025-12-08T21:46:50.156Z    Compiling ucd-trie v0.1.7
+2025-12-08T21:46:50.246Z    Compiling precomputed-hash v0.1.1
+2025-12-08T21:46:50.280Z    Compiling string_cache v0.8.9
+2025-12-08T21:46:50.405Z    Compiling pest v2.8.3
+2025-12-08T21:46:50.967Z    Compiling aws-runtime v1.5.12
+2025-12-08T21:46:52.856Z    Compiling doxygen-rs v0.4.2
+2025-12-08T21:46:53.072Z    Compiling witx v0.9.1
+2025-12-08T21:46:53.942Z    Compiling tendril v0.4.3
+2025-12-08T21:46:54.246Z    Compiling aws-smithy-json v0.61.6
+2025-12-08T21:46:54.589Z    Compiling channel v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/channel)
+2025-12-08T21:47:00.087Z    Compiling regex-lite v0.1.8
+2025-12-08T21:47:00.927Z    Compiling wiggle-macro v29.0.1
+2025-12-08T21:47:01.002Z    Compiling notifications v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/notifications)
+2025-12-08T21:47:03.515Z    Compiling wiggle-generate v29.0.1
+2025-12-08T21:47:04.495Z    Compiling lmdb-master-sys v0.2.5
+2025-12-08T21:47:04.631Z    Compiling pest_meta v2.8.3
+2025-12-08T21:47:05.290Z    Compiling auto_update v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/auto_update)
+2025-12-08T21:47:08.299Z    Compiling html5ever v0.27.0
+2025-12-08T21:47:08.723Z    Compiling cap-fs-ext v3.4.4
+2025-12-08T21:47:08.814Z    Compiling system-interface v0.27.3
+2025-12-08T21:47:08.903Z    Compiling cfg_aliases v0.1.1
+2025-12-08T21:47:08.933Z    Compiling portable-atomic v1.11.1
+2025-12-08T21:47:09.111Z    Compiling nix v0.28.0
+2025-12-08T21:47:09.490Z    Compiling pest_generator v2.8.3
+2025-12-08T21:47:13.965Z    Compiling pet-jsonrpc v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:47:14.196Z    Compiling heed-traits v0.20.0
+2025-12-08T21:47:14.231Z    Compiling heed v0.21.0
+2025-12-08T21:47:14.294Z    Compiling moka v0.12.11
+2025-12-08T21:47:15.289Z    Compiling heed-types v0.21.0
+2025-12-08T21:47:15.375Z    Compiling pet-reporter v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:47:16.148Z    Compiling wiggle v29.0.1
+2025-12-08T21:47:16.403Z    Compiling pest_derive v2.8.3
+2025-12-08T21:47:17.592Z    Compiling xml5ever v0.18.1
+2025-12-08T21:47:17.997Z    Compiling cap-net-ext v3.4.4
+2025-12-08T21:47:18.146Z    Compiling cap-time-ext v3.4.4
+2025-12-08T21:47:18.197Z    Compiling cap-rand v3.4.4
+2025-12-08T21:47:18.252Z    Compiling ui_input v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ui_input)
+2025-12-08T21:47:19.877Z    Compiling synchronoise v1.0.1
+2025-12-08T21:47:19.969Z    Compiling hashlink v0.8.4
+2025-12-08T21:47:20.126Z    Compiling page_size v0.6.0
+2025-12-08T21:47:20.170Z    Compiling extension_host v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/extension_host)
+2025-12-08T21:47:20.243Z    Compiling xmlparser v0.13.6
+2025-12-08T21:47:20.599Z    Compiling tagptr v0.2.0
+2025-12-08T21:47:20.663Z    Compiling arraydeque v0.5.1
+2025-12-08T21:47:20.766Z    Compiling yaml-rust2 v0.8.1
+2025-12-08T21:47:22.081Z    Compiling aws-smithy-xml v0.60.11
+2025-12-08T21:47:22.715Z    Compiling wasmtime-wasi v29.0.1
+2025-12-08T21:47:22.930Z    Compiling markup5ever_rcdom v0.3.0
+2025-12-08T21:47:24.642Z    Compiling handlebars v4.5.0
+2025-12-08T21:47:28.063Z    Compiling copilot v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/copilot)
+2025-12-08T21:47:37.850Z    Compiling aws-smithy-query v0.60.8
+2025-12-08T21:47:37.937Z    Compiling derive_more-impl v2.0.1
+2025-12-08T21:47:38.718Z    Compiling derive_more v2.0.1
+2025-12-08T21:47:38.759Z    Compiling aws-sdk-sts v1.88.0
+2025-12-08T21:47:44.303Z    Compiling prompt_store v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/prompt_store)
+2025-12-08T21:47:47.564Z    Compiling pet-conda v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:47:49.727Z    Compiling aws-sdk-bedrockruntime v1.109.0
+2025-12-08T21:48:01.878Z    Compiling aws-sdk-ssooidc v1.88.0
+2025-12-08T21:48:06.777Z    Compiling aws-sdk-sso v1.86.0
+2025-12-08T21:48:11.129Z    Compiling agent_settings v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/agent_settings)
+2025-12-08T21:48:47.087Z    Compiling assistant_slash_command v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/assistant_slash_command)
+2025-12-08T21:48:48.437Z    Compiling ai_onboarding v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ai_onboarding)
+2025-12-08T21:49:02.535Z    Compiling ident_case v1.0.1
+2025-12-08T21:49:02.580Z    Compiling darling_core v0.20.11
+2025-12-08T21:49:03.706Z    Compiling aws-config v1.8.8
+2025-12-08T21:49:04.521Z    Compiling bedrock v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/bedrock)
+2025-12-08T21:49:05.273Z    Compiling agent-client-protocol-schema v0.10.0
+2025-12-08T21:49:10.781Z    Compiling file_finder v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/file_finder)
+2025-12-08T21:49:13.702Z    Compiling aws_http_client v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/aws_http_client)
+2025-12-08T21:49:13.899Z    Compiling tiktoken-rs v0.9.1 (https://github.com/zed-industries/tiktoken-rs?rev=2570c4387a8505fb8f1d3f3557454b474f1e8271#2570c438)
+2025-12-08T21:49:14.931Z    Compiling google_ai v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/google_ai)
+2025-12-08T21:49:15.951Z    Compiling ollama v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ollama)
+2025-12-08T21:49:16.735Z    Compiling mistral v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/mistral)
+2025-12-08T21:49:17.523Z    Compiling lmstudio v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/lmstudio)
+2025-12-08T21:49:18.319Z    Compiling deepseek v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/deepseek)
+2025-12-08T21:49:18.983Z    Compiling x_ai v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/x_ai)
+2025-12-08T21:49:19.278Z    Compiling vercel v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/vercel)
+2025-12-08T21:49:19.549Z    Compiling scroll_derive v0.12.1
+2025-12-08T21:49:19.803Z    Compiling partial-json-fixer v0.5.3
+2025-12-08T21:49:19.998Z    Compiling language_models v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/language_models)
+2025-12-08T21:49:25.263Z    Compiling scroll v0.12.0
+2025-12-08T21:49:25.388Z    Compiling agent-client-protocol v0.9.0
+2025-12-08T21:49:32.954Z    Compiling darling_macro v0.20.11
+2025-12-08T21:49:33.073Z    Compiling title_bar v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/title_bar)
+2025-12-08T21:49:53.924Z    Compiling serial2 v0.2.33
+2025-12-08T21:49:54.100Z    Compiling alloc-no-stdlib v2.0.4
+2025-12-08T21:49:54.153Z    Compiling shell-words v1.1.0
+2025-12-08T21:49:54.228Z    Compiling portable-pty v0.9.0
+2025-12-08T21:49:54.961Z    Compiling alloc-stdlib v0.2.2
+2025-12-08T21:49:55.010Z    Compiling darling v0.20.11
+2025-12-08T21:49:55.038Z    Compiling html_to_markdown v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/html_to_markdown)
+2025-12-08T21:49:55.523Z    Compiling breadcrumbs v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/breadcrumbs)
+2025-12-08T21:49:56.663Z    Compiling action_log v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/action_log)
+2025-12-08T21:50:00.406Z    Compiling jupyter-protocol v0.10.0
+2025-12-08T21:50:09.007Z    Compiling time_format v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/time_format)
+2025-12-08T21:50:09.132Z    Compiling dirs-sys v0.5.0
+2025-12-08T21:50:09.817Z    Compiling stop-words v0.9.0
+2025-12-08T21:50:10.018Z    Compiling debugid v0.8.0
+2025-12-08T21:50:10.128Z    Compiling range-map v0.2.0
+2025-12-08T21:50:10.248Z    Compiling tree-sitter-rust v0.24.0
+2025-12-08T21:50:10.361Z    Compiling smart-default v0.7.1
+2025-12-08T21:50:10.511Z    Compiling crash-context v0.6.3
+2025-12-08T21:50:10.575Z    Compiling serde_spanned v1.0.3
+2025-12-08T21:50:10.789Z    Compiling unicode-general-category v1.1.0
+2025-12-08T21:50:10.926Z    Compiling toml_writer v1.0.4
+2025-12-08T21:50:11.031Z    Compiling borrow-or-share v0.2.4
+2025-12-08T21:50:11.069Z    Compiling iri-string v0.7.8
+2025-12-08T21:50:12.166Z    Compiling minidump-writer v0.8.9
+2025-12-08T21:50:12.221Z    Compiling plain v0.2.3
+2025-12-08T21:50:12.264Z    Compiling goblin v0.8.2
+2025-12-08T21:50:16.032Z    Compiling tower-http v0.6.6
+2025-12-08T21:50:16.417Z    Compiling fluent-uri v0.4.1
+2025-12-08T21:50:16.978Z    Compiling toml v0.9.8
+2025-12-08T21:50:18.539Z    Compiling minidump-common v0.21.2
+2025-12-08T21:50:22.287Z    Compiling dirs v6.0.0
+2025-12-08T21:50:22.346Z    Compiling acp_thread v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/acp_thread)
+2025-12-08T21:50:29.560Z    Compiling terminal_view v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/terminal_view)
+2025-12-08T21:51:20.948Z    Compiling assistant_slash_commands v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/assistant_slash_commands)
+2025-12-08T21:51:30.983Z    Compiling cached_proc_macro v0.25.0
+2025-12-08T21:51:31.527Z    Compiling brotli-decompressor v5.0.0
+2025-12-08T21:51:32.685Z    Compiling acp_tools v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/acp_tools)
+2025-12-08T21:51:38.746Z    Compiling edit_prediction_context v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/edit_prediction_context)
+2025-12-08T21:51:41.129Z    Compiling web_search v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/web_search)
+2025-12-08T21:51:41.475Z    Compiling procfs-core v0.16.0
+2025-12-08T21:51:43.759Z    Compiling async-dispatcher v0.1.2
+2025-12-08T21:51:44.147Z    Compiling dashmap v5.5.3
+2025-12-08T21:51:44.415Z    Compiling asynchronous-codec v0.7.0
+2025-12-08T21:51:44.543Z    Compiling tree-sitter-c v0.23.4
+2025-12-08T21:51:44.661Z    Compiling tree-sitter-regex v0.24.3
+2025-12-08T21:51:44.745Z    Compiling tree-sitter-gowork v0.0.1 (https://github.com/zed-industries/tree-sitter-go-work?rev=acb0617bf7f4fda02c6217676cc64acb89536dc7#acb0617b)
+2025-12-08T21:51:44.825Z    Compiling tree-sitter-gitcommit v0.0.1 (https://github.com/zed-industries/tree-sitter-git-commit?rev=88309716a69dd13ab83443721ba6e0b491d37ee9#88309716)
+2025-12-08T21:51:44.906Z    Compiling tree-sitter-go v0.23.4
+2025-12-08T21:51:44.984Z    Compiling tree-sitter-cpp v0.23.4 (https://github.com/tree-sitter/tree-sitter-cpp?rev=5cb9b693cfd7bfacab1d9ff4acac1a4150700609#5cb9b693)
+2025-12-08T21:51:45.062Z    Compiling tree-sitter-gomod v1.1.1 (https://github.com/camdencheek/tree-sitter-go-mod?rev=2e886870578eeba1927a2dc4bd2e2b3f598c5f9a#2e886870)
+2025-12-08T21:51:45.140Z    Compiling tree-sitter-bash v0.25.1
+2025-12-08T21:51:45.222Z    Compiling tree-sitter-diff v0.1.0
+2025-12-08T21:51:45.296Z    Compiling tree-sitter-jsdoc v0.23.2
+2025-12-08T21:51:45.377Z    Compiling tree-sitter-md v0.3.2 (https://github.com/tree-sitter-grammars/tree-sitter-markdown?rev=9a23c1a96c0513d8fc6520972beedd419a973539#9a23c1a9)
+2025-12-08T21:51:45.453Z    Compiling tree-sitter-python v0.25.0
+2025-12-08T21:51:45.529Z    Compiling tree-sitter-yaml v0.6.1 (https://github.com/zed-industries/tree-sitter-yaml?rev=baff0b51c64ef6a1fb1f8390f3ad6015b83ec13a#baff0b51)
+2025-12-08T21:51:45.601Z    Compiling tree-sitter-typescript v0.23.2 (https://github.com/zed-industries/tree-sitter-typescript?rev=e2c53597d6a5d9cf7bbe8dccde576fe1e46c5899#e2c53597)
+2025-12-08T21:51:45.674Z    Compiling tree-sitter-css v0.23.2
+2025-12-08T21:51:45.749Z    Compiling pciid-parser v0.8.0
+2025-12-08T21:51:46.184Z    Compiling cached_proc_macro_types v0.1.1
+2025-12-08T21:51:46.219Z    Compiling web-time v1.1.0
+2025-12-08T21:51:46.249Z    Compiling human_bytes v0.4.3
+2025-12-08T21:51:46.296Z    Compiling system_specs v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/system_specs)
+2025-12-08T21:51:47.046Z    Compiling cached v0.56.0
+2025-12-08T21:51:55.123Z    Compiling zeromq v0.5.0-pre
+2025-12-08T21:51:56.809Z    Compiling agent_servers v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/agent_servers)
+2025-12-08T21:51:56.824Z    Compiling brotli v8.0.2
+2025-12-08T21:51:58.751Z    Compiling assistant_text_thread v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/assistant_text_thread)
+2025-12-08T21:52:11.509Z    Compiling shellexpand v3.1.1
+2025-12-08T21:52:11.939Z    Compiling pet-uv v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:52:12.717Z    Compiling referencing v0.37.4
+2025-12-08T21:52:14.211Z    Compiling reqwest v0.12.24
+2025-12-08T21:52:19.724Z    Compiling recent_projects v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/recent_projects)
+2025-12-08T21:53:00.669Z    Compiling pet-pyenv v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:01.073Z    Compiling pet-homebrew v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:01.700Z    Compiling pet-pixi v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:01.805Z    Compiling pet-global-virtualenvs v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:01.959Z    Compiling pet-env-var-path v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:02.047Z    Compiling markdown_preview v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/markdown_preview)
+2025-12-08T21:53:12.113Z    Compiling pet-poetry v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:13.693Z    Compiling pet-mac-python-org v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:13.781Z    Compiling pet-mac-xcode v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:13.896Z    Compiling pet-pipenv v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:14.064Z    Compiling pet-virtualenvwrapper v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:14.204Z    Compiling pet-venv v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:14.313Z    Compiling pet-mac-commandlinetools v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:14.429Z    Compiling pet-linux-global-python v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:14.809Z    Compiling command_palette v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/command_palette)
+2025-12-08T21:53:23.503Z    Compiling pet-telemetry v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:53:23.677Z    Compiling uuid-simd v0.8.0
+2025-12-08T21:53:23.839Z    Compiling panel v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/panel)
+2025-12-08T21:53:24.269Z    Compiling streaming_diff v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/streaming_diff)
+2025-12-08T21:53:24.601Z    Compiling cloud_zeta2_prompt v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/cloud_zeta2_prompt)
+2025-12-08T21:53:24.819Z    Compiling json_schema_store v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/json_schema_store)
+2025-12-08T21:53:26.189Z    Compiling supermaven_api v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/supermaven_api)
+2025-12-08T21:53:26.584Z    Compiling fraction v0.15.3
+2025-12-08T21:53:26.913Z    Compiling fxhash v0.2.1
+2025-12-08T21:53:26.960Z    Compiling env_filter v0.1.4
+2025-12-08T21:53:27.232Z    Compiling rust-stemmers v1.2.0
+2025-12-08T21:53:28.370Z    Compiling email_address v0.2.9
+2025-12-08T21:53:28.550Z    Compiling errno v0.2.8
+2025-12-08T21:53:28.614Z    Compiling uds v0.4.2
+2025-12-08T21:53:28.923Z    Compiling jiff v0.2.15
+2025-12-08T21:53:33.366Z    Compiling bytecount v0.6.9
+2025-12-08T21:53:33.454Z    Compiling inspector_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/inspector_ui)
+2025-12-08T21:53:33.522Z    Compiling cli v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/cli)
+2025-12-08T21:53:33.600Z    Compiling deunicode v1.6.2
+2025-12-08T21:53:33.703Z    Compiling num-cmp v0.1.0
+2025-12-08T21:53:33.813Z    Compiling jsonschema v0.37.4
+2025-12-08T21:53:37.732Z    Compiling bm25 v2.3.2
+2025-12-08T21:53:38.275Z    Compiling runtimelib v0.30.0
+2025-12-08T21:53:40.596Z    Compiling env_logger v0.11.8
+2025-12-08T21:53:41.025Z    Compiling minidumper v0.8.3
+2025-12-08T21:53:41.055Z    Compiling exec v0.3.1
+2025-12-08T21:53:41.162Z    Compiling supermaven v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/supermaven)
+2025-12-08T21:53:41.371Z    Compiling edit_prediction v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/edit_prediction)
+2025-12-08T21:53:46.078Z    Compiling agent v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/agent)
+2025-12-08T21:54:52.615Z    Compiling git_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/git_ui)
+2025-12-08T21:55:17.274Z    Compiling pet v0.1.0 (https://github.com/microsoft/python-environment-tools.git?rev=1e86914c3ce2f3a08c0cedbcb0615a7f9fa7a5da#1e86914c)
+2025-12-08T21:55:19.340Z    Compiling codestral v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/codestral)
+2025-12-08T21:55:20.871Z    Compiling crash-handler v0.6.3
+2025-12-08T21:55:21.052Z    Compiling nbformat v0.15.0
+2025-12-08T21:55:27.597Z    Compiling jupyter-websocket-client v0.15.0
+2025-12-08T21:55:30.237Z    Compiling rules_library v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/rules_library)
+2025-12-08T21:55:40.637Z    Compiling ipc-channel v0.19.0
+2025-12-08T21:55:41.551Z    Compiling outline v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/outline)
+2025-12-08T21:55:49.664Z    Compiling tasks_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/tasks_ui)
+2025-12-08T21:55:59.983Z    Compiling debugger_tools v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/debugger_tools)
+2025-12-08T21:56:07.898Z    Compiling num-format v0.4.4
+2025-12-08T21:56:08.383Z    Compiling json_dotpath v1.1.0
+2025-12-08T21:56:08.759Z    Compiling parse_int v0.9.0
+2025-12-08T21:56:08.824Z    Compiling fork v0.4.0
+2025-12-08T21:56:08.891Z    Compiling dotenvy v0.15.7
+2025-12-08T21:56:09.221Z    Compiling zed v0.217.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/zed)
+2025-12-08T21:56:09.571Z warning: zed@0.217.0: Info: using '22e1bcccadac6cc98e8f2610182531cc24e395e5' hash for ZED_COMMIT_SHA env var
+2025-12-08T21:56:09.576Z    Compiling dap_adapters v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/dap_adapters)
+2025-12-08T21:56:16.234Z    Compiling debugger_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/debugger_ui)
+2025-12-08T21:56:59.270Z    Compiling extensions_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/extensions_ui)
+2025-12-08T21:58:09.430Z    Compiling outline_panel v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/outline_panel)
+2025-12-08T21:58:12.040Z    Compiling agent_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/agent_ui)
+2025-12-08T21:59:18.699Z    Compiling repl v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/repl)
+2025-12-08T21:59:49.999Z    Compiling crashes v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/crashes)
+2025-12-08T21:59:51.125Z    Compiling edit_prediction_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/edit_prediction_ui)
+2025-12-08T22:01:38.379Z    Compiling languages v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/languages)
+2025-12-08T22:01:59.768Z    Compiling project_panel v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/project_panel)
+2025-12-08T22:02:37.430Z    Compiling vim v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/vim)
+2025-12-08T22:03:12.272Z    Compiling settings_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/settings_ui)
+2025-12-08T22:04:24.803Z    Compiling keymap_editor v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/keymap_editor)
+2025-12-08T22:04:45.119Z    Compiling auto_update_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/auto_update_ui)
+2025-12-08T22:04:50.650Z    Compiling feedback v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/feedback)
+2025-12-08T22:04:52.270Z    Compiling web_search_providers v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/web_search_providers)
+2025-12-08T22:04:53.511Z    Compiling collab_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/collab_ui)
+2025-12-08T22:06:14.244Z    Compiling language_selector v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/language_selector)
+2025-12-08T22:06:25.707Z    Compiling toolchain_selector v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/toolchain_selector)
+2025-12-08T22:06:38.234Z    Compiling snippets_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/snippets_ui)
+2025-12-08T22:06:42.730Z    Compiling activity_indicator v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/activity_indicator)
+2025-12-08T22:06:46.407Z    Compiling language_tools v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/language_tools)
+2025-12-08T22:06:50.157Z    Compiling onboarding v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/onboarding)
+2025-12-08T22:07:05.020Z    Compiling tab_switcher v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/tab_switcher)
+2025-12-08T22:07:13.209Z    Compiling theme_selector v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/theme_selector)
+2025-12-08T22:08:16.626Z    Compiling settings_profile_selector v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/settings_profile_selector)
+2025-12-08T22:08:17.241Z    Compiling project_symbols v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/project_symbols)
+2025-12-08T22:08:23.968Z    Compiling line_ending_selector v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/line_ending_selector)
+2025-12-08T22:08:27.040Z    Compiling image_viewer v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/image_viewer)
+2025-12-08T22:08:30.415Z    Compiling language_onboarding v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/language_onboarding)
+2025-12-08T22:08:31.578Z    Compiling go_to_line v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/go_to_line)
+2025-12-08T22:08:32.885Z    Compiling diagnostics v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/diagnostics)
+2025-12-08T22:08:37.444Z    Compiling journal v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/journal)
+2025-12-08T22:08:39.268Z    Compiling svg_preview v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/svg_preview)
+2025-12-08T22:08:42.743Z    Compiling miniprofiler_ui v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/miniprofiler_ui)
+2025-12-08T22:08:45.999Z    Compiling install_cli v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/install_cli)
+2025-12-08T22:08:46.330Z    Compiling ui_prompt v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/ui_prompt)
+2025-12-08T22:08:47.691Z    Compiling language_extension v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/language_extension)
+2025-12-08T22:08:48.134Z    Compiling theme_extension v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/theme_extension)
+2025-12-08T22:08:49.320Z    Compiling debug_adapter_extension v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/debug_adapter_extension)
+2025-12-08T22:08:49.791Z    Compiling reqwest_client v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/reqwest_client)
+2025-12-08T22:08:50.791Z    Compiling zlog_settings v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/zlog_settings)
+2025-12-08T22:08:51.348Z    Compiling nc v0.1.0 (/home/runner/work/benchmark-zed/benchmark-zed/upstream/crates/nc)
