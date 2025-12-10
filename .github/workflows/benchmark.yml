@@ -23,7 +23,7 @@ jobs:
 
   depot-cacheless:
     name: Depot Cacheless
-    runs-on: depot-ubuntu-24.04
+    runs-on: depot-ubuntu-24.04-4
     defaults:
       run:
         working-directory: upstream
@@ -34,7 +34,7 @@ jobs:
       - name: Run sccache-cache
         uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
-      - run: cargo build --release --jobs 8 # limit parallelism to avoid OOM on Depot runners
+      - run: cargo build --release
 
   github-local-cache:
     name: GitHub with Local Cache
