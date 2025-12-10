@@ -6,7 +6,7 @@ on:
 jobs:
   depot-remote-cache:
     name: Depot with Remote Cache
-    runs-on: depot-ubuntu-24.04
+    runs-on: depot-ubuntu-24.04-4
     defaults:
       run:
         working-directory: upstream
@@ -23,7 +23,7 @@ jobs:
 
   depot-cacheless:
     name: Depot Cacheless
-    runs-on: depot-ubuntu-24.04
+    runs-on: depot-ubuntu-24.04-4
     defaults:
       run:
         working-directory: upstream
