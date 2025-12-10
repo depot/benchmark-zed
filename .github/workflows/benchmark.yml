@@ -34,7 +34,7 @@ jobs:
       - name: Run sccache-cache
         uses: mozilla-actions/sccache-action@v0.0.7
       - run: ./script/linux # Install Dependencies
-      - run: cargo build --release
+      - run: cargo build --release --jobs 8 # limit parallelism to avoid OOM on Depot runners
 
   github-local-cache:
     name: GitHub with Local Cache
